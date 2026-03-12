@@ -1,23 +1,11 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Thermometer, HeartPulse } from "lucide-react";
+import { ArrowRight, Shield, Thermometer, HeartPulse, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
 import animalImg from "@/assets/animal-facility.jpg";
-import ratImg from "@/assets/animal-rat.jpg";
-import miceImg from "@/assets/animal-mice.jpg";
-import rabbitImg from "@/assets/animal-rabbit.jpg";
-import guineaPigImg from "@/assets/animal-guinea-pig.jpg";
-import hamsterImg from "@/assets/animal-hamster.jpg";
-
-const animals = [
-  { name: "Rats", species: "Wistar, Sprague Dawley", desc: "High-quality rats bred under controlled conditions for toxicology, pharmacology, and general safety studies.", image: ratImg, uses: ["Toxicology Studies", "Pharmacokinetics", "Safety Assessment"] },
-  { name: "Mice", species: "Swiss Albino, BALB/c, C57BL/6", desc: "Laboratory mice available in multiple strains for diverse research and immunological applications.", image: miceImg, uses: ["Immunology Research", "Oncology Studies", "Genetic Research"] },
-  { name: "Rabbits", species: "New Zealand White", desc: "Rabbits for dermal irritation, pyrogen testing, biocompatibility, and ocular studies.", image: rabbitImg, uses: ["Dermal Irritation", "Pyrogen Testing", "Biocompatibility"] },
-  { name: "Guinea Pigs", species: "Hartley", desc: "Guinea pigs for skin sensitization testing, immunological studies, and dermal assessments.", image: guineaPigImg, uses: ["Sensitization Testing", "Dermal Assessment", "Immunological Studies"] },
-  { name: "Hamsters", species: "Golden Syrian", desc: "Hamsters for specialized research protocols, toxicology, and infectious disease studies.", image: hamsterImg, uses: ["Specialized Protocols", "Toxicology", "Disease Models"] },
-];
+import { animalModels } from "@/data/animalData";
 
 const features = [
   { icon: Shield, title: "CPCSEA Compliant", desc: "All breeding and experiments follow strict CPCSEA ethical guidelines." },
@@ -62,36 +50,42 @@ const AnimalSupply = () => (
       </div>
     </section>
 
-    {/* Animal Cards Grid */}
+    {/* Animal Cards — Link to Detail Pages */}
     <section className="section-padding bg-card/50">
       <div className="container mx-auto px-4">
-        <SectionHeader label="Available Species" title="Laboratory Animal Models" description="We supply high-quality laboratory animals across multiple species and strains for preclinical research." />
+        <SectionHeader label="Available Species" title="Laboratory Animal Models" description="Click on any animal model to view detailed strain information, images, and best study applications." />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {animals.map((a, i) => (
-            <AnimatedSection key={a.name} delay={i * 0.1}>
-              <div className="glass-card overflow-hidden h-full group hover-glow flex flex-col">
-                {/* Animal Image */}
-                <div className="relative h-56 overflow-hidden">
-                  <img src={a.image} alt={a.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-2xl font-display font-bold text-foreground">{a.name}</h3>
-                    <p className="text-sm text-primary font-medium">{a.species}</p>
+          {animalModels.map((a, i) => (
+            <AnimatedSection key={a.slug} delay={i * 0.1}>
+              <Link to={`/animal-supply/${a.slug}`} className="block h-full">
+                <div className="glass-card overflow-hidden h-full group hover-glow flex flex-col transition-all duration-500 hover:border-primary/40">
+                  {/* Animal Image */}
+                  <div className="relative h-64 overflow-hidden">
+                    <img src={a.heroImage} alt={a.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
+                    <div className="absolute bottom-4 left-5">
+                      <h3 className="text-2xl font-display font-bold text-foreground">{a.name}</h3>
+                      <p className="text-sm text-primary font-medium">
+                        {a.strains.length} {a.strains.length === 1 ? "Strain" : "Strains"} Available
+                      </p>
+                    </div>
                   </div>
-                </div>
-                {/* Info */}
-                <div className="p-6 flex-1 flex flex-col">
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{a.desc}</p>
-                  <div className="mt-auto pt-4 border-t border-border/50">
-                    <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2 font-medium">Common Applications</p>
-                    <div className="flex flex-wrap gap-2">
-                      {a.uses.map((u) => (
-                        <span key={u} className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">{u}</span>
-                      ))}
+                  {/* Info */}
+                  <div className="p-5 flex-1 flex flex-col">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{a.shortDesc}</p>
+                    <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
+                      <div className="flex flex-wrap gap-1.5">
+                        {a.strains.map((s) => (
+                          <span key={s.name} className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-medium">
+                            {s.name}
+                          </span>
+                        ))}
+                      </div>
+                      <ChevronRight className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </AnimatedSection>
           ))}
         </div>
