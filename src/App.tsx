@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Facilities from "./pages/Facilities";
 import AnimalSupply from "./pages/AnimalSupply";
+import AnimalDetail from "./pages/AnimalDetail";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/services" element={<Services />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/animal-supply" element={<AnimalSupply />} />
+            <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
