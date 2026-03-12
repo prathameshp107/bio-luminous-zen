@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Facilities from "./pages/Facilities";
 import AnimalSupply from "./pages/AnimalSupply";
+import AnimalDetail from "./pages/AnimalDetail";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
