@@ -13,6 +13,7 @@ import AnimalSupply from "./pages/AnimalSupply";
 import AnimalDetail from "./pages/AnimalDetail";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
+import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
