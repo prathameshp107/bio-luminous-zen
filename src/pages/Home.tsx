@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FlaskConical, Microscope, ShieldCheck, Leaf, TestTube, Stethoscope, Bug, ChevronRight } from "lucide-react";
+import { ArrowRight, FlaskConical, ShieldCheck, Leaf, TestTube, Stethoscope, Bug, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import WhyPartner from "@/components/WhyPartner";
+import CertLogoSlider from "@/components/CertLogoSlider";
 import heroImg from "@/assets/hero-lab.jpg";
 import aboutImg from "@/assets/about-lab.jpg";
 import serviceAgrochem from "@/assets/service-agrochem.jpg";
