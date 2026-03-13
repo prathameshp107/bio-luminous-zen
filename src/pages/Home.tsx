@@ -31,14 +31,6 @@ const services = [
   { icon: Bug, title: "Microbiology", desc: "Sterility, endotoxin, antimicrobial effectiveness & environmental monitoring services.", img: serviceMicro },
 ];
 
-const certifications = ["NABL", "CPCSEA", "IAS", "ILAC", "MSME", "IEC"];
-
-const whyUs = [
-  { title: "Quick Turnaround", desc: "Industry-leading turnaround times without compromising quality." },
-  { title: "Global Standards", desc: "Compliant with ISO, OECD, FDA, ASTM & USP guidelines." },
-  { title: "Expert Team", desc: "50+ qualified scientists and researchers with deep domain expertise." },
-  { title: "End-to-End", desc: "From study design to regulatory submission — we handle it all." },
-];
 
 const Home = () => (
   <div>
