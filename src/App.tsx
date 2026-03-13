@@ -13,6 +13,7 @@ import AnimalSupply from "./pages/AnimalSupply";
 import AnimalDetail from "./pages/AnimalDetail";
 import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
+import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetail />} />
             <Route path="/facilities" element={<Facilities />} />
             <Route path="/animal-supply" element={<AnimalSupply />} />
             <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
