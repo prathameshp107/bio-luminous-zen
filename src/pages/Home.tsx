@@ -183,23 +183,11 @@ const Home = () => (
     <section className="section-padding">
       <div className="container mx-auto px-4">
         <SectionHeader label="Why Cryst Bio" title="Why Partner With Us" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {whyUs.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 0.1}>
-              <div className="text-center p-6">
-                <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold font-display gradient-text">0{i + 1}</span>
-                </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <WhyPartner />
       </div>
     </section>
 
-    {/* Certifications banner */}
+    {/* Certifications Logo Slider */}
     <section className="py-16 bg-card/30">
       <div className="container mx-auto px-4">
         <AnimatedSection>
@@ -208,15 +196,9 @@ const Home = () => (
             <h2 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">Our Certifications</h2>
           </div>
         </AnimatedSection>
-        <div className="flex flex-wrap justify-center gap-4">
-          {certifications.map((c, i) => (
-            <AnimatedSection key={c} delay={i * 0.05}>
-              <div className="glass-card px-8 py-4 text-center hover-glow">
-                <span className="text-lg font-display font-bold text-primary">{c}</span>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection>
+          <CertLogoSlider />
+        </AnimatedSection>
       </div>
     </section>
 
