@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowRight, FlaskConical, Microscope, ShieldCheck, Leaf, TestTube, Stethoscope, Bug, ChevronRight } from "lucide-react";
+import { ArrowRight, FlaskConical, ShieldCheck, Leaf, TestTube, Stethoscope, Bug, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import WhyPartner from "@/components/WhyPartner";
+import CertLogoSlider from "@/components/CertLogoSlider";
 import heroImg from "@/assets/hero-lab.jpg";
 import aboutImg from "@/assets/about-lab.jpg";
 import serviceAgrochem from "@/assets/service-agrochem.jpg";
@@ -29,14 +31,6 @@ const services = [
   { icon: Bug, title: "Microbiology", desc: "Sterility, endotoxin, antimicrobial effectiveness & environmental monitoring services.", img: serviceMicro },
 ];
 
-const certifications = ["NABL", "CPCSEA", "IAS", "ILAC", "MSME", "IEC"];
-
-const whyUs = [
-  { title: "Quick Turnaround", desc: "Industry-leading turnaround times without compromising quality." },
-  { title: "Global Standards", desc: "Compliant with ISO, OECD, FDA, ASTM & USP guidelines." },
-  { title: "Expert Team", desc: "50+ qualified scientists and researchers with deep domain expertise." },
-  { title: "End-to-End", desc: "From study design to regulatory submission — we handle it all." },
-];
 
 const Home = () => (
   <div>
@@ -189,23 +183,11 @@ const Home = () => (
     <section className="section-padding">
       <div className="container mx-auto px-4">
         <SectionHeader label="Why Cryst Bio" title="Why Partner With Us" />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {whyUs.map((item, i) => (
-            <AnimatedSection key={item.title} delay={i * 0.1}>
-              <div className="text-center p-6">
-                <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-xl font-bold font-display gradient-text">0{i + 1}</span>
-                </div>
-                <h3 className="font-display font-semibold text-foreground mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <WhyPartner />
       </div>
     </section>
 
-    {/* Certifications banner */}
+    {/* Certifications Logo Slider */}
     <section className="py-16 bg-card/30">
       <div className="container mx-auto px-4">
         <AnimatedSection>
@@ -214,15 +196,9 @@ const Home = () => (
             <h2 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">Our Certifications</h2>
           </div>
         </AnimatedSection>
-        <div className="flex flex-wrap justify-center gap-4">
-          {certifications.map((c, i) => (
-            <AnimatedSection key={c} delay={i * 0.05}>
-              <div className="glass-card px-8 py-4 text-center hover-glow">
-                <span className="text-lg font-display font-bold text-primary">{c}</span>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
+        <AnimatedSection>
+          <CertLogoSlider />
+        </AnimatedSection>
       </div>
     </section>
 
