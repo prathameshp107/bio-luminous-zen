@@ -10,6 +10,8 @@ import {
   ArrowRight,
   MapPin,
   Calendar,
+  ShieldCheck,
+  Zap,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -24,6 +26,9 @@ import whyTeamImg from "@/assets/why-team.jpg";
 import whyStandardsImg from "@/assets/why-standards.jpg";
 import whyEndtoendImg from "@/assets/why-endtoend.jpg";
 import whyTurnaroundImg from "@/assets/why-turnaround.jpg";
+import valObjectiveImg from "@/assets/sub-res-regulatory.jpg";
+import valMissionImg from "@/assets/sub-tox-safety-pharm.jpg";
+import valVisionImg from "@/assets/sub-res-study-design.jpg";
 
 const stats = [
   { value: "2018", label: "Established", icon: Calendar },
@@ -58,47 +63,146 @@ const timeline = [
 const values = [
   {
     icon: Target,
+    label: "Our Objective",
     title: "Objective",
     text: "To become one of the most trusted biocompatibility testing laboratories by providing consistent operation and prioritizing competency and impartiality.",
-    gradient: "from-primary/20 to-primary/5",
+    keyPoints: [
+      "Competency-first scientific approach in every study",
+      "Transparent and impartial laboratory operations",
+      "Consistent, reproducible, and reliable results",
+    ],
     iconBg: "bg-primary/10 border-primary/20",
+    iconColor: "text-primary",
+    accentBar: "bg-primary",
+    badge: "Trusted Partner",
+    badgeBorder: "border-primary/30",
+    badgeBg: "bg-primary/10",
+    badgeText: "text-primary",
+    glow: "bg-primary/6",
+    img: valObjectiveImg,
   },
   {
     icon: Rocket,
+    label: "Our Mission",
     title: "Mission",
     text: "To drive excellence in preclinical research, toxicology, and biocompatibility testing by upholding the highest standards of quality, accuracy, and scientific integrity.",
-    gradient: "from-sky-500/20 to-sky-500/5",
-    iconBg: "bg-sky-500/10 border-sky-500/20",
+    keyPoints: [
+      "ISO 10993, OECD & FDA compliant testing protocols",
+      "Highest accuracy reports with fast turnaround",
+      "Uncompromising scientific integrity in every project",
+    ],
+    iconBg: "bg-sky-500/10 border-sky-500/25",
+    iconColor: "text-sky-400",
+    accentBar: "bg-sky-500",
+    badge: "Excellence Driven",
+    badgeBorder: "border-sky-500/30",
+    badgeBg: "bg-sky-500/10",
+    badgeText: "text-sky-400",
+    glow: "bg-sky-500/6",
+    img: valMissionImg,
   },
   {
     icon: Eye,
+    label: "Our Vision",
     title: "Vision",
     text: "To be a global leader in preclinical research, toxicology, and biocompatibility testing, recognized for scientific excellence, ethical standards, and regulatory compliance.",
-    gradient: "from-violet-500/20 to-violet-500/5",
-    iconBg: "bg-violet-500/10 border-violet-500/20",
+    keyPoints: [
+      "Globally recognized CRO with offices in India, Europe & USA",
+      "Benchmark-setting standards in regulatory compliance",
+      "Long-term partnerships built on trust and precision",
+    ],
+    iconBg: "bg-violet-500/10 border-violet-500/25",
+    iconColor: "text-violet-400",
+    accentBar: "bg-violet-500",
+    badge: "Global Leader",
+    badgeBorder: "border-violet-500/30",
+    badgeBg: "bg-violet-500/10",
+    badgeText: "text-violet-400",
+    glow: "bg-violet-500/6",
+    img: valVisionImg,
   },
 ];
 
 const highlights = [
   {
-    img: whyTeamImg,
+    icon: Users,
     label: "Expert Team",
-    desc: "Young, dynamic scientists committed to precision and accuracy in every study.",
+    title: "Expert Team",
+    desc: "Our people are our greatest asset — a team of young, dynamic scientists with deep expertise across toxicology, histopathology, microbiology, and preclinical research.",
+    keyPoints: [
+      "50+ scientists with diverse multi-disciplinary expertise",
+      "Dedicated project managers for seamless client coordination",
+      "Continuous training to stay at the forefront of science",
+    ],
+    iconBg: "bg-primary/10 border-primary/20",
+    iconColor: "text-primary",
+    accentBar: "bg-primary",
+    badge: "50+ Scientists",
+    badgeBorder: "border-primary/30",
+    badgeBg: "bg-primary/10",
+    badgeText: "text-primary",
+    glow: "bg-primary/6",
+    img: whyTeamImg,
   },
   {
-    img: whyStandardsImg,
+    icon: ShieldCheck,
     label: "Global Standards",
-    desc: "Full compliance with ISO 10993, OECD, FDA, ASTM, and USP guidelines.",
+    title: "Global Standards",
+    desc: "Every test we perform is conducted in strict adherence to international regulatory frameworks, ensuring your results are accepted worldwide.",
+    keyPoints: [
+      "NABL-accredited laboratory under ISO/IEC 17025:2017",
+      "Full compliance with ISO 10993, OECD, FDA, ASTM & USP",
+      "Regular third-party audits and quality assurance checks",
+    ],
+    iconBg: "bg-emerald-500/10 border-emerald-500/25",
+    iconColor: "text-emerald-400",
+    accentBar: "bg-emerald-500",
+    badge: "NABL Accredited",
+    badgeBorder: "border-emerald-500/30",
+    badgeBg: "bg-emerald-500/10",
+    badgeText: "text-emerald-400",
+    glow: "bg-emerald-500/6",
+    img: whyStandardsImg,
   },
   {
-    img: whyEndtoendImg,
+    icon: FlaskConical,
     label: "End-to-End CRO",
-    desc: "Complete project management — from protocol design through final report delivery.",
+    title: "End-to-End CRO",
+    desc: "We handle every phase of your study — from initial design and protocol development through execution, data analysis, and final regulatory submission.",
+    keyPoints: [
+      "Study design, protocol writing & IEC/IACUC submission support",
+      "Full in-house execution with real-time progress tracking",
+      "Regulatory-ready reports and complete documentation",
+    ],
+    iconBg: "bg-amber-500/10 border-amber-500/25",
+    iconColor: "text-amber-400",
+    accentBar: "bg-amber-500",
+    badge: "Full Service",
+    badgeBorder: "border-amber-500/30",
+    badgeBg: "bg-amber-500/10",
+    badgeText: "text-amber-400",
+    glow: "bg-amber-500/6",
+    img: whyEndtoendImg,
   },
   {
-    img: whyTurnaroundImg,
+    icon: Zap,
     label: "Fast Turnaround",
-    desc: "Streamlined workflows that deliver reliable, high-quality results on time.",
+    title: "Fast Turnaround",
+    desc: "We understand that time matters in research. Our streamlined processes and experienced team deliver precise, reliable results faster than industry norms.",
+    keyPoints: [
+      "Optimised workflows that significantly reduce project lead times",
+      "Transparent progress updates throughout every study phase",
+      "Priority scheduling available for time-sensitive studies",
+    ],
+    iconBg: "bg-rose-500/10 border-rose-500/25",
+    iconColor: "text-rose-400",
+    accentBar: "bg-rose-500",
+    badge: "Quick Results",
+    badgeBorder: "border-rose-500/30",
+    badgeBg: "bg-rose-500/10",
+    badgeText: "text-rose-400",
+    glow: "bg-rose-500/6",
+    img: whyTurnaroundImg,
   },
 ];
 
@@ -119,7 +223,6 @@ const About = () => (
           {/* Left — image with floating badges */}
           <AnimatedSection direction="left">
             <div className="relative">
-              {/* Main image */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <img
                   src={aboutImg}
@@ -160,7 +263,6 @@ const About = () => (
                 </p>
               </div>
 
-              {/* Decorative glow blob */}
               <div className="absolute -z-10 -bottom-10 -left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
             </div>
           </AnimatedSection>
@@ -174,7 +276,6 @@ const About = () => (
               Cryst Bio Solutions{" "}
               <span className="gradient-text">Pvt. Ltd.</span>
             </h2>
-
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Welcome to Cryst Bio Solutions Pvt. Ltd., a rapidly emerging
@@ -193,8 +294,6 @@ const About = () => (
                 times, excellent client support, and seamless project execution.
               </p>
             </div>
-
-            {/* Compliance badges */}
             <div className="mt-6 flex flex-wrap gap-2">
               {badges.map((badge) => (
                 <span
@@ -205,7 +304,6 @@ const About = () => (
                 </span>
               ))}
             </div>
-
             <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
               <MapPin className="w-4 h-4 text-primary shrink-0" />
               Pune, Maharashtra, India
@@ -238,43 +336,140 @@ const About = () => (
       </div>
     </section>
 
-    {/* ── Values ────────────────────────────────────────────────── */}
+    {/* ── What Drives Us — alternating layout ───────────────────── */}
     <section className="section-padding">
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Our Values"
           title="What Drives Us"
-          description="Our mission, vision, and objective are the guiding principles that shape every study we conduct and every partnership we build."
+          description="Our objective, mission, and vision are the guiding principles that shape every study we conduct and every partnership we build."
         />
-        <div className="grid md:grid-cols-3 gap-6">
-          {values.map((v, i) => (
-            <AnimatedSection key={v.title} delay={i * 0.15}>
-              <div className="glass-card p-8 h-full hover-glow group relative overflow-hidden cursor-default">
-                {/* Hover gradient overlay */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${v.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl`}
-                />
-                <div className="relative z-10">
-                  <div
-                    className={`w-14 h-14 rounded-xl ${v.iconBg} border flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}
-                  >
-                    <v.icon className="w-7 h-7 text-primary" />
+
+        <div className="space-y-28 md:space-y-36 mt-4">
+          {values.map((v, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <div
+                key={v.title}
+                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+              >
+                {/* ── Image panel ── */}
+                <AnimatedSection
+                  direction={isEven ? "left" : "right"}
+                  className={!isEven ? "lg:order-2" : ""}
+                >
+                  <div className="relative">
+                    {/* ambient glow blob */}
+                    <div
+                      className={`absolute -z-10 w-80 h-80 rounded-full blur-3xl opacity-60 ${v.glow} ${
+                        isEven ? "-bottom-12 -left-12" : "-bottom-12 -right-12"
+                      }`}
+                    />
+
+                    {/* main image */}
+                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
+                      <img
+                        src={v.img}
+                        alt={v.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      {/* dark gradient at bottom */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent" />
+                      {/* subtle ring */}
+                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
+
+                      {/* bottom label strip */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+                        <div>
+                          <span
+                            className={`text-xs font-semibold uppercase tracking-widest ${v.badgeText} opacity-80`}
+                          >
+                            {v.label}
+                          </span>
+                          <p className="text-lg font-bold font-display text-foreground mt-0.5">
+                            {v.title}
+                          </p>
+                        </div>
+                        {/* icon bubble */}
+                        <div
+                          className={`w-11 h-11 rounded-xl ${v.iconBg} border ${v.badgeBorder} backdrop-blur-md flex items-center justify-center shadow-lg`}
+                        >
+                          <v.icon className={`w-5 h-5 ${v.iconColor}`} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* floating badge — opposite corner from glow */}
+                    <div
+                      className={`absolute -top-4 ${isEven ? "-right-4" : "-left-4"} glass-card ${v.badgeBg} border ${v.badgeBorder} px-4 py-2.5 rounded-xl shadow-xl`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <v.icon className={`w-4 h-4 ${v.iconColor}`} />
+                        <span
+                          className={`text-xs font-semibold ${v.badgeText}`}
+                        >
+                          {v.badge}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-display font-bold text-foreground mb-4">
-                    {v.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {v.text}
-                  </p>
-                </div>
+                </AnimatedSection>
+
+                {/* ── Text panel ── */}
+                <AnimatedSection
+                  direction={isEven ? "right" : "left"}
+                  className={!isEven ? "lg:order-1" : ""}
+                >
+                  <div>
+                    {/* label */}
+                    <span
+                      className={`inline-block text-xs font-semibold tracking-widest uppercase ${v.badgeText} mb-3`}
+                    >
+                      {v.label}
+                    </span>
+
+                    {/* title */}
+                    <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
+                      {v.title}
+                    </h3>
+
+                    {/* coloured accent bar */}
+                    <div
+                      className={`w-14 h-[3px] rounded-full ${v.accentBar} mb-7`}
+                    />
+
+                    {/* body text */}
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+                      {v.text}
+                    </p>
+
+                    {/* key points */}
+                    <ul className="space-y-4">
+                      {v.keyPoints.map((pt) => (
+                        <li key={pt} className="flex items-start gap-3.5">
+                          <div
+                            className={`w-6 h-6 rounded-full ${v.iconBg} border ${v.badgeBorder} flex items-center justify-center shrink-0 mt-0.5`}
+                          >
+                            <CheckCircle2
+                              className={`w-3.5 h-3.5 ${v.iconColor}`}
+                            />
+                          </div>
+                          <span className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            {pt}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </AnimatedSection>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
 
-    {/* ── Highlights image grid ─────────────────────────────────── */}
+    {/* ── What Sets Us Apart — alternating layout ───────────────── */}
     <section className="section-padding bg-card/20">
       <div className="container mx-auto px-4">
         <SectionHeader
@@ -282,35 +477,125 @@ const About = () => (
           title="What Sets Us Apart"
           description="A combination of cutting-edge infrastructure, certified expertise, and unwavering scientific integrity."
         />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {highlights.map((h, i) => (
-            <AnimatedSection key={h.label} delay={i * 0.1}>
-              <div className="glass-card overflow-hidden group hover-glow h-full">
-                <div className="relative h-52 overflow-hidden">
-                  <img
-                    src={h.img}
-                    alt={h.label}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                  {/* Number badge */}
-                  <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-primary/20 border border-primary/40 backdrop-blur-sm flex items-center justify-center">
-                    <span className="text-xs font-bold text-primary">
-                      0{i + 1}
-                    </span>
+
+        <div className="space-y-28 md:space-y-36 mt-4">
+          {highlights.map((h, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <div
+                key={h.label}
+                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+              >
+                {/* ── Image panel ── */}
+                <AnimatedSection
+                  direction={isEven ? "left" : "right"}
+                  className={!isEven ? "lg:order-2" : ""}
+                >
+                  <div className="relative">
+                    {/* ambient glow blob */}
+                    <div
+                      className={`absolute -z-10 w-80 h-80 rounded-full blur-3xl opacity-60 ${h.glow} ${
+                        isEven ? "-bottom-12 -left-12" : "-bottom-12 -right-12"
+                      }`}
+                    />
+
+                    {/* main image */}
+                    <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
+                      <img
+                        src={h.img}
+                        alt={h.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent" />
+                      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
+
+                      {/* bottom label strip */}
+                      <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">
+                        <div>
+                          <span
+                            className={`text-xs font-semibold uppercase tracking-widest ${h.badgeText} opacity-80`}
+                          >
+                            {h.label}
+                          </span>
+                          <p className="text-lg font-bold font-display text-foreground mt-0.5">
+                            {h.title}
+                          </p>
+                        </div>
+                        {/* icon bubble */}
+                        <div
+                          className={`w-11 h-11 rounded-xl ${h.iconBg} border ${h.badgeBorder} backdrop-blur-md flex items-center justify-center shadow-lg`}
+                        >
+                          <h.icon className={`w-5 h-5 ${h.iconColor}`} />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* floating badge */}
+                    <div
+                      className={`absolute -top-4 ${isEven ? "-right-4" : "-left-4"} glass-card ${h.badgeBg} border ${h.badgeBorder} px-4 py-2.5 rounded-xl shadow-xl`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <h.icon className={`w-4 h-4 ${h.iconColor}`} />
+                        <span
+                          className={`text-xs font-semibold ${h.badgeText}`}
+                        >
+                          {h.badge}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="font-display font-semibold text-foreground text-lg mb-1">
-                    {h.label}
-                  </h4>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {h.desc}
-                  </p>
-                </div>
+                </AnimatedSection>
+
+                {/* ── Text panel ── */}
+                <AnimatedSection
+                  direction={isEven ? "right" : "left"}
+                  className={!isEven ? "lg:order-1" : ""}
+                >
+                  <div>
+                    {/* label */}
+                    <span
+                      className={`inline-block text-xs font-semibold tracking-widest uppercase ${h.badgeText} mb-3`}
+                    >
+                      {h.label}
+                    </span>
+
+                    {/* title */}
+                    <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
+                      {h.title}
+                    </h3>
+
+                    {/* coloured accent bar */}
+                    <div
+                      className={`w-14 h-[3px] rounded-full ${h.accentBar} mb-7`}
+                    />
+
+                    {/* body text */}
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
+                      {h.desc}
+                    </p>
+
+                    {/* key points */}
+                    <ul className="space-y-4">
+                      {h.keyPoints.map((pt) => (
+                        <li key={pt} className="flex items-start gap-3.5">
+                          <div
+                            className={`w-6 h-6 rounded-full ${h.iconBg} border ${h.badgeBorder} flex items-center justify-center shrink-0 mt-0.5`}
+                          >
+                            <CheckCircle2
+                              className={`w-3.5 h-3.5 ${h.iconColor}`}
+                            />
+                          </div>
+                          <span className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            {pt}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </AnimatedSection>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
@@ -324,7 +609,6 @@ const About = () => (
           description="Our modern laboratories and CPCSEA-approved animal facilities are designed to meet international standards for preclinical research."
         />
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
-          {/* Large left image */}
           <AnimatedSection direction="left">
             <div className="relative rounded-2xl overflow-hidden h-72 md:h-full min-h-[340px] group">
               <img
@@ -349,10 +633,9 @@ const About = () => (
             </div>
           </AnimatedSection>
 
-          {/* Right stacked */}
           <div className="space-y-6 flex flex-col">
             <AnimatedSection direction="right" delay={0.1} className="flex-1">
-              <div className="relative rounded-2xl overflow-hidden h-56 group flex-1">
+              <div className="relative rounded-2xl overflow-hidden h-56 group">
                 <img
                   src={animalFacilityImg}
                   alt="Animal Facility"
@@ -463,7 +746,6 @@ const About = () => (
       <div className="container mx-auto px-4">
         <AnimatedSection>
           <div className="relative rounded-2xl overflow-hidden p-12 md:p-20 text-center glass-card glow-border">
-            {/* Background glows */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-sky-500/5 pointer-events-none" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-primary/8 blur-3xl rounded-full pointer-events-none" />
 
