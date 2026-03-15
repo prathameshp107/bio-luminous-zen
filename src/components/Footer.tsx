@@ -1,79 +1,260 @@
 import { Link } from "react-router-dom";
-import { FlaskConical, Mail, Phone, MapPin } from "lucide-react";
+import {
+  FlaskConical,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowUp,
+  ArrowRight,
+  ExternalLink,
+  Linkedin,
+  Twitter,
+  Youtube,
+} from "lucide-react";
 
-const Footer = () => (
-  <footer className="bg-card border-t border-border">
-    <div className="container mx-auto px-4 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-        <div>
-          <Link to="/" className="flex items-center gap-2 mb-4">
-            <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center">
-              <FlaskConical className="w-5 h-5 text-primary" />
+const navLinks = [
+  { name: "About Us", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Facilities", path: "/facilities" },
+  { name: "Animal Supply", path: "/animal-supply" },
+  { name: "Certifications", path: "/certifications" },
+  { name: "Contact", path: "/contact" },
+];
+
+const services = [
+  { name: "Toxicology Testing", slug: "toxicology-testing" },
+  { name: "Biocompatibility", slug: "biocompatibility-testing" },
+  { name: "Agrochemical Testing", slug: "agrochemical-testing" },
+  { name: "Research Projects", slug: "research-projects" },
+  { name: "Histopathology", slug: "histopathology-clinical-pathology" },
+  { name: "Microbiology", slug: "microbiology-services" },
+];
+
+const accreditations = ["NABL", "IAS", "CPCSEA", "MSME", "IEC"];
+
+const stats = [
+  { value: "50+", label: "Scientists & Researchers" },
+  { value: "6", label: "Accreditations" },
+  { value: "100+", label: "Studies Completed" },
+  { value: "500+", label: "Clients Served" },
+];
+
+const socials = [
+  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Twitter, label: "Twitter", href: "#" },
+  { icon: Youtube, label: "YouTube", href: "#" },
+];
+
+const Footer = () => {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+  return (
+    <footer className="relative bg-background overflow-hidden">
+      {/* Ambient glow blobs */}
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] pointer-events-none -translate-y-1/2" />
+      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-primary/4 blur-[100px] pointer-events-none translate-y-1/2" />
+
+      {/* Top gradient rule */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
+
+
+
+      {/* ── Main footer body ───────────────────────────────────── */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1.5fr] gap-10 lg:gap-14">
+          {/* Brand column */}
+          <div className="space-y-6">
+            <Link to="/" className="flex items-center gap-2.5 group w-fit">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                <FlaskConical className="w-5 h-5 text-primary" />
+              </div>
+              <span className="text-xl font-display font-bold text-foreground">
+                Cryst<span className="text-primary">Bio</span>
+              </span>
+            </Link>
+
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+              A leading Preclinical Contract Research Organization and
+              laboratory animal breeder based in Pune, Maharashtra — committed
+              to quality, compliance, and scientific excellence.
+            </p>
+
+            {/* Accreditation chips */}
+            <div>
+              <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground mb-2.5">
+                Accreditations
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {accreditations.map((a) => (
+                  <Link
+                    key={a}
+                    to="/certifications"
+                    className="text-[11px] font-semibold tracking-wide px-2.5 py-1 rounded-md bg-primary/10 border border-primary/20 text-primary hover:bg-primary/20 transition-colors duration-200"
+                  >
+                    {a}
+                  </Link>
+                ))}
+              </div>
             </div>
-            <span className="text-lg font-display font-bold text-foreground">
-              Cryst<span className="text-primary">Bio</span>
-            </span>
-          </Link>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            A leading Preclinical Contract Research Organization and laboratory animal breeder based in Pune, Maharashtra.
-          </p>
-        </div>
 
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-4">Quick Links</h4>
-          <ul className="space-y-2">
-            {["About Us", "Services", "Facilities", "Animal Supply", "Certifications"].map((name) => (
-              <li key={name}>
-                <Link
-                  to={`/${name.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            {/* Social icons */}
+            <div>
+              <p className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground mb-2.5">
+                Follow Us
+              </p>
+              <div className="flex gap-2">
+                {socials.map(({ icon: Icon, label, href }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    className="w-9 h-9 rounded-lg bg-card border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Quick links */}
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-6 text-xs uppercase tracking-widest">
+              Company
+            </h4>
+            <ul className="space-y-3.5">
+              {navLinks.map((link) => (
+                <li key={link.path}>
+                  <Link
+                    to={link.path}
+                    className="group flex items-center gap-0 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 shrink-0 flex items-center">
+                      <span className="w-3 h-px bg-primary block" />
+                    </span>
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-6 text-xs uppercase tracking-widest">
+              Services
+            </h4>
+            <ul className="space-y-3.5">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    to={`/services/${s.slug}`}
+                    className="group flex items-center gap-0 text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+                  >
+                    <span className="w-0 group-hover:w-4 overflow-hidden transition-all duration-300 shrink-0 flex items-center">
+                      <span className="w-3 h-px bg-primary block" />
+                    </span>
+                    {s.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h4 className="font-display font-semibold text-foreground mb-6 text-xs uppercase tracking-widest">
+              Get In Touch
+            </h4>
+            <ul className="space-y-4">
+              {/* Address */}
+              <li>
+                <a
+                  href="https://maps.google.com/?q=Pune+Maharashtra+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
                 >
-                  {name}
-                </Link>
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors duration-300">
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-snug">
+                      Pune, Maharashtra, India
+                    </p>
+                    <span className="text-xs text-primary flex items-center gap-1 mt-0.5 opacity-80 group-hover:opacity-100 transition-opacity">
+                      Get Directions <ExternalLink className="w-2.5 h-2.5" />
+                    </span>
+                  </div>
+                </a>
               </li>
-            ))}
-          </ul>
-        </div>
 
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-4">Services</h4>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            {["Toxicology Testing", "Biocompatibility", "Agrochemical", "Research Projects", "Histopathology", "Microbiology"].map((s) => (
-              <li key={s}>{s}</li>
-            ))}
-          </ul>
-        </div>
+              {/* Phone */}
+              <li>
+                <a
+                  href="tel:+917276361762"
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Phone className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                    +91 7276361762
+                  </span>
+                </a>
+              </li>
 
-        <div>
-          <h4 className="font-display font-semibold text-foreground mb-4">Contact</h4>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-3 text-sm text-muted-foreground">
-              <MapPin className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-              Pune, Maharashtra, India
-            </li>
-            <li className="flex items-center gap-3 text-sm text-muted-foreground">
-              <Phone className="w-4 h-4 text-primary shrink-0" />
-              +91 7276361762
-            </li>
-            <li className="flex items-center gap-3 text-sm text-muted-foreground">
-              <Mail className="w-4 h-4 text-primary shrink-0" />
-              info@crystbio.com
-            </li>
-          </ul>
+              {/* Email */}
+              <li>
+                <a
+                  href="mailto:info@crystbio.com"
+                  className="flex items-center gap-3 group"
+                >
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
+                    <Mail className="w-3.5 h-3.5 text-primary" />
+                  </div>
+                  <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+                    info@crystbio.com
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Cryst Bio Solutions Pvt. Ltd. All rights reserved.
-        </p>
-        <div className="flex gap-6 text-sm text-muted-foreground">
-          <span className="hover:text-primary transition-colors cursor-pointer">Privacy Policy</span>
-          <span className="hover:text-primary transition-colors cursor-pointer">Terms of Service</span>
+      {/* ── Bottom bar ─────────────────────────────────────────── */}
+      <div className="border-t border-border/40">
+        <div className="container mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()}{" "}
+            <span className="text-foreground font-medium">
+              Cryst Bio Solutions Pvt. Ltd.
+            </span>{" "}
+            All rights reserved.
+          </p>
+
+          <div className="flex items-center gap-5">
+            <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+              Privacy Policy
+            </span>
+            <span className="w-px h-4 bg-border/60" />
+            <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">
+              Terms of Service
+            </span>
+            <span className="w-px h-4 bg-border/60" />
+            <button
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;
