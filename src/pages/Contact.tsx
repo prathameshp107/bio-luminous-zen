@@ -635,16 +635,17 @@ const Contact = () => {
               {/* Map */}
               <div className="lg:col-span-3 rounded-2xl overflow-hidden border border-border/50 shadow-xl min-h-[380px]">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242117.68075771643!2d73.69815826253876!3d18.524603499362973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4114.794062814827!2d73.9361808!3d18.4553299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2e94d2470ec75%3A0xb9a571e0213d9eb4!2sCrystal%20Biological%20Solutions!5e1!3m2!1sen!2sin!4v1773644734235!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{
                     border: 0,
-                    filter: "invert(90%) hue-rotate(180deg)",
+                    filter: "invert(90%) hue-rotate(180deg)"
                   }}
                   allowFullScreen
                   loading="lazy"
-                  title="Cryst Bio Location"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Crystal Biological Solutions Location"
                 />
               </div>
 
