@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { SpecialText } from "@/components/ui/special-text";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -206,9 +207,16 @@ const Home = () => {
         tagline="India's Leading Preclinical CRO"
         title={
           <>
-            Advancing <span className="gradient-text">Preclinical</span>
+            <SpecialText speed={16} delay={0.2}>
+              Advancing
+            </SpecialText>{" "}
+            <SpecialText speed={16} delay={0.5} className="gradient-text">
+              Preclinical
+            </SpecialText>
             <br />
-            Research Excellence
+            <SpecialText speed={16} delay={0.9}>
+              Research Excellence
+            </SpecialText>
           </>
         }
         description="Highest-quality toxicology testing & preclinical research with rapid turnaround, in full compliance with international standards."
