@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import Testimonials from "./pages/Testimonials";
 import Gallery from "./pages/Gallery";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

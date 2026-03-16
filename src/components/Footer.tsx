@@ -20,6 +20,7 @@ const navLinks = [
   { name: "Certifications", path: "/certifications" },
   { name: "Contact", path: "/contact" },
   { name: "Gallery", path: "/gallery" },
+  { name: "FAQ", path: "/faq" },
 ];
 
 const services = [
