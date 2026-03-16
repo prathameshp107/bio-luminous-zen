@@ -15,6 +15,7 @@ import Certifications from "./pages/Certifications";
 import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
+import Testimonials from "./pages/Testimonials";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/animal-supply" element={<AnimalSupply />} />
             <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
             <Route path="/certifications" element={<Certifications />} />
+            <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

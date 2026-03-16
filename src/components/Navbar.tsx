@@ -12,6 +12,7 @@ const links = [
   { name: "Facilities", path: "/facilities" },
   { name: "Animal Supply", path: "/animal-supply" },
   { name: "Certifications", path: "/certifications" },
+  { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
 ];
 
