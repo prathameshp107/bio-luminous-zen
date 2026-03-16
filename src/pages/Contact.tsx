@@ -27,7 +27,6 @@ import SectionHeader from "@/components/SectionHeader";
 
 import aboutLabImg from "@/assets/about-lab.jpg";
 import facilitiesImg from "@/assets/facilities.jpg";
-import whyTeamImg from "@/assets/why-team.jpg";
 
 /* ─── Config ─────────────────────────────────────────────────── */
 const FORMSUBMIT_EMAIL = "info@crystbio.com";
@@ -38,9 +37,9 @@ const contactCards = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "Pune, Maharashtra, India",
+    value: "Crystal Biological Solutions",
     subtext: "Mon – Sat: Open for visits",
-    href: "https://maps.google.com/?q=Pune+Maharashtra+India",
+    href: "https://maps.app.goo.gl/FXvCnH2Gt7zKJftN7",
     iconBg: "bg-primary/10 border-primary/20",
     iconColor: "text-primary",
     glow: "bg-primary/6",
@@ -181,11 +180,19 @@ const Contact = () => {
           message: formData.message,
           _subject: `New Contact: ${formData.subject}`,
           _template: "table",
+          _captcha: "false",
+          _autoresponse:
+            "Thank you for contacting Cryst Bio. Our team will respond within 24 hours."
         }),
       });
 
       if (response.ok) {
         setSubmitStatus("success");
+
+        setTimeout(() => {
+          setSubmitStatus("idle");
+        }, 5000);
+        
         setFormData({
           name: "",
           email: "",
@@ -354,17 +361,7 @@ const Contact = () => {
                       className="space-y-5"
                       noValidate
                     >
-                      {/* Hidden FormSubmit fields */}
-                      <input
-                        type="hidden"
-                        name="_captcha"
-                        value="false"
-                      />
-                      <input
-                        type="hidden"
-                        name="_template"
-                        value="table"
-                      />
+                      <input type="text" name="_honey" style={{ display: "none" }} />
 
                       <div className="grid sm:grid-cols-2 gap-5">
                         <div>
