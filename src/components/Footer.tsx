@@ -40,9 +40,7 @@ const stats = [
 ];
 
 const socials = [
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Youtube, label: "YouTube", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/crystal-biological-solutions" }
 ];
 
 const Footer = () => {
@@ -104,6 +102,8 @@ const Footer = () => {
                   <a
                     key={label}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     aria-label={label}
                     className="w-9 h-9 rounded-lg bg-card border border-border/60 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/10 transition-all duration-300"
                   >
@@ -167,7 +167,7 @@ const Footer = () => {
               {/* Address */}
               <li>
                 <a
-                  href="https://maps.google.com/?q=Pune+Maharashtra+India"
+                  href="https://maps.app.goo.gl/FXvCnH2Gt7zKJftN7"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 group"
@@ -177,7 +177,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-snug">
-                      Pune, Maharashtra, India
+                      Crystal Biological Solutions Pune, Maharashtra, India
                     </p>
                     <span className="text-xs text-primary flex items-center gap-1 mt-0.5 opacity-80 group-hover:opacity-100 transition-opacity">
                       Get Directions <ExternalLink className="w-2.5 h-2.5" />
