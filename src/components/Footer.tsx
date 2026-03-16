@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
+import ratLogo from "@/assets/bio-logo-Black.png";
 import {
-  FlaskConical,
   Mail,
   Phone,
   MapPin,
@@ -57,20 +57,17 @@ const Footer = () => {
       {/* Top gradient rule */}
       <div className="h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent" />
 
-
-
       {/* ── Main footer body ───────────────────────────────────── */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1.5fr_1.5fr] gap-10 lg:gap-14">
           {/* Brand column */}
           <div className="space-y-6">
-            <Link to="/" className="flex items-center gap-2.5 group w-fit">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                <FlaskConical className="w-5 h-5 text-primary" />
-              </div>
-              <span className="text-xl font-display font-bold text-foreground">
-                Cryst<span className="text-primary">Bio</span>
-              </span>
+            <Link to="/" className="flex items-center group w-fit">
+              <img
+                src={ratLogo}
+                alt="Cryst Bio Solutions"
+                className="h-11 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+              />
             </Link>
 
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
