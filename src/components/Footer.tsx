@@ -19,6 +19,7 @@ const navLinks = [
   { name: "Animal Supply", path: "/animal-supply" },
   { name: "Certifications", path: "/certifications" },
   { name: "Contact", path: "/contact" },
+  { name: "FAQ", path: "/faq" },
 ];
 
 const services = [
