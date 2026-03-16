@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import ServiceDetail from "./pages/ServiceDetail";
 import NotFound from "./pages/NotFound";
 import Testimonials from "./pages/Testimonials";
+import Gallery from "./pages/Gallery";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
             <Route path="/animal-supply" element={<AnimalSupply />} />
             <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
             <Route path="/certifications" element={<Certifications />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
