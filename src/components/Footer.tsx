@@ -225,13 +225,16 @@ const Footer = () => {
       {/* ── Bottom bar ─────────────────────────────────────────── */}
       <div className="border-t border-border/40">
         <div className="container mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()}{" "}
-            <span className="text-foreground font-medium">
-              Cryst Bio Solutions Pvt. Ltd.
-            </span>{" "}
-            All rights reserved.
-          </p>
+          <div className="text-sm text-muted-foreground text-center sm:text-left">
+            <p>
+              © {new Date().getFullYear()}{" "}
+              <span className="text-foreground font-medium">
+                Cryst Bio Solutions Pvt. Ltd.
+              </span>{" "}
+              All rights reserved.
+            </p>
+            <p className="text-xs mt-1">Developed by Prathamesh Pawar</p>
+          </div>
 
           <div className="flex items-center gap-5">
             <span className="text-sm text-muted-foreground hover:text-primary transition-colors cursor-pointer">

@@ -19,6 +19,7 @@ import Testimonials from "./pages/Testimonials";
 import Gallery from "./pages/Gallery";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FAQ from "./pages/FAQ";
+import SEOManager from "@/components/SEOManager";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <SEOManager />
         <Navbar />
         <main className="min-h-screen">
           <Routes>
