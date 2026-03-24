@@ -18,6 +18,9 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 
 import aboutImg from "@/assets/about-lab.jpg";
 import facilitiesImg from "@/assets/facilities.jpg";
@@ -217,20 +220,22 @@ const About = () => (
     />
 
     {/* ── Company Intro ─────────────────────────────────────────── */}
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="ABOUT US" className="top-1/4" direction={1} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — image with floating badges */}
           <AnimatedSection direction="left">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <img
+                <ParallaxImage
                   src={aboutImg}
                   alt="Cryst Bio Laboratory"
-                  className="w-full h-full object-cover"
+                  containerClassName="w-full h-full"
+                  speed={0.15}
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30 pointer-events-none" />
               </div>
 
               {/* NABL badge — bottom right */}
@@ -272,10 +277,12 @@ const About = () => (
             <span className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-3">
               Who We Are
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
-              Cryst Bio Solutions{" "}
-              <span className="gradient-text">Pvt. Ltd.</span>
-            </h2>
+            <RevealText>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
+                Cryst Bio Solutions{" "}
+                <span className="gradient-text">Pvt. Ltd.</span>
+              </h2>
+            </RevealText>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Welcome to Cryst Bio Solutions Pvt. Ltd., a rapidly emerging
@@ -341,7 +348,11 @@ const About = () => (
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Our Values"
-          title="What Drives Us"
+          title={
+            <RevealText>
+              <span>What Drives Us</span>
+            </RevealText>
+          }
           description="Our objective, mission, and vision are the guiding principles that shape every study we conduct and every partnership we build."
         />
 
@@ -368,10 +379,12 @@ const About = () => (
 
                     {/* main image */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-                      <img
+                      <ParallaxImage
                         src={v.img}
                         alt={v.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        containerClassName="w-full h-full"
+                        className="transition-transform duration-700 group-hover:scale-105"
+                        speed={0.1}
                       />
                       {/* dark gradient at bottom */}
                       <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent" />
@@ -474,7 +487,11 @@ const About = () => (
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Our Strengths"
-          title="What Sets Us Apart"
+          title={
+            <RevealText>
+              <span>What Sets Us Apart</span>
+            </RevealText>
+          }
           description="A combination of cutting-edge infrastructure, certified expertise, and unwavering scientific integrity."
         />
 
@@ -501,12 +518,14 @@ const About = () => (
 
                     {/* main image */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-                      <img
+                      <ParallaxImage
                         src={h.img}
                         alt={h.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        containerClassName="w-full h-full"
+                        className="transition-transform duration-700 group-hover:scale-105"
+                        speed={0.1}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent pointer-events-none" />
                       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
 
                       {/* bottom label strip */}
@@ -605,18 +624,24 @@ const About = () => (
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Our Facilities"
-          title="State-of-the-Art Infrastructure"
+          title={
+            <RevealText>
+              <span>State-of-the-Art Infrastructure</span>
+            </RevealText>
+          }
           description="Our modern laboratories and CPCSEA-approved animal facilities are designed to meet international standards for preclinical research."
         />
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           <AnimatedSection direction="left">
             <div className="relative rounded-2xl overflow-hidden h-72 md:h-full min-h-[340px] group">
-              <img
+              <ParallaxImage
                 src={facilitiesImg}
                 alt="Research Facilities"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                containerClassName="w-full h-full"
+                className="transition-transform duration-700 group-hover:scale-105"
+                speed={0.1}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <span className="text-xs font-medium uppercase tracking-widest text-primary">
@@ -636,12 +661,14 @@ const About = () => (
           <div className="space-y-6 flex flex-col">
             <AnimatedSection direction="right" delay={0.1} className="flex-1">
               <div className="relative rounded-2xl overflow-hidden h-56 group">
-                <img
+                <ParallaxImage
                   src={animalFacilityImg}
                   alt="Animal Facility"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  containerClassName="w-full h-full"
+                  className="transition-transform duration-700 group-hover:scale-105"
+                  speed={0.1}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <span className="text-xs font-medium uppercase tracking-widest text-primary">

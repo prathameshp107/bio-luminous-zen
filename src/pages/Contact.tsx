@@ -24,6 +24,9 @@ import { Textarea } from "@/components/ui/textarea";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 
 import aboutLabImg from "@/assets/about-lab.jpg";
 import facilitiesImg from "@/assets/facilities.jpg";
@@ -235,7 +238,7 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {contactCards.map((c, i) => {
-              const Wrapper = c.href ? "a" : "div";
+              const Wrapper = (c.href ? "a" : "div") as any;
               const wrapperProps = c.href
                 ? {
                     href: c.href,
@@ -248,7 +251,7 @@ const Contact = () => {
               return (
                 <AnimatedSection key={c.label} delay={i * 0.08}>
                   <Wrapper
-                    {...(wrapperProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+                    {...wrapperProps}
                     className="glass-card p-5 hover-glow group block h-full transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex items-start gap-4">
@@ -550,13 +553,15 @@ const Contact = () => {
                   <div className="absolute -z-10 w-80 h-80 rounded-full blur-3xl opacity-60 bg-sky-500/6 -bottom-12 -right-12" />
 
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-                    <img
+                    <ParallaxImage
                       src={facilitiesImg}
                       alt="Cryst Bio Laboratory"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      containerClassName="w-full h-full"
+                      className="transition-transform duration-700 group-hover:scale-105"
+                      speed={0.1}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/30 to-transparent" />
-                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/30 to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300 pointer-events-none" />
 
                     {/* bottom strip */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
@@ -623,7 +628,11 @@ const Contact = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Our Location"
-            title="Find Us in Pune"
+            title={
+              <RevealText>
+                <span>Find Us in Pune</span>
+              </RevealText>
+            }
             description="Located in the heart of Maharashtra's scientific and industrial hub — easily accessible for clients across India and beyond."
           />
 
@@ -649,13 +658,15 @@ const Contact = () => {
               {/* Info beside map */}
               <div className="lg:col-span-2 flex flex-col gap-5">
                 <div className="relative rounded-2xl overflow-hidden aspect-[16/9] group shadow-xl flex-shrink-0">
-                  <img
+                  <ParallaxImage
                     src={aboutLabImg}
                     alt="Cryst Bio Facility"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    containerClassName="w-full h-full"
+                    className="transition-transform duration-700 group-hover:scale-105"
+                    speed={0.1}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 pointer-events-none" />
                   <div className="absolute bottom-0 left-0 right-0 p-4">
                     <span className="text-xs font-medium uppercase tracking-widest text-primary">
                       State-of-the-Art

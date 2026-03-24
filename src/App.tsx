@@ -20,6 +20,7 @@ import Gallery from "./pages/Gallery";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FAQ from "./pages/FAQ";
 import SEOManager from "@/components/SEOManager";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const queryClient = new QueryClient();
 
@@ -28,29 +29,31 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
-        <SEOManager />
-        <Navbar />
-        <main className="min-h-screen">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetail />} />
-            <Route path="/facilities" element={<Facilities />} />
-            <Route path="/animal-supply" element={<AnimalSupply />} />
-            <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
-            <Route path="/certifications" element={<Certifications />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/testimonials" element={<Testimonials />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </BrowserRouter>
+      <SmoothScroll>
+        <BrowserRouter>
+          <SEOManager />
+          <Navbar />
+          <main className="min-h-screen">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/facilities" element={<Facilities />} />
+              <Route path="/animal-supply" element={<AnimalSupply />} />
+              <Route path="/animal-supply/:slug" element={<AnimalDetail />} />
+              <Route path="/certifications" element={<Certifications />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/testimonials" element={<Testimonials />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+          <WhatsAppButton />
+        </BrowserRouter>
+      </SmoothScroll>
     </TooltipProvider>
   </QueryClientProvider>
 );

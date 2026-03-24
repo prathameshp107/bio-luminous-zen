@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 
 import facilitiesImg from "@/assets/facilities.jpg";
 
@@ -71,12 +73,12 @@ const FAQ = () => {
       <PageHero
         title="Frequently Asked Questions"
         subtitle="Answers to common questions about our services, animal models, and research capabilities."
-        backgroundImage={facilitiesImg}
       />
 
       {/* FAQ Section */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text="QUESTIONS" className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
 
           {/* Search */}
           <div className="max-w-xl mx-auto mb-10 relative">
@@ -155,9 +157,11 @@ const FAQ = () => {
       <section className="section-padding bg-card/40">
         <div className="container mx-auto px-4 text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
-              Still Have Questions?
-            </h2>
+            <RevealText>
+              <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
+                Still Have Questions?
+              </h2>
+            </RevealText>
 
             <p className="text-muted-foreground max-w-xl mx-auto mb-8">
               Our scientific team is ready to help you with study design,

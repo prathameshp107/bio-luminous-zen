@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 import { servicesData } from "@/data/servicesData";
 
 const ServiceDetail = () => {
@@ -29,12 +32,14 @@ const ServiceDetail = () => {
             <AnimatedSection direction="left">
               <div className="relative group">
                 <div className="overflow-hidden rounded-2xl">
-                  <img
+                  <ParallaxImage
                     src={service.img}
                     alt={service.title}
-                    className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                    containerClassName="w-full aspect-[4/3]"
+                    className="transition-transform duration-700 group-hover:scale-105"
+                    speed={0.1}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                 </div>
                 <div className="absolute -bottom-5 left-6 w-14 h-14 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
                   <Icon className="w-7 h-7 text-primary" />
@@ -44,9 +49,11 @@ const ServiceDetail = () => {
             <AnimatedSection direction="right">
               <div className="space-y-6">
                 <span className="text-xs font-semibold tracking-widest uppercase text-primary">Overview</span>
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
-                  About This Service
-                </h2>
+                <RevealText>
+                  <h2 className="text-3xl md:text-4xl font-bold font-display text-foreground">
+                    About This Service
+                  </h2>
+                </RevealText>
                 <p className="text-muted-foreground leading-relaxed text-base">
                   {service.overview}
                 </p>
@@ -66,12 +73,16 @@ const ServiceDetail = () => {
         </div>
       </section>
 
-      {/* Sub-Services with Images */}
-      <section className="section-padding bg-card/30">
-        <div className="container mx-auto px-4">
+      <section className="section-padding bg-card/30 relative overflow-hidden">
+        <FloatingText text={service.title.toUpperCase()} className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
             label="Detailed Capabilities"
-            title="Sub-Services & Tests"
+            title={
+              <RevealText>
+                <span>Sub-Services & Tests</span>
+              </RevealText>
+            }
             description="Explore our comprehensive range of specialized tests and evaluations under this service category."
           />
 
@@ -85,17 +96,19 @@ const ServiceDetail = () => {
                     <div className={`relative group ${isEven ? "" : "lg:order-2"}`}>
                       <div className="overflow-hidden rounded-2xl">
                         {sub.img ? (
-                          <img
+                          <ParallaxImage
                             src={sub.img}
                             alt={sub.title}
-                            className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                            containerClassName="w-full aspect-[4/3]"
+                            className="transition-transform duration-700 group-hover:scale-105"
+                            speed={0.05}
                           />
                         ) : (
-                          <div className="w-full aspect-[4/3] bg-muted flex items-center justify-center rounded-2xl">
+                          <div className="w-full aspect-[4/3] bg-muted flex items-center justify-center">
                             <Beaker className="w-12 h-12 text-muted-foreground/40" />
                           </div>
                         )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent rounded-2xl" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
                       </div>
                       <div className="absolute -bottom-4 left-5 w-10 h-10 rounded-lg bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
                         <span className="text-xs font-bold text-primary font-mono">
@@ -142,7 +155,11 @@ const ServiceDetail = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Case Studies"
-            title="Featured Projects"
+            title={
+              <RevealText>
+                <span>Featured Projects</span>
+              </RevealText>
+            }
             description="Selected examples of how we've helped clients achieve their research and regulatory objectives."
           />
 

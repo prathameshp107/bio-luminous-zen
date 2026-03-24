@@ -15,6 +15,9 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 
 import facilitiesImg from "@/assets/facilities.jpg";
 import animalFacilityImg from "@/assets/animal-facility.jpg";
@@ -170,20 +173,22 @@ const Facilities = () => (
     />
 
     {/* ── Intro — image left, text right ───────────────────────── */}
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="FACILITY" className="top-1/4" direction={1} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — facility image with floating badges */}
           <AnimatedSection direction="left">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <img
+                <ParallaxImage
                   src={facilitiesImg}
                   alt="Cryst Bio Facilities"
-                  className="w-full h-full object-cover"
+                  containerClassName="w-full h-full"
+                  speed={0.15}
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30 pointer-events-none" />
               </div>
 
               {/* NABL badge — bottom right */}
@@ -226,9 +231,11 @@ const Facilities = () => (
             <span className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-3">
               Infrastructure
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
-              Built for <span className="gradient-text">Excellence</span>
-            </h2>
+            <RevealText>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
+                Built for <span className="gradient-text">Excellence</span>
+              </h2>
+            </RevealText>
 
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-7">
               <p>
@@ -288,13 +295,15 @@ const Facilities = () => (
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection direction="right" className="lg:order-2">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-              <img
+              <ParallaxImage
                 src={animalFacilityImg}
                 alt="Animal Breeding Facility"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                containerClassName="w-full h-full"
+                className="transition-transform duration-700 group-hover:scale-105"
+                speed={0.1}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent" />
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/10 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary opacity-80">
                   CPCSEA Approved
@@ -310,10 +319,12 @@ const Facilities = () => (
             <span className="inline-block text-xs font-semibold tracking-widest uppercase text-primary mb-3">
               Animal Housing
             </span>
-            <h3 className="text-3xl md:text-4xl font-bold font-display text-foreground leading-tight mb-5">
-              CPCSEA-Approved{" "}
-              <span className="gradient-text">Animal Facility</span>
-            </h3>
+            <RevealText>
+              <h3 className="text-3xl md:text-4xl font-bold font-display text-foreground leading-tight mb-5">
+                CPCSEA-Approved{" "}
+                <span className="gradient-text">Animal Facility</span>
+              </h3>
+            </RevealText>
             <div className="w-14 h-[3px] rounded-full bg-primary mb-7" />
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
               Our animal breeding facility operates under strict CPCSEA
@@ -347,7 +358,11 @@ const Facilities = () => (
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Features"
-          title="Facility Highlights"
+          title={
+            <RevealText>
+              <span>Facility Highlights</span>
+            </RevealText>
+          }
           description="Six pillars of world-class laboratory infrastructure — each designed to deliver precision, safety, and full regulatory compliance."
         />
 
@@ -374,12 +389,14 @@ const Facilities = () => (
 
                     {/* Main image */}
                     <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-                      <img
+                      <ParallaxImage
                         src={h.img}
                         alt={h.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        containerClassName="w-full h-full"
+                        className="transition-transform duration-700 group-hover:scale-105"
+                        speed={0.1}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-background/15 to-transparent pointer-events-none" />
                       <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
 
                       {/* Bottom label strip */}

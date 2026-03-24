@@ -4,15 +4,27 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 import { servicesData } from "@/data/servicesData";
 
 const Services = () => (
   <div>
     <PageHero title="Our Services" subtitle="Comprehensive preclinical research and testing solutions for global industries." breadcrumb="Services" />
 
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
-        <SectionHeader label="What We Offer" title="Research & Testing Services" description="Delivering highest quality testing services in compliance with ISO 10993, OECD, FDA, ASTM, and USP guidelines." />
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="SERVICES" className="top-1/4" direction={-1} />
+      <div className="container mx-auto px-4 relative z-10">
+        <SectionHeader
+          label="What We Offer"
+          title={
+            <RevealText>
+              <span>Research & Testing Services</span>
+            </RevealText>
+          }
+          description="Delivering highest quality testing services in compliance with ISO 10993, OECD, FDA, ASTM, and USP guidelines."
+        />
 
         <div className="space-y-24">
           {servicesData.map((s, i) => {
@@ -23,12 +35,14 @@ const Services = () => (
                 <AnimatedSection direction={isEven ? "left" : "right"} className={isEven ? "" : "lg:order-2"}>
                   <div className="relative group">
                     <div className="relative overflow-hidden rounded-2xl">
-                      <img
+                      <ParallaxImage
                         src={s.img}
                         alt={s.title}
-                        className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
+                        containerClassName="w-full aspect-[4/3]"
+                        className="transition-transform duration-700 group-hover:scale-105"
+                        speed={0.1}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                     </div>
                     <div className="absolute -bottom-5 left-6 lg:left-8 w-14 h-14 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center shadow-lg shadow-primary/10">
                       <s.icon className="w-7 h-7 text-primary" />
@@ -44,9 +58,11 @@ const Services = () => (
                       <span className="text-xs font-semibold tracking-widest uppercase text-primary">
                         {String(i + 1).padStart(2, "0")} — Service
                       </span>
-                      <h3 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">
-                        {s.title}
-                      </h3>
+                      <RevealText>
+                        <h3 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">
+                          {s.title}
+                        </h3>
+                      </RevealText>
                     </div>
                     <p className="text-muted-foreground leading-relaxed text-base">
                       {s.shortDesc}

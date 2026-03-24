@@ -15,6 +15,9 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 import animalImg from "@/assets/animal-facility.jpg";
 import { animalModels } from "@/data/animalData";
 
@@ -135,20 +138,22 @@ const AnimalSupply = () => (
     />
 
     {/* ── Intro ─────────────────────────────────────────────────── */}
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="BREEDING" className="top-1/4" direction={1} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left — facility image with floating badges */}
           <AnimatedSection direction="left">
             <div className="relative">
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
-                <img
+                <ParallaxImage
                   src={animalImg}
                   alt="Animal Breeding Facility"
-                  className="w-full h-full object-cover"
+                  containerClassName="w-full h-full"
+                  speed={0.15}
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent" />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-background/60 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30 pointer-events-none" />
               </div>
 
               {/* CPCSEA badge — bottom right */}
@@ -191,9 +196,11 @@ const AnimalSupply = () => (
             <span className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-3">
               Breeding Facility
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
-              Quality Laboratory <span className="gradient-text">Animals</span>
-            </h2>
+            <RevealText>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
+                Quality Laboratory <span className="gradient-text">Animals</span>
+              </h2>
+            </RevealText>
             <p className="text-muted-foreground leading-relaxed mb-8 text-base md:text-lg">
               We operate a hygienically well-maintained breeding facility,
               supplying quality laboratory animals for preclinical research. All
@@ -234,7 +241,11 @@ const AnimalSupply = () => (
       <div className="container mx-auto px-4">
         <SectionHeader
           label="Available Species"
-          title="Laboratory Animal Models"
+          title={
+            <RevealText>
+              <span>Laboratory Animal Models</span>
+            </RevealText>
+          }
           description="Five species, multiple strains — bred in-house under controlled conditions for diverse preclinical research applications."
         />
 
@@ -265,13 +276,15 @@ const AnimalSupply = () => (
                     {/* Main image — wrapped in Link */}
                     <Link to={`/animal-supply/${a.slug}`}>
                       <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl cursor-pointer">
-                        <img
+                        <ParallaxImage
                           src={a.heroImage}
                           alt={a.name}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          containerClassName="w-full h-full"
+                          className="transition-transform duration-700 group-hover:scale-105"
+                          speed={0.1}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent" />
-                        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/15 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300 pointer-events-none" />
 
                         {/* Bottom label strip */}
                         <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between">

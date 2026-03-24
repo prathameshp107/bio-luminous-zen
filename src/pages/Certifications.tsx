@@ -3,6 +3,9 @@ import { useState } from "react";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 import certNabl from "@/assets/cert-nabl.png";
 import certIasCpcsea from "@/assets/cert-ias-cpcsea.png";
 import certMsme from "@/assets/cert-msme.png";
@@ -130,11 +133,16 @@ const Certifications = () => {
       )}
 
       {/* Certifications */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text="ACCREDITATIONS" className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
             label="Accreditations"
-            title="Our Certifications & Registrations"
+            title={
+              <RevealText>
+                <span>Our Certifications & Registrations</span>
+              </RevealText>
+            }
             description="We maintain the highest standards of quality and compliance through multiple national and international accreditations."
           />
 
@@ -156,12 +164,14 @@ const Certifications = () => {
                         className="relative overflow-hidden rounded-2xl cursor-pointer bg-card border border-border/40"
                         onClick={() => setLightbox(cert.image)}
                       >
-                        <img
+                        <ParallaxImage
                           src={cert.image}
                           alt={cert.name}
-                          className="w-full aspect-[4/3] object-contain p-6 transition-transform duration-700 group-hover:scale-105"
+                          containerClassName="w-full aspect-[4/3] p-6"
+                          className="object-contain transition-transform duration-700 group-hover:scale-105"
+                          speed={0.05}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent pointer-events-none" />
                         {/* View overlay */}
                         <div className="absolute inset-0 flex items-end justify-center pb-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                           <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary bg-card/80 backdrop-blur-sm border border-primary/20 px-4 py-2 rounded-full">
@@ -188,9 +198,11 @@ const Certifications = () => {
                         <span className="text-xs font-semibold tracking-widest uppercase text-primary">
                           {String(i + 1).padStart(2, "0")} — Certification
                         </span>
-                        <h3 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">
-                          {cert.name}
-                        </h3>
+                        <RevealText>
+                          <h3 className="mt-2 text-2xl md:text-3xl font-bold font-display text-foreground">
+                            {cert.name}
+                          </h3>
+                        </RevealText>
                         {cert.code && (
                           <p className="mt-1 text-sm font-mono text-primary/80 tracking-wide">
                             {cert.code}

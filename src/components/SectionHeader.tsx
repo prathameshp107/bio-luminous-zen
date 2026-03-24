@@ -1,8 +1,9 @@
+import React from "react";
 import AnimatedSection from "./AnimatedSection";
 
 interface SectionHeaderProps {
   label?: string;
-  title: string;
+  title: React.ReactNode;
   description?: string;
   className?: string;
 }

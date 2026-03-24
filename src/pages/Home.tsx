@@ -25,6 +25,9 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
 import WhyPartner from "@/components/WhyPartner";
 import CertLogoSlider from "@/components/CertLogoSlider";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 import heroImg from "@/assets/hero-lab.jpg";
 import aboutImg from "@/assets/about-lab.jpg";
 import facilitiesImg from "@/assets/facilities.jpg";
@@ -251,21 +254,23 @@ const Home = () => {
       </section>
 
       {/* ─── About ────────────────────────────────────────────── */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text="PRECLINICAL" className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Image side */}
             <AnimatedSection direction="left">
               <div className="relative">
                 {/* Glow halo */}
                 <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-xl" />
-                <img
+                <ParallaxImage
                   src={aboutImg}
                   alt="About Cryst Bio"
-                  className="relative rounded-2xl w-full object-cover aspect-[4/3] ring-1 ring-border/50"
+                  containerClassName="rounded-2xl w-full aspect-[4/3] ring-1 ring-border/50 shadow-2xl"
+                  speed={0.2}
                 />
                 {/* Bottom-right badge */}
-                <div className="absolute -bottom-5 -right-5 glass-card px-6 py-4 flex flex-col items-center glow-border shadow-xl">
+                <div className="absolute -bottom-5 -right-5 glass-card px-6 py-4 flex flex-col items-center glow-border shadow-xl z-20">
                   <span className="text-3xl font-bold font-display gradient-text">
                     7+
                   </span>
@@ -274,7 +279,7 @@ const Home = () => {
                   </span>
                 </div>
                 {/* Top-left icon badge */}
-                <div className="absolute -top-5 -left-5 w-20 h-20 rounded-2xl bg-primary/10 border border-primary/30 backdrop-blur-sm flex flex-col items-center justify-center gap-1">
+                <div className="absolute -top-5 -left-5 w-20 h-20 rounded-2xl bg-primary/10 border border-primary/30 backdrop-blur-sm flex flex-col items-center justify-center gap-1 z-20">
                   <Award className="w-8 h-8 text-primary" />
                   <span className="text-[10px] text-primary font-semibold tracking-wide">
                     NABL
@@ -288,14 +293,18 @@ const Home = () => {
               <span className="text-sm font-medium tracking-widest uppercase text-primary">
                 Who We Are
               </span>
-              <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight">
-                Cryst Bio Solutions
-              </h2>
-              <p className="mt-5 text-muted-foreground leading-relaxed">
-                A rapidly emerging Preclinical Contract Research Organization
-                (CRO) and laboratory animal breeder based in Pune, Maharashtra —
-                with consultation offices in Europe and the USA.
-              </p>
+              <RevealText>
+                <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight">
+                  Cryst Bio Solutions
+                </h2>
+              </RevealText>
+              <RevealText delay={0.2}>
+                <p className="mt-5 text-muted-foreground leading-relaxed">
+                  A rapidly emerging Preclinical Contract Research Organization
+                  (CRO) and laboratory animal breeder based in Pune, Maharashtra —
+                  with consultation offices in Europe and the USA.
+                </p>
+              </RevealText>
               <p className="mt-3 text-muted-foreground leading-relaxed">
                 Founded in 2018, our core services include Toxicology Testing
                 and Preclinical Research in compliance with ISO 10993, OECD,
@@ -326,11 +335,16 @@ const Home = () => {
       </section>
 
       {/* ─── Services ─────────────────────────────────────────── */}
-      <section className="section-padding bg-card/30">
-        <div className="container mx-auto px-4">
+      <section className="section-padding bg-card/30 relative overflow-hidden">
+        <FloatingText text="EXCELLENCE" className="top-1/3" direction={-1} />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
             label="Our Services"
-            title="Comprehensive Research Solutions"
+            title={
+              <RevealText>
+                <span>Comprehensive Research Solutions</span>
+              </RevealText>
+            }
             description="Full range of preclinical research and testing for pharmaceutical, cosmetics, medical device, and biotech industries."
           />
 
@@ -340,15 +354,17 @@ const Home = () => {
                 <div className="glass-card overflow-hidden h-full hover-glow group transition-all duration-500 flex flex-col">
                   {/* Image */}
                   <div className="relative h-52 overflow-hidden flex-shrink-0">
-                    <img
+                    <ParallaxImage
                       src={s.img}
                       alt={s.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      containerClassName="w-full h-full"
+                      className="transition-transform duration-700 group-hover:scale-110"
+                      speed={0.1}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent pointer-events-none" />
 
                     {/* Tag — top right */}
-                    <div className="absolute top-3 right-3">
+                    <div className="absolute top-3 right-3 z-10">
                       <span
                         className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-sm ${s.accentBg} ${s.accentBorder} ${s.accentText}`}
                       >
@@ -357,7 +373,7 @@ const Home = () => {
                     </div>
 
                     {/* Icon — bottom left */}
-                    <div className="absolute bottom-3 left-4">
+                    <div className="absolute bottom-3 left-4 z-10">
                       <div
                         className={`w-12 h-12 rounded-xl border backdrop-blur-sm flex items-center justify-center ${s.accentBg} ${s.accentBorder}`}
                       >

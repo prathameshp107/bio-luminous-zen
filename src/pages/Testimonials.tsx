@@ -23,6 +23,9 @@ import { Button } from "@/components/ui/button";
 import PageHero from "@/components/PageHero";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
+import ParallaxImage from "@/components/ParallaxImage";
+import RevealText from "@/components/RevealText";
+import FloatingText from "@/components/FloatingText";
 
 // ── Images ──────────────────────────────────────────────────────────
 import heroLabImg from "@/assets/hero-lab.jpg";
@@ -487,12 +490,16 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* ─── Featured Testimonial — Image + Quote Side by Side ── */}
-      <section className="section-padding bg-secondary/40 dark:bg-card/30">
-        <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden bg-secondary/40 dark:bg-card/30">
+        <FloatingText text="REVIEWS" className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
           <SectionHeader
             label="Featured Review"
-            title="In Their Own Words"
+            title={
+              <RevealText>
+                <span>In Their Own Words</span>
+              </RevealText>
+            }
             description="A standout experience that represents the quality, speed, and trust that defines every Cryst Bio engagement."
           />
 
@@ -504,10 +511,12 @@ const Testimonials = () => {
                 <div className={`absolute -z-10 w-80 h-80 rounded-full blur-3xl opacity-60 ${accentMap[featured.accent].glow} -bottom-12 -left-12`} />
 
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl h-full min-h-[340px]">
-                  <img
+                  <ParallaxImage
                     src={featured.img}
                     alt={featured.service}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    containerClassName="w-full h-full"
+                    className="transition-transform duration-700 group-hover:scale-105"
+                    speed={0.15}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/30 to-transparent" />
                   <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
@@ -609,7 +618,11 @@ const Testimonials = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Client Reviews"
-            title="Trusted Across Every Study Type"
+            title={
+              <RevealText>
+                <span>Trusted Across Every Study Type</span>
+              </RevealText>
+            }
             description="From pharmaceutical NDA packages to academic research collaborations — here's what our clients consistently say."
           />
 
@@ -625,10 +638,12 @@ const Testimonials = () => {
                   >
                     {/* Image header */}
                     <div className="relative h-44 overflow-hidden flex-shrink-0">
-                      <img
+                      <ParallaxImage
                         src={t.img}
                         alt={t.service}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        containerClassName="w-full h-full"
+                        className="transition-transform duration-500 group-hover:scale-105"
+                        speed={0.05}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-transparent" />
                       {/* Coloured top bar */}
@@ -685,7 +700,11 @@ const Testimonials = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Study Outcomes"
-            title="Results That Speak For Themselves"
+            title={
+              <RevealText>
+                <span>Results That Speak For Themselves</span>
+              </RevealText>
+            }
             description="Real outcomes from real studies — a snapshot of the regulatory wins our clients have achieved with Cryst Bio."
           />
 
@@ -704,13 +723,15 @@ const Testimonials = () => {
 
                       {/* main image */}
                       <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
-                        <img
+                        <ParallaxImage
                           src={c.img}
                           alt={c.title}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          containerClassName="w-full h-full"
+                          className="transition-transform duration-700 group-hover:scale-105"
+                          speed={0.1}
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
-                        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5 group-hover:ring-white/10 transition-all duration-300 pointer-events-none" />
 
                         {/* bottom label strip */}
                         <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
@@ -784,7 +805,11 @@ const Testimonials = () => {
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Why They Stay"
-            title="The Cryst Bio Difference"
+            title={
+              <RevealText>
+                <span>The Cryst Bio Difference</span>
+              </RevealText>
+            }
             description="Clients don't just complete one study with us — they build lasting research partnerships."
           />
 
