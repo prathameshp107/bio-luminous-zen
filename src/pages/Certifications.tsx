@@ -15,6 +15,7 @@ import certIncorporation from "@/assets/cert-incorporation.png";
 const certs = [
   {
     name: "NABL Accreditation",
+    FloatingText: "NABL",
     code: "TC-15118",
     desc: "National Accreditation Board for Testing and Calibration Laboratories — ISO/IEC 17025:2017 accreditation for testing services, ensuring globally accepted, reliable results.",
     image: certNabl,
@@ -28,6 +29,7 @@ const certs = [
   },
   {
     name: "IAS Accreditation",
+    FloatingText: "IAS",
     code: "TL-1015",
     desc: "International Accreditation Service — AC89 criteria for Testing Laboratories, ISO/IEC 17025:2017 compliance for internationally accepted test results and reports.",
     image: certIasCpcsea,
@@ -41,6 +43,7 @@ const certs = [
   },
   {
     name: "CPCSEA Registration",
+    FloatingText: "CPCSEA",
     code: "2030/PO/RcBiBt/S/18/CPCSEA",
     desc: "Committee for the Purpose of Control and Supervision of Experiments on Animals — registered for research, breeding, and trade of small animals under ethical guidelines.",
     image: certIasCpcsea,
@@ -54,6 +57,7 @@ const certs = [
   },
   {
     name: "MSME / Udyam Registration",
+    FloatingText: "MSME",
     code: "UDYAM-MH-26-0118144",
     desc: "Ministry of Micro, Small and Medium Enterprises — Udyam registration as a Micro enterprise in technical testing and analysis, enabling government-recognized operations.",
     image: certMsme,
@@ -67,6 +71,7 @@ const certs = [
   },
   {
     name: "IEC Certificate",
+    FloatingText: "IEC",
     code: "BRTPM9840F",
     desc: "Import Export Code — Certificate of Importer-Exporter issued by the Ministry of Commerce and Industry, enabling international trade of biological and scientific materials.",
     image: certIec,
@@ -80,6 +85,7 @@ const certs = [
   },
   {
     name: "Certificate of Incorporation",
+    FloatingText: "Incorporation",
     code: "U71200PN2024PTC231728",
     desc: "Ministry of Corporate Affairs — Cryst Bio Solutions Private Limited incorporated on 11th June 2024 under the Companies Act, 2013, as a legally registered entity in India.",
     image: certIncorporation,
@@ -152,8 +158,14 @@ const Certifications = () => {
               return (
                 <div
                   key={cert.name}
-                  className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+                  className="relative min-h-[360px] flex items-center"
                 >
+                  <FloatingText
+                    text={cert.FloatingText}
+                    className="top-1/2 -translate-y-1/2"
+                    direction={isEven ? 1 : -1}
+                  />
+                  <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                   {/* Image */}
                   <AnimatedSection
                     direction={isEven ? "left" : "right"}
@@ -243,6 +255,7 @@ const Certifications = () => {
                     </div>
                   </AnimatedSection>
                 </div>
+              </div>
               );
             })}
           </div>

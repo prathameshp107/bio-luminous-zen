@@ -1,4 +1,4 @@
-import {
+﻿import {
   Target,
   Eye,
   Rocket,
@@ -519,9 +519,15 @@ const About = () => (
             return (
               <div
                 key={h.label}
-                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                className="relative min-h-[400px] flex items-center"
               >
-                {/* ── Image panel ── */}
+                <FloatingText
+                  text={h.floating}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                {/* --- Image panel --- */}
                 <AnimatedSection
                   direction={isEven ? "left" : "right"}
                   className={!isEven ? "lg:order-2" : ""}
@@ -633,6 +639,7 @@ const About = () => (
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
             );
           })}
         </div>

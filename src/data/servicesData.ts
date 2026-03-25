@@ -83,6 +83,7 @@ export interface ServiceData {
   slug: string;
   icon: typeof Leaf;
   title: string;
+  floating: string;
   shortDesc: string;
   img: string;
   features: string[];
@@ -98,6 +99,7 @@ export const servicesData: ServiceData[] = [
     slug: "agrochemical-testing",
     icon: Leaf,
     title: "Agrochemical Testing",
+    floating: "AGROCHEMICAL",
     img: serviceAgrochem,
     shortDesc: "Comprehensive agrochemical testing services including acute toxicity, sub-acute and sub-chronic studies, reproductive toxicity, and environmental impact assessments as per regulatory guidelines.",
     features: ["Acute Toxicity Studies", "Sub-Chronic Studies", "Environmental Assessment", "Regulatory Compliance"],
@@ -124,6 +126,7 @@ export const servicesData: ServiceData[] = [
     slug: "biocompatibility-testing",
     icon: ShieldCheck,
     title: "Biocompatibility Testing",
+    floating: "BIOCOMPATIBILITY",
     img: serviceBiocompat,
     shortDesc: "Medical device biocompatibility testing per ISO 10993 standards including cytotoxicity, sensitization, irritation, systemic toxicity, and implantation studies.",
     features: ["ISO 10993 Compliance", "Cytotoxicity Testing", "Sensitization Studies", "Implantation Studies"],
@@ -150,6 +153,7 @@ export const servicesData: ServiceData[] = [
     slug: "toxicology-testing",
     icon: TestTube,
     title: "Toxicology Testing",
+    floating: "TOXICOLOGY",
     img: serviceToxicology,
     shortDesc: "Full-spectrum toxicology services following OECD and FDA guidelines including acute, sub-acute, chronic toxicity, genotoxicity, and carcinogenicity studies.",
     features: ["OECD Guidelines", "FDA Compliance", "Genotoxicity", "Carcinogenicity"],
@@ -176,6 +180,7 @@ export const servicesData: ServiceData[] = [
     slug: "research-projects",
     icon: FlaskConical,
     title: "Research Projects",
+    floating: "RESEARCH",
     img: serviceResearch,
     shortDesc: "Custom preclinical research solutions including study design, protocol development, data analysis, and regulatory submission support.",
     features: ["Custom Study Design", "Protocol Development", "Data Analysis", "Regulatory Support"],
@@ -202,6 +207,7 @@ export const servicesData: ServiceData[] = [
     slug: "histopathology-clinical-pathology",
     icon: Stethoscope,
     title: "Histopathology & Clinical Pathology",
+    floating: "HISTOPATHOLOGY",
     img: serviceHistopath,
     shortDesc: "Expert histopathology and clinical pathology services including tissue processing, staining, microscopic examination, and comprehensive reporting.",
     features: ["Tissue Processing", "Microscopic Exam", "Clinical Chemistry", "Hematology"],
@@ -228,6 +234,7 @@ export const servicesData: ServiceData[] = [
     slug: "microbiology-services",
     icon: Bug,
     title: "Microbiology Services",
+    floating: "MICROBIOLOGY",
     img: serviceMicro,
     shortDesc: "Comprehensive microbiology testing including sterility testing, bacterial endotoxin testing, antimicrobial effectiveness, and environmental monitoring.",
     features: ["Sterility Testing", "Endotoxin Testing", "Antimicrobial Testing", "Environmental Monitoring"],

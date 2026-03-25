@@ -290,8 +290,9 @@ const Facilities = () => (
     </section>
 
     {/* ── Animal Facility sub-section ──────────────────────────── */}
-    <section className="py-16 bg-card/40">
-      <div className="container mx-auto px-4">
+    <section className="py-16 bg-card/40 relative overflow-hidden">
+      <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={-1} />
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection direction="right" className="lg:order-2">
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
@@ -372,8 +373,14 @@ const Facilities = () => (
             return (
               <div
                 key={h.title}
-                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                className="relative min-h-[400px] flex items-center"
               >
+                <FloatingText
+                  text={h.title}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
                 {/* ── Image panel ─────────────────────────────── */}
                 <AnimatedSection
                   direction={isEven ? "left" : "right"}
@@ -486,6 +493,7 @@ const Facilities = () => (
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
             );
           })}
         </div>

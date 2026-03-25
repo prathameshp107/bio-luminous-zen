@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+﻿import { motion } from "framer-motion";
 import {
   Star,
   Quote,
@@ -695,8 +695,9 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* ─── Case Highlights — Alternating image+text (like About) */}
-      <section className="section-padding bg-secondary/40 dark:bg-card/30">
+      {/*  Case Highlights - Alternating image+text (like About) */}
+      <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
+        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Study Outcomes"
@@ -712,8 +713,14 @@ const Testimonials = () => {
             {caseHighlights.map((c, i) => {
               const isEven = i % 2 === 0;
               return (
-                <div key={c.title} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                  {/* ── Image panel ── */}
+                <div key={c.title} className="relative min-h-[400px] flex items-center">
+                  <FloatingText
+                    text={c.title}
+                    className="top-1/2 -translate-y-1/2"
+                    direction={isEven ? 1 : -1}
+                  />
+                  <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
+                  {/*  Image panel  */}
                   <AnimatedSection direction={isEven ? "left" : "right"} className={!isEven ? "lg:order-2" : ""}>
                     <div className="relative">
                       {/* ambient glow blob */}
@@ -794,6 +801,7 @@ const Testimonials = () => {
                     </div>
                   </AnimatedSection>
                 </div>
+              </div>
               );
             })}
           </div>
@@ -817,7 +825,13 @@ const Testimonials = () => {
             {whyReturn.map((item, i) => {
               const isEven = i % 2 === 0;
               return (
-                <div key={item.title} className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div key={item.title} className="relative min-h-[400px] flex items-center">
+                  <FloatingText
+                    text={item.title}
+                    className="top-1/2 -translate-y-1/2"
+                    direction={isEven ? 1 : -1}
+                  />
+                  <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
                   {/* ── Image panel ── */}
                   <AnimatedSection direction={isEven ? "left" : "right"} className={!isEven ? "lg:order-2" : ""}>
                     <div className="relative">
@@ -888,14 +902,16 @@ const Testimonials = () => {
                     </div>
                   </AnimatedSection>
                 </div>
+              </div>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* ─── Lab Showcase Banner ──────────────────────────────── */}
-      <section className="section-padding bg-secondary/40 dark:bg-card/30">
+      {/* ─── Lab Showcase Banner ───────────────────────────────────── */}
+      <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
+        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">

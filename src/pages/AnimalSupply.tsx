@@ -258,8 +258,14 @@ const AnimalSupply = () => (
             return (
               <div
                 key={a.slug}
-                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                className="relative min-h-[400px] flex items-center"
               >
+                <FloatingText
+                  text={a.name}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
                 {/* ── Image panel ───────────────────────────────── */}
                 <AnimatedSection
                   direction={isEven ? "left" : "right"}
@@ -406,6 +412,7 @@ const AnimalSupply = () => (
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
             );
           })}
         </div>

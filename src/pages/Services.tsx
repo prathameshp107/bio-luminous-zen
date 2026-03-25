@@ -30,7 +30,13 @@ const Services = () => (
           {servicesData.map((s, i) => {
             const isEven = i % 2 === 0;
             return (
-              <div key={s.slug} className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+              <div key={s.slug} className="relative min-h-[400px] flex items-center">
+                <FloatingText
+                  text={s.floating}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                 {/* Image */}
                 <AnimatedSection direction={isEven ? "left" : "right"} className={isEven ? "" : "lg:order-2"}>
                   <div className="relative group">
@@ -89,6 +95,7 @@ const Services = () => (
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
             );
           })}
         </div>
