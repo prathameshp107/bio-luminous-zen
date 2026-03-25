@@ -68,6 +68,7 @@ const values = [
     icon: Target,
     label: "Our Objective",
     title: "Objective",
+    floating: "OBJECTIVE",
     text: "To become one of the most trusted biocompatibility testing laboratories by providing consistent operation and prioritizing competency and impartiality.",
     keyPoints: [
       "Competency-first scientific approach in every study",
@@ -88,6 +89,7 @@ const values = [
     icon: Rocket,
     label: "Our Mission",
     title: "Mission",
+    floating: "MISSION",
     text: "To drive excellence in preclinical research, toxicology, and biocompatibility testing by upholding the highest standards of quality, accuracy, and scientific integrity.",
     keyPoints: [
       "ISO 10993, OECD & FDA compliant testing protocols",
@@ -108,6 +110,7 @@ const values = [
     icon: Eye,
     label: "Our Vision",
     title: "Vision",
+    floating: "VISION",
     text: "To be a global leader in preclinical research, toxicology, and biocompatibility testing, recognized for scientific excellence, ethical standards, and regulatory compliance.",
     keyPoints: [
       "Globally recognized CRO with offices in India, Europe & USA",
@@ -131,6 +134,7 @@ const highlights = [
     icon: Users,
     label: "Expert Team",
     title: "Expert Team",
+    floating: "EXPERTISE",
     desc: "Our people are our greatest asset — a team of young, dynamic scientists with deep expertise across toxicology, histopathology, microbiology, and preclinical research.",
     keyPoints: [
       "50+ scientists with diverse multi-disciplinary expertise",
@@ -151,6 +155,7 @@ const highlights = [
     icon: ShieldCheck,
     label: "Global Standards",
     title: "Global Standards",
+    floating: "STANDARDS",
     desc: "Every test we perform is conducted in strict adherence to international regulatory frameworks, ensuring your results are accepted worldwide.",
     keyPoints: [
       "NABL-accredited laboratory under ISO/IEC 17025:2017",
@@ -171,6 +176,7 @@ const highlights = [
     icon: FlaskConical,
     label: "End-to-End CRO",
     title: "End-to-End CRO",
+    floating: "SOLUTIONS",
     desc: "We handle every phase of your study — from initial design and protocol development through execution, data analysis, and final regulatory submission.",
     keyPoints: [
       "Study design, protocol writing & IEC/IACUC submission support",
@@ -191,6 +197,7 @@ const highlights = [
     icon: Zap,
     label: "Fast Turnaround",
     title: "Fast Turnaround",
+    floating: "SPEED",
     desc: "We understand that time matters in research. Our streamlined processes and experienced team deliver precise, reliable results faster than industry norms.",
     keyPoints: [
       "Optimised workflows that significantly reduce project lead times",
@@ -344,8 +351,9 @@ const About = () => (
     </section>
 
     {/* ── What Drives Us — alternating layout ───────────────────── */}
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="VALUES" className="top-20" direction={-1} />
+      <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           label="Our Values"
           title={
@@ -356,14 +364,20 @@ const About = () => (
           description="Our objective, mission, and vision are the guiding principles that shape every study we conduct and every partnership we build."
         />
 
-        <div className="space-y-28 md:space-y-36 mt-4">
+        <div className="space-y-32 md:space-y-48 mt-4">
           {values.map((v, i) => {
             const isEven = i % 2 === 0;
             return (
               <div
                 key={v.title}
-                className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                className="relative min-h-[400px] flex items-center"
               >
+                <FloatingText
+                  text={v.floating}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                 {/* ── Image panel ── */}
                 <AnimatedSection
                   direction={isEven ? "left" : "right"}
@@ -442,9 +456,11 @@ const About = () => (
                     </span>
 
                     {/* title */}
-                    <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
-                      {v.title}
-                    </h3>
+                    <RevealText>
+                      <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
+                        {v.title}
+                      </h3>
+                    </RevealText>
 
                     {/* coloured accent bar */}
                     <div
@@ -476,6 +492,7 @@ const About = () => (
                   </div>
                 </AnimatedSection>
               </div>
+            </div>
             );
           })}
         </div>
@@ -483,8 +500,9 @@ const About = () => (
     </section>
 
     {/* ── What Sets Us Apart — alternating layout ───────────────── */}
-    <section className="section-padding bg-card/20">
-      <div className="container mx-auto px-4">
+    <section className="section-padding bg-card/20 relative overflow-hidden">
+      <FloatingText text="DIFFERENCE" className="top-20" direction={1} />
+      <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           label="Our Strengths"
           title={
@@ -579,9 +597,11 @@ const About = () => (
                     </span>
 
                     {/* title */}
-                    <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
-                      {h.title}
-                    </h3>
+                    <RevealText>
+                      <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground leading-tight mb-5">
+                        {h.title}
+                      </h3>
+                    </RevealText>
 
                     {/* coloured accent bar */}
                     <div
@@ -707,11 +727,16 @@ const About = () => (
     </section>
 
     {/* ── Timeline ──────────────────────────────────────────────── */}
-    <section className="section-padding bg-card/30">
-      <div className="container mx-auto px-4">
+    <section className="section-padding bg-card/30 relative overflow-hidden">
+      <FloatingText text="JOURNEY" className="top-1/4" direction={-1} />
+      <div className="container mx-auto px-4 relative z-10">
         <SectionHeader
           label="Our Journey"
-          title="Company Timeline"
+          title={
+            <RevealText>
+              <span>Company Timeline</span>
+            </RevealText>
+          }
           description="From a proprietorship in Pune to a globally-recognized CRO — a story of passion, precision, and progress."
         />
 
@@ -769,8 +794,9 @@ const About = () => (
     </section>
 
     {/* ── CTA ───────────────────────────────────────────────────── */}
-    <section className="section-padding">
-      <div className="container mx-auto px-4">
+    <section className="section-padding relative overflow-hidden">
+      <FloatingText text="CONTACT" className="top-10" direction={1} />
+      <div className="container mx-auto px-4 relative z-10">
         <AnimatedSection>
           <div className="relative rounded-2xl overflow-hidden p-12 md:p-20 text-center glass-card glow-border">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-sky-500/5 pointer-events-none" />

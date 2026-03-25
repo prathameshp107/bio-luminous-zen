@@ -418,9 +418,17 @@ const Home = () => {
       </section>
 
       {/* ─── Process ──────────────────────────────────────────── */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
-          <SectionHeader label="Why Cryst Bio" title="Why Partner With Us" />
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text="PARTNER" className="top-10" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
+          <SectionHeader
+            label="Why Cryst Bio"
+            title={
+              <RevealText>
+                <span>Why Partner With Us</span>
+              </RevealText>
+            }
+          />
           <WhyPartner />
         </div>
       </section>
