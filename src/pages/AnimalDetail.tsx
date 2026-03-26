@@ -173,8 +173,9 @@ const AnimalDetail = () => {
       />
 
       {/* ── Intro — text left, image right ────────────────────── */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text={animal.name} className="top-1/4" direction={1} />
+        <div className="container mx-auto px-4 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* ── Left — all info ─────────────────────────────── */}
             <AnimatedSection direction="left">
@@ -388,8 +389,14 @@ const AnimalDetail = () => {
               return (
                 <div
                   key={strain.name}
-                  className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+                  className="relative min-h-[400px] flex items-center"
                 >
+                  <FloatingText
+                    text={`${strain.name}`}
+                    className="top-1/2 -translate-y-1/2"
+                    direction={isEven ? 1 : -1}
+                  />
+                  <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10">
                   {/* ── Image panel ─────────────────────────────── */}
                   <AnimatedSection
                     direction={isEven ? "left" : "right"}
@@ -518,6 +525,7 @@ const AnimalDetail = () => {
                       </div>
                     </div>
                   </AnimatedSection>
+                  </div>
                 </div>
               );
             })}
@@ -526,8 +534,9 @@ const AnimalDetail = () => {
       </section>
 
       {/* ── CTA ───────────────────────────────────────────────────── */}
-      <section className="section-padding">
-        <div className="container mx-auto px-4">
+      <section className="section-padding relative overflow-hidden">
+        <FloatingText text={animal.name} className="top-1/4" direction={-1} />
+        <div className="container mx-auto px-4 relative z-10">
           <AnimatedSection>
             <div className="relative rounded-2xl overflow-hidden p-12 md:p-20 text-center glass-card glow-border">
               {/* Colour wash */}

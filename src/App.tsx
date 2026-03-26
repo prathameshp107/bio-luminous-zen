@@ -21,6 +21,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import FAQ from "./pages/FAQ";
 import SEOManager from "@/components/SEOManager";
 import SmoothScroll from "@/components/SmoothScroll";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +33,7 @@ const App = () => (
       <SmoothScroll>
         <BrowserRouter>
           <SEOManager />
+          <ScrollToTop />
           <Navbar />
           <main className="min-h-screen">
             <Routes>
