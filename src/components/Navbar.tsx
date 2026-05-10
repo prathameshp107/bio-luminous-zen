@@ -5,6 +5,7 @@ import bioLogo from "@/assets/bio-logo-Black.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
 
+
 const links = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
@@ -12,6 +13,7 @@ const links = [
   { name: "Facilities", path: "/facilities" },
   { name: "Animal Supply", path: "/animal-supply" },
   { name: "Certifications", path: "/certifications" },
+  { name: "Gallery", path: "/gallery" },
   { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
 ];
