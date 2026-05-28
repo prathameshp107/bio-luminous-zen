@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import bioLogo from "@/assets/bio-logo-Black.png";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 
 
 const links = [
@@ -64,7 +65,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-3">
+          <ThemeToggle />
           <Link to="/contact">
             <Button
               variant="default"
@@ -110,11 +112,14 @@ const Navbar = () => {
                   {link.name}
                 </Link>
               ))}
-              <Link to="/contact" className="mt-2">
-                <Button className="w-full bg-primary text-primary-foreground">
-                  Get In Touch
-                </Button>
-              </Link>
+              <div className="flex items-center justify-between mt-4 pt-4 border-t border-border">
+                <ThemeToggle />
+                <Link to="/contact" className="flex-1 ml-3">
+                  <Button className="w-full bg-primary text-primary-foreground">
+                    Get In Touch
+                  </Button>
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}
