@@ -16,6 +16,7 @@ const links = [
   { name: "Certifications", path: "/certifications" },
   { name: "Gallery", path: "/gallery" },
   { name: "Testimonials", path: "/testimonials" },
+  { name: "Blog", path: "/blog" },
   { name: "Contact", path: "/contact" },
 ];
 
