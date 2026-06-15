@@ -197,6 +197,52 @@ const ServiceDetail = () => {
         </div>
       </section>
 
+      {/* Related Services — Cross Linking */}
+      <section className="section-padding bg-card/20">
+        <div className="container mx-auto px-4">
+          <SectionHeader
+            label="Explore More"
+            title={
+              <RevealText>
+                <span>Related Services</span>
+              </RevealText>
+            }
+            description="Discover our full range of preclinical research and testing capabilities."
+          />
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {servicesData
+              .filter((s) => s.slug !== service.slug)
+              .slice(0, 3)
+              .map((related) => (
+                <AnimatedSection key={related.slug} delay={0.05}>
+                  <Link
+                    to={`/services/${related.slug}`}
+                    className="group block glass-card p-6 hover-glow h-full transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <related.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-lg font-bold font-display text-foreground group-hover:text-primary transition-colors">
+                          {related.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
+                          {related.shortDesc}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="mt-4 flex items-center gap-1 text-sm font-medium text-primary opacity-0 group-hover:opacity-100 transition-all duration-300">
+                      Learn more <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              ))}
+          </div>
+        </div>
+      </section>
+
       {/* Key Features */}
       <section className="section-padding bg-card/30">
         <div className="container mx-auto px-4">

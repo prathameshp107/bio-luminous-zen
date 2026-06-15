@@ -33,12 +33,13 @@ export default function ParallaxImage({ src, alt, className = "", containerClass
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className={`overflow-hidden relative ${containerClassName}`}>
+    <div ref={containerRef} className={`overflow-hidden relative ${containerClassName}`} style={{ aspectRatio: '16/9' }}>
       <img
         ref={imageRef}
         src={src}
         alt={alt}
         className={`absolute top-[-20%] left-0 w-full h-[140%] object-cover ${className}`}
+        loading="lazy"
       />
     </div>
   );

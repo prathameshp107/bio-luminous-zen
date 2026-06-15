@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { animalModels } from "@/data/animalData";
 import { servicesData } from "@/data/servicesData";
+import { faqData } from "@/data/faqData";
 
 type SeoConfig = {
   title: string;
@@ -14,7 +15,17 @@ type SeoConfig = {
 };
 
 const SITE_NAME = "Cryst Bio Solutions";
-const DEFAULT_IMAGE = "/favicon.png";
+const ORG_NAME = "Cryst Bio Solutions Pvt. Ltd.";
+const DEFAULT_IMAGE = "/og-image.png";
+const SITE_PHONE = "+91-7276361762";
+const SITE_EMAIL = "info@crystbio.com";
+const SITE_ADDRESS = {
+  street: "Crystal Biological Solutions",
+  city: "Pune",
+  state: "Maharashtra",
+  country: "India",
+};
+const SITE_SAME_AS = ["https://www.linkedin.com/company/crystal-biological-solutions"];
 
 const stripTrailingSlash = (url: string) => url.replace(/\/+$/, "");
 
@@ -70,7 +81,66 @@ const setJsonLd = (items: Record<string, unknown>[] = []) => {
   });
 };
 
+// Shared LocalBusiness + Organization schema (injected as a single @graph)
+const getLocalBusinessGraph = (baseUrl: string): Record<string, unknown>[] => [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${baseUrl}/#organization`,
+    name: ORG_NAME,
+    url: baseUrl,
+    logo: `${baseUrl}/favicon.png`,
+    description: "Preclinical CRO in India offering toxicology testing, biocompatibility, histopathology, microbiology, and laboratory animal supply.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: SITE_ADDRESS.street,
+      addressLocality: SITE_ADDRESS.city,
+      addressRegion: SITE_ADDRESS.state,
+      addressCountry: SITE_ADDRESS.country,
+    },
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: SITE_PHONE,
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["en"],
+      },
+    ],
+    sameAs: SITE_SAME_AS,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${baseUrl}/#website`,
+    name: SITE_NAME,
+    url: baseUrl,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${baseUrl}/services`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+
+// Shared BreadcrumbList helper
+const getBreadcrumbList = (baseUrl: string, items: { name: string; url: string }[]): Record<string, unknown> => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": `${baseUrl}${items[items.length - 1].url}#breadcrumb`,
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.name,
+    item: `${baseUrl}${item.url}`,
+  })),
+});
+
 const getSeoForPath = (pathname: string): SeoConfig => {
+  const baseUrl = getBaseUrl();
   const isServiceDetail = pathname.startsWith("/services/");
   const isAnimalDetail = pathname.startsWith("/animal-supply/");
 
@@ -82,33 +152,48 @@ const getSeoForPath = (pathname: string): SeoConfig => {
       keywords:
         "preclinical CRO India, toxicology testing Pune, biocompatibility testing, laboratory animal supply, histopathology services, microbiology testing",
       jsonLd: [
+        ...getLocalBusinessGraph(baseUrl),
         {
           "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "Cryst Bio Solutions Pvt. Ltd.",
-          url: getBaseUrl(),
-          logo: `${getBaseUrl()}/favicon.png`,
-          contactPoint: [
+          "@type": "LocalBusiness",
+          "@id": `${baseUrl}/#localbusiness`,
+          name: ORG_NAME,
+          url: baseUrl,
+          telephone: SITE_PHONE,
+          email: SITE_EMAIL,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: SITE_ADDRESS.street,
+            addressLocality: SITE_ADDRESS.city,
+            addressRegion: SITE_ADDRESS.state,
+            postalCode: "",
+            addressCountry: SITE_ADDRESS.country,
+          },
+          openingHoursSpecification: [
             {
-              "@type": "ContactPoint",
-              telephone: "+91-7276361762",
-              contactType: "customer service",
-              areaServed: "IN",
-              availableLanguage: ["en"],
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              opens: "09:00",
+              closes: "18:00",
             },
           ],
-          sameAs: ["https://www.linkedin.com/company/crystal-biological-solutions"],
+          areaServed: ["IN", "EU", "US"],
+          hasCredential: [
+            "NABL Accreditation (ISO/IEC 17025:2017)",
+            "CPCSEA Registration",
+            "IAS Accreditation",
+            "MSME Registration",
+          ],
+          parentOrganization: { "@id": `${baseUrl}/#organization` },
         },
         {
           "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: SITE_NAME,
-          url: getBaseUrl(),
-          potentialAction: {
-            "@type": "SearchAction",
-            target: `${getBaseUrl()}/services`,
-            "query-input": "required name=search_term_string",
-          },
+          "@type": "ImageObject",
+          "@id": `${baseUrl}/#ogimage`,
+          url: `${baseUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          caption: "Cryst Bio Solutions - Preclinical CRO India",
         },
       ],
     };
@@ -121,6 +206,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Learn about Cryst Bio Solutions, our mission, scientific leadership, quality systems, and commitment to ethical, compliant preclinical research.",
       keywords:
         "about Cryst Bio Solutions, preclinical research company, CRO Pune, scientific team, quality compliance",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "About Us", url: "/about" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -131,6 +223,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Explore our preclinical services including toxicology, biocompatibility, agrochemical testing, research projects, histopathology, and microbiology.",
       keywords:
         "preclinical services, toxicology services, biocompatibility testing, agrochemical testing, CRO services India",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Services", url: "/services" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -144,17 +243,26 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         keywords: `${service.title.toLowerCase()}, preclinical ${service.title.toLowerCase()}, ${service.standards.slice(0, 3).join(", ").toLowerCase()}, Cryst Bio Solutions`,
         type: "article",
         jsonLd: [
+          getBreadcrumbList(baseUrl, [
+            { name: "Home", url: "/" },
+            { name: "Services", url: "/services" },
+            { name: service.title, url: `/services/${service.slug}` },
+          ]),
           {
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": `${baseUrl}/services/${service.slug}#service`,
             name: service.title,
             description: service.shortDesc,
             provider: {
               "@type": "Organization",
-              name: "Cryst Bio Solutions Pvt. Ltd.",
-              url: getBaseUrl(),
+              "@id": `${baseUrl}/#organization`,
+              name: ORG_NAME,
+              url: baseUrl,
             },
             areaServed: "IN",
+            serviceType: service.title,
+            termsOfService: `${baseUrl}/terms-of-service`,
           },
         ],
       };
@@ -168,6 +276,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Discover our state-of-the-art preclinical research infrastructure, controlled environments, and quality-focused laboratory systems.",
       keywords:
         "preclinical laboratory facilities, CRO infrastructure, GLP facility India, research labs Pune",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Facilities", url: "/facilities" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -178,6 +293,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "In-house bred laboratory animals including rats, mice, rabbits, guinea pigs, and hamsters from a CPCSEA-approved facility in Pune.",
       keywords:
         "laboratory animal supply, CPCSEA approved animal breeder, rats mice rabbits supply India, preclinical animal models",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Animal Supply", url: "/animal-supply" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -191,17 +313,29 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         keywords: `${animal.name.toLowerCase()} for research, laboratory ${animal.name.toLowerCase()}, CPCSEA animal supply, preclinical models`,
         type: "article",
         jsonLd: [
+          getBreadcrumbList(baseUrl, [
+            { name: "Home", url: "/" },
+            { name: "Animal Supply", url: "/animal-supply" },
+            { name: animal.name, url: `/animal-supply/${animal.slug}` },
+          ]),
           {
             "@context": "https://schema.org",
-            "@type": "Service",
-            name: `${animal.name} Laboratory Animal Supply`,
+            "@type": "Product",
+            "@id": `${baseUrl}/animal-supply/${animal.slug}#product`,
+            name: `${animal.name} - Laboratory Animal Models`,
             description: animal.shortDesc,
-            provider: {
+            animal: animal.name,
+            brand: {
               "@type": "Organization",
-              name: "Cryst Bio Solutions Pvt. Ltd.",
-              url: getBaseUrl(),
+              "@id": `${baseUrl}/#organization`,
+              name: ORG_NAME,
             },
-            areaServed: "IN",
+            offers: {
+              "@type": "Offer",
+              availability: "https://schema.org/InStock",
+              areaServed: "IN",
+            },
+            category: "Laboratory Animals",
           },
         ],
       };
@@ -215,6 +349,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Review our key certifications and accreditations including quality and regulatory recognitions supporting global preclinical compliance.",
       keywords:
         "CRO certifications, NABL accreditation, preclinical compliance, quality certifications India",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Certifications", url: "/certifications" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -225,6 +366,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Explore visual highlights of our laboratories, facilities, team, and research environment at Cryst Bio Solutions.",
       keywords:
         "CRO gallery, laboratory photos, preclinical facility images, Cryst Bio Solutions gallery",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Gallery", url: "/gallery" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -235,6 +383,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         "Read what partners and clients say about our preclinical testing quality, timelines, and scientific collaboration.",
       keywords:
         "CRO testimonials, preclinical client feedback, toxicology testing reviews, Cryst Bio Solutions clients",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Testimonials", url: "/testimonials" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
     };
   }
 
@@ -246,12 +401,23 @@ const getSeoForPath = (pathname: string): SeoConfig => {
       keywords:
         "contact preclinical CRO, request toxicology quote, Cryst Bio Solutions contact, CRO Pune contact",
       jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Contact", url: "/contact" },
+        ]),
         {
           "@context": "https://schema.org",
           "@type": "ContactPage",
+          "@id": `${baseUrl}/contact#contactpage`,
           name: "Contact Cryst Bio Solutions",
-          url: `${getBaseUrl()}/contact`,
+          url: `${baseUrl}/contact`,
+          description: "Contact us for toxicology testing, biocompatibility studies, and laboratory animal supply.",
+          mainEntity: {
+            "@type": "Organization",
+            "@id": `${baseUrl}/#organization`,
+          },
         },
+        ...getLocalBusinessGraph(baseUrl),
       ],
     };
   }
@@ -264,36 +430,56 @@ const getSeoForPath = (pathname: string): SeoConfig => {
       keywords:
         "preclinical CRO FAQ, toxicology testing questions, biocompatibility FAQ, laboratory animal supply FAQ",
       jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "FAQ", url: "/faq" },
+        ]),
         {
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "What services do you offer?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "We provide preclinical research services including toxicology testing, biocompatibility evaluation, histopathology, microbiology analysis, and custom research protocols, along with laboratory animal supply.",
-              },
+          "@id": `${baseUrl}/faq#faqpage`,
+          mainEntity: faqData.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
             },
-            {
-              "@type": "Question",
-              name: "Are your facilities accredited?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "Our laboratories are NABL accredited (ISO/IEC 17025:2017) and CPCSEA approved, and we operate under ISO 9001:2015 quality management systems.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "How do I request a quote?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: "You can request a quotation through our contact form, by emailing info@crystbio.com, or by calling our team directly.",
-              },
-            },
-          ],
+          })),
         },
+        ...getLocalBusinessGraph(baseUrl),
+      ],
+    };
+  }
+
+  if (pathname === "/privacy-policy") {
+    return {
+      title: "Privacy Policy | Cryst Bio Solutions",
+      description: "Cryst Bio Solutions' privacy policy — how we collect, use, and protect your personal information.",
+      keywords: "privacy policy, data protection, Cryst Bio Solutions privacy",
+      noindex: true,
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Privacy Policy", url: "/privacy-policy" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+      ],
+    };
+  }
+
+  if (pathname === "/terms-of-service") {
+    return {
+      title: "Terms of Service | Cryst Bio Solutions",
+      description: "Terms and conditions governing the use of Cryst Bio Solutions' website and services.",
+      keywords: "terms of service, terms and conditions, Cryst Bio Solutions terms",
+      noindex: true,
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Terms of Service", url: "/terms-of-service" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
       ],
     };
   }
@@ -335,6 +521,8 @@ const SEOManager = () => {
     upsertMetaByProperty("og:url", canonical);
     upsertMetaByProperty("og:site_name", SITE_NAME);
     upsertMetaByProperty("og:image", imageUrl);
+    upsertMetaByProperty("og:image:width", "1200");
+    upsertMetaByProperty("og:image:height", "630");
     upsertMetaByProperty("og:locale", "en_IN");
 
     upsertMetaByName("twitter:card", "summary_large_image");

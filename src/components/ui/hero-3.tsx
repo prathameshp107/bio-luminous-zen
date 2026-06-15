@@ -157,9 +157,10 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
             >
               <img
                 src={src}
-                alt={`Lab showcase ${index + 1}`}
+                alt={`Cryst Bio preclinical research laboratory ${index + 1}`}
                 className="w-full h-full object-cover rounded-2xl shadow-lg ring-1 ring-border/40"
-                loading="lazy"
+                loading={index < 4 ? "eager" : "lazy"}
+                fetchPriority={index < 2 ? "high" : undefined}
               />
               {/* Subtle shine overlay */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-background/30 to-transparent pointer-events-none" />
