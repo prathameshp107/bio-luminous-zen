@@ -59,7 +59,7 @@ const timeline = [
   {
     year: "2024",
     title: "Global Reach",
-    desc: "Consultation offices established in Europe and USA through marketing associates, cementing our position as a globally recognized CRO.",
+    desc: "Consultation offices established in Europe through marketing associates, cementing our position as a globally recognized CRO.",
   },
 ];
 
@@ -69,7 +69,7 @@ const values = [
     label: "Our Objective",
     title: "Objective",
     floating: "OBJECTIVE",
-    text: "To become one of the most trusted biocompatibility testing laboratories by providing consistent operation and prioritizing competency and impartiality.",
+    text: "To become the most trusted biocompatibility testing laboratory by providing consistent operation and prioritizing competency and impartiality.",
     keyPoints: [
       "Competency-first scientific approach in every study",
       "Transparent and impartial laboratory operations",
@@ -113,7 +113,7 @@ const values = [
     floating: "VISION",
     text: "To be a global leader in preclinical research, toxicology, and biocompatibility testing, recognized for scientific excellence, ethical standards, and regulatory compliance.",
     keyPoints: [
-      "Globally recognized CRO with offices in India, Europe & USA",
+      "Globally recognized CRO with offices in India & Europe",
       "Benchmark-setting standards in regulatory compliance",
       "Long-term partnerships built on trust and precision",
     ],
@@ -216,7 +216,7 @@ const highlights = [
   },
 ];
 
-const badges = ["ISO 10993", "OECD", "FDA", "ASTM", "USP", "CPCSEA"];
+const badges = ["ISO 10993", "OECD", "FDA", "ASTM", "USP", "CCSEA", "CPCSEA", "IAS Accredited", "Global CRO"];
 
 const About = () => (
   <div>
@@ -237,7 +237,7 @@ const About = () => (
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <ParallaxImage
                   src={aboutImg}
-                  alt="Cryst Bio Laboratory"
+                  alt="Cryst Bio Solutions Pvt. Ltd. Laboratory"
                   containerClassName="w-full h-full"
                   speed={0.15}
                 />
@@ -271,7 +271,7 @@ const About = () => (
                   </span>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  India · Europe · USA
+                  India · Europe
                 </p>
               </div>
 
@@ -656,7 +656,7 @@ const About = () => (
               <span>State-of-the-Art Infrastructure</span>
             </RevealText>
           }
-          description="Our modern laboratories and CPCSEA-approved animal facilities are designed to meet international standards for preclinical research."
+          description="Our modern laboratory and CPCSEA-approved animal facilities are designed to meet international standards for preclinical research."
         />
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           <AnimatedSection direction="left">
@@ -818,7 +818,7 @@ const About = () => (
                 <span className="gradient-text">Research?</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed text-lg">
-                Partner with Cryst Bio Solutions for reliable, high-quality
+                Partner with Cryst Bio Solutions Pvt. Ltd. for reliable, high-quality
                 preclinical research solutions designed to meet global
                 regulatory standards.
               </p>

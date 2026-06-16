@@ -105,7 +105,7 @@ const PrivacyPolicy = () => (
                 </li>
                 <li>
                   <strong className="text-foreground">Address:</strong>{" "}
-                  Crystal Biological Solutions, Pune, Maharashtra, India
+                  Cryst Bio Solutions Pvt. Ltd., Pune, Maharashtra, India
                 </li>
               </ul>
             </div>

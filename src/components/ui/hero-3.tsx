@@ -157,7 +157,7 @@ export const AnimatedMarqueeHero: React.FC<AnimatedMarqueeHeroProps> = ({
             >
               <img
                 src={src}
-                alt={`Cryst Bio preclinical research laboratory ${index + 1}`}
+                alt={`Cryst Bio Solutions Pvt. Ltd. preclinical research laboratory ${index + 1}`}
                 className="w-full h-full object-cover rounded-2xl shadow-lg ring-1 ring-border/40"
                 loading={index < 4 ? "eager" : "lazy"}
                 fetchPriority={index < 2 ? "high" : undefined}

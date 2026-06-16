@@ -40,7 +40,7 @@ const contactCards = [
   {
     icon: MapPin,
     label: "Visit Us",
-    value: "Crystal Biological Solutions",
+    value: "Cryst Bio Solutions Pvt. Ltd.",
     subtext: "Mon – Sat: Open for visits",
     href: "https://maps.app.goo.gl/FXvCnH2Gt7zKJftN7",
     iconBg: "bg-primary/10 border-primary/20",
@@ -185,7 +185,7 @@ const Contact = () => {
           _template: "table",
           _captcha: "false",
           _autoresponse:
-            "Thank you for contacting Cryst Bio. Our team will respond within 24 hours."
+            "Thank you for contacting Cryst Bio Solutions Pvt. Ltd. Our team will respond within 24 hours."
         }),
       });
 
@@ -555,7 +555,7 @@ const Contact = () => {
                   <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group shadow-2xl">
                     <ParallaxImage
                       src={facilitiesImg}
-                      alt="Cryst Bio Laboratory"
+                      alt="Cryst Bio Solutions Pvt. Ltd. Laboratory"
                       containerClassName="w-full h-full"
                       className="transition-transform duration-700 group-hover:scale-105"
                       speed={0.1}
@@ -584,7 +584,7 @@ const Contact = () => {
                     <div className="flex items-center gap-2">
                       <Globe className="w-4 h-4 text-primary" />
                       <span className="text-xs font-semibold text-primary">
-                        India · Europe · USA
+                        India · Europe
                       </span>
                     </div>
                   </div>
@@ -651,7 +651,7 @@ const Contact = () => {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Crystal Biological Solutions Location"
+                  title="Cryst Bio Solutions Pvt. Ltd. Location"
                 />
               </div>
 
@@ -660,7 +660,7 @@ const Contact = () => {
                 <div className="relative rounded-2xl overflow-hidden aspect-[16/9] group shadow-xl flex-shrink-0">
                   <ParallaxImage
                     src={aboutLabImg}
-                    alt="Cryst Bio Facility"
+                    alt="Cryst Bio Solutions Pvt. Ltd. Facility"
                     containerClassName="w-full h-full"
                     className="transition-transform duration-700 group-hover:scale-105"
                     speed={0.1}
@@ -693,7 +693,7 @@ const Contact = () => {
                         international standards.
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {["NABL", "CPCSEA", "ISO 10993", "OECD"].map((b) => (
+                        {["NABL", "CCSEA", "CPCSEA", "ISO 10993", "IAS Accredited", "OECD", "Global CRO"].map((b) => (
                           <span
                             key={b}
                             className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 border border-primary/20 text-primary"

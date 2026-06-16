@@ -15,7 +15,7 @@ export const faqData: FaqItem[] = [
     category: "General",
     question: "Are your facilities accredited?",
     answer:
-      "Yes. Our laboratories are NABL accredited (ISO/IEC 17025:2017) and CPCSEA approved. We also operate under ISO 9001:2015 quality management systems.",
+      "Yes. Our laboratory is NABL accredited (ISO/IEC 17025:2017) and CPCSEA approved. We also operate under ISO 9001:2015 quality management systems.",
   },
   {
     category: "General",
@@ -39,6 +39,6 @@ export const faqData: FaqItem[] = [
     category: "Quality & Compliance",
     question: "What quality standards do you follow?",
     answer:
-      "Our studies follow international standards including OECD guidelines, GLP principles, ISO standards, and CPCSEA animal welfare regulations.",
+      "Our studies follow international standards including OECD guidelines, GLP compliance, and CPCSEA animal welfare regulations.",
   },
 ];

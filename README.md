@@ -1,8 +1,8 @@
-﻿# Cryst Bio Solutions Website
+﻿# Cryst Bio Solutions Pvt. Ltd. Website
 
 ## Project Overview
 
-This repository contains the Cryst Bio Solutions web application, built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui.
+This repository contains the Cryst Bio Solutions Pvt. Ltd. web application, built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui.
 
 ## Getting Started
 

@@ -14,13 +14,13 @@ type SeoConfig = {
   jsonLd?: Record<string, unknown>[];
 };
 
-const SITE_NAME = "Cryst Bio Solutions";
+const SITE_NAME = "Cryst Bio Solutions Pvt. Ltd.";
 const ORG_NAME = "Cryst Bio Solutions Pvt. Ltd.";
 const DEFAULT_IMAGE = "/og-image.png";
 const SITE_PHONE = "+91-7276361762";
 const SITE_EMAIL = "info@crystbio.com";
 const SITE_ADDRESS = {
-  street: "Crystal Biological Solutions",
+  street: "Cryst Bio Solutions Pvt. Ltd.",
   city: "Pune",
   state: "Maharashtra",
   country: "India",
@@ -146,9 +146,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/") {
     return {
-      title: "Preclinical CRO in India | Toxicology & Biocompatibility | Cryst Bio Solutions",
+      title: "Preclinical CRO in India | Toxicology & Biocompatibility | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Cryst Bio Solutions is a Pune-based preclinical CRO offering toxicology testing, biocompatibility testing, histopathology, microbiology, and laboratory animal supply.",
+        "Cryst Bio Solutions Pvt. Ltd. is a Pune-based preclinical CRO offering toxicology testing, biocompatibility testing, histopathology, microbiology, and laboratory animal supply.",
       keywords:
         "preclinical CRO India, toxicology testing Pune, biocompatibility testing, laboratory animal supply, histopathology services, microbiology testing",
       jsonLd: [
@@ -177,12 +177,14 @@ const getSeoForPath = (pathname: string): SeoConfig => {
               closes: "18:00",
             },
           ],
-          areaServed: ["IN", "EU", "US"],
+          areaServed: ["IN", "EU"],
           hasCredential: [
             "NABL Accreditation (ISO/IEC 17025:2017)",
+            "CCSEA Certification",
             "CPCSEA Registration",
             "IAS Accreditation",
             "MSME Registration",
+            "Global CRO",
           ],
           parentOrganization: { "@id": `${baseUrl}/#organization` },
         },
@@ -193,7 +195,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           url: `${baseUrl}/og-image.png`,
           width: 1200,
           height: 630,
-          caption: "Cryst Bio Solutions - Preclinical CRO India",
+          caption: "Cryst Bio Solutions Pvt. Ltd. - Preclinical CRO India",
         },
       ],
     };
@@ -201,11 +203,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/about") {
     return {
-      title: "About Cryst Bio Solutions | Preclinical Research Expertise",
+      title: "About Cryst Bio Solutions Pvt. Ltd. | Preclinical Research Expertise",
       description:
-        "Learn about Cryst Bio Solutions, our mission, scientific leadership, quality systems, and commitment to ethical, compliant preclinical research.",
+        "Learn about Cryst Bio Solutions Pvt. Ltd., our mission, scientific leadership, quality systems, and commitment to ethical, compliant preclinical research.",
       keywords:
-        "about Cryst Bio Solutions, preclinical research company, CRO Pune, scientific team, quality compliance",
+        "about Cryst Bio Solutions Pvt. Ltd., preclinical research company, CRO Pune, scientific team, quality compliance",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -238,9 +240,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
     const service = servicesData.find((entry) => entry.slug === slug);
     if (service) {
       return {
-        title: `${service.title} | Cryst Bio Solutions`,
+        title: `${service.title} | Cryst Bio Solutions Pvt. Ltd.`,
         description: service.shortDesc,
-        keywords: `${service.title.toLowerCase()}, preclinical ${service.title.toLowerCase()}, ${service.standards.slice(0, 3).join(", ").toLowerCase()}, Cryst Bio Solutions`,
+        keywords: `${service.title.toLowerCase()}, preclinical ${service.title.toLowerCase()}, ${service.standards.slice(0, 3).join(", ").toLowerCase()}, Cryst Bio Solutions Pvt. Ltd.`,
         type: "article",
         jsonLd: [
           getBreadcrumbList(baseUrl, [
@@ -271,7 +273,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/facilities") {
     return {
-      title: "Facilities & Infrastructure | Cryst Bio Solutions",
+      title: "Facilities & Infrastructure | Cryst Bio Solutions Pvt. Ltd.",
       description:
         "Discover our state-of-the-art preclinical research infrastructure, controlled environments, and quality-focused laboratory systems.",
       keywords:
@@ -308,7 +310,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
     const animal = animalModels.find((entry) => entry.slug === slug);
     if (animal) {
       return {
-        title: `${animal.name} for Research Studies | Cryst Bio Solutions`,
+        title: `${animal.name} for Research Studies | Cryst Bio Solutions Pvt. Ltd.`,
         description: animal.shortDesc,
         keywords: `${animal.name.toLowerCase()} for research, laboratory ${animal.name.toLowerCase()}, CPCSEA animal supply, preclinical models`,
         type: "article",
@@ -344,7 +346,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/certifications") {
     return {
-      title: "Certifications & Accreditations | Cryst Bio Solutions",
+      title: "Certifications & Accreditations | Cryst Bio Solutions Pvt. Ltd.",
       description:
         "Review our key certifications and accreditations including quality and regulatory recognitions supporting global preclinical compliance.",
       keywords:
@@ -361,11 +363,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/gallery") {
     return {
-      title: "Gallery | Cryst Bio Solutions",
+      title: "Gallery | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Explore visual highlights of our laboratories, facilities, team, and research environment at Cryst Bio Solutions.",
+        "Explore visual highlights of our laboratory, facilities, team, and research environment at Cryst Bio Solutions Pvt. Ltd.",
       keywords:
-        "CRO gallery, laboratory photos, preclinical facility images, Cryst Bio Solutions gallery",
+        "CRO gallery, laboratory photos, preclinical facility images, Cryst Bio Solutions Pvt. Ltd. gallery",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -378,11 +380,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/testimonials") {
     return {
-      title: "Client Testimonials | Cryst Bio Solutions",
+      title: "Client Testimonials | Cryst Bio Solutions Pvt. Ltd.",
       description:
         "Read what partners and clients say about our preclinical testing quality, timelines, and scientific collaboration.",
       keywords:
-        "CRO testimonials, preclinical client feedback, toxicology testing reviews, Cryst Bio Solutions clients",
+        "CRO testimonials, preclinical client feedback, toxicology testing reviews, Cryst Bio Solutions Pvt. Ltd. clients",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -395,11 +397,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/contact") {
     return {
-      title: "Contact Cryst Bio Solutions | Request a Quote",
+      title: "Contact Cryst Bio Solutions Pvt. Ltd. | Request a Quote",
       description:
-        "Contact Cryst Bio Solutions for toxicology testing, biocompatibility studies, and laboratory animal supply. Speak with our team in Pune.",
+        "Contact Cryst Bio Solutions Pvt. Ltd. for toxicology testing, biocompatibility studies, and laboratory animal supply. Speak with our team in Pune.",
       keywords:
-        "contact preclinical CRO, request toxicology quote, Cryst Bio Solutions contact, CRO Pune contact",
+        "contact preclinical CRO, request toxicology quote, Cryst Bio Solutions Pvt. Ltd. contact, CRO Pune contact",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -409,7 +411,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           "@context": "https://schema.org",
           "@type": "ContactPage",
           "@id": `${baseUrl}/contact#contactpage`,
-          name: "Contact Cryst Bio Solutions",
+          name: "Contact Cryst Bio Solutions Pvt. Ltd.",
           url: `${baseUrl}/contact`,
           description: "Contact us for toxicology testing, biocompatibility studies, and laboratory animal supply.",
           mainEntity: {
@@ -424,7 +426,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/faq") {
     return {
-      title: "FAQ | Cryst Bio Solutions",
+      title: "FAQ | Cryst Bio Solutions Pvt. Ltd.",
       description:
         "Find answers to common questions about our preclinical testing services, compliance standards, turnaround times, and engagement process.",
       keywords:
@@ -454,9 +456,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/privacy-policy") {
     return {
-      title: "Privacy Policy | Cryst Bio Solutions",
-      description: "Cryst Bio Solutions' privacy policy — how we collect, use, and protect your personal information.",
-      keywords: "privacy policy, data protection, Cryst Bio Solutions privacy",
+      title: "Privacy Policy | Cryst Bio Solutions Pvt. Ltd.",
+      description: "Cryst Bio Solutions Pvt. Ltd.'s privacy policy — how we collect, use, and protect your personal information.",
+      keywords: "privacy policy, data protection, Cryst Bio Solutions Pvt. Ltd. privacy",
       noindex: true,
       jsonLd: [
         getBreadcrumbList(baseUrl, [
@@ -470,9 +472,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/terms-of-service") {
     return {
-      title: "Terms of Service | Cryst Bio Solutions",
-      description: "Terms and conditions governing the use of Cryst Bio Solutions' website and services.",
-      keywords: "terms of service, terms and conditions, Cryst Bio Solutions terms",
+      title: "Terms of Service | Cryst Bio Solutions Pvt. Ltd.",
+      description: "Terms and conditions governing the use of Cryst Bio Solutions Pvt. Ltd.'s website and services.",
+      keywords: "terms of service, terms and conditions, Cryst Bio Solutions Pvt. Ltd. terms",
       noindex: true,
       jsonLd: [
         getBreadcrumbList(baseUrl, [
@@ -485,9 +487,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
   }
 
   return {
-    title: "Page Not Found | Cryst Bio Solutions",
+    title: "Page Not Found | Cryst Bio Solutions Pvt. Ltd.",
     description: "The page you are looking for could not be found.",
-    keywords: "404, page not found, Cryst Bio Solutions",
+    keywords: "404, page not found, Cryst Bio Solutions Pvt. Ltd.",
     noindex: true,
   };
 };
@@ -507,7 +509,7 @@ const SEOManager = () => {
 
     upsertMetaByName("description", seo.description);
     upsertMetaByName("keywords", seo.keywords);
-    upsertMetaByName("author", "Cryst Bio Solutions | Developed by Prathamesh Pawar");
+    upsertMetaByName("author", "Cryst Bio Solutions Pvt. Ltd. | Developed by Prathamesh Pawar");
     upsertMetaByName(
       "robots",
       seo.noindex

@@ -102,7 +102,7 @@ const services = [
     title: "Microbiology",
     desc: "Sterility, endotoxin, antimicrobial effectiveness & environmental monitoring services.",
     img: serviceMicro,
-    tag: "ISO / USP",
+    tag: "GLP / USP",
     slug: "microbiology",
   },
 ];
@@ -118,7 +118,7 @@ const processSteps = [
     num: "02",
     icon: FileCheck2,
     title: "Study Design",
-    desc: "Tailored protocol development aligned with OECD, FDA, ISO & USP guidelines.",
+    desc: "Tailored protocol development aligned with OECD, FDA, GLP & USP guidelines.",
   },
   {
     num: "03",
@@ -135,11 +135,13 @@ const processSteps = [
 ];
 
 const aboutFeatures = [
-  "NABL Accredited Laboratories",
+  "NABL Accredited Laboratory",
+  "CCSEA Certified",
   "CPCSEA Certified Animal Facility",
   "ISO 10993 Biocompatibility Studies",
   "OECD & FDA Compliant Protocols",
-  "Global CRO with European & US Offices",
+  "IAS Accredited",
+  "Global CRO",
 ];
 
 const HERO_MARQUEE_IMAGES = [
@@ -208,7 +210,7 @@ const Home = () => {
               <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-xl" />
               <ImageReveal
                 src={aboutImg}
-                alt="About Cryst Bio"
+                alt="About Cryst Bio Solutions Pvt. Ltd."
                 containerClassName="rounded-2xl w-full aspect-[4/3] ring-1 ring-border/50 shadow-2xl"
                 direction="left"
               />
@@ -242,14 +244,14 @@ const Home = () => {
                 tag="h2"
                 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight"
               >
-                Cryst Bio Solutions
+                Cryst Bio Solutions Pvt. Ltd.
               </ScrollRevealText>
 
               <AnimatedSection delay={0.2}>
                 <p className="mt-5 text-muted-foreground leading-relaxed">
                   A rapidly emerging Preclinical Contract Research Organization
                   (CRO) and laboratory animal breeder based in Pune, Maharashtra —
-                  with consultation offices in Europe and the USA.
+                  with consultation offices across Europe.
                 </p>
               </AnimatedSection>
               <AnimatedSection delay={0.3}>
@@ -472,7 +474,7 @@ const Home = () => {
                 </ScrollRevealText>
                 <AnimatedSection delay={0.3}>
                   <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                    Our state-of-the-art laboratories and CPCSEA-certified animal facility
+                    Our state-of-the-art laboratory and CPCSEA-certified animal facility
                     provide the foundation for reliable, reproducible research results.
                   </p>
                 </AnimatedSection>

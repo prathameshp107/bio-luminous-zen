@@ -239,7 +239,7 @@ export const servicesData: ServiceData[] = [
     shortDesc: "Comprehensive microbiology testing including sterility testing, bacterial endotoxin testing, antimicrobial effectiveness, and environmental monitoring.",
     features: ["Sterility Testing", "Endotoxin Testing", "Antimicrobial Testing", "Environmental Monitoring"],
     heroDescription: "Comprehensive microbiology testing solutions ensuring product sterility, safety, and compliance with pharmacopeial standards.",
-    overview: "Our microbiology laboratory provides critical testing services for pharmaceutical, medical device, and cosmetic manufacturers. From sterility assurance to environmental monitoring, we help clients maintain the highest standards of microbiological quality and regulatory compliance using validated methods per USP, EP, IP, and ISO standards.",
+    overview: "Our microbiology laboratory provides critical testing services for pharmaceutical, medical device, and cosmetic manufacturers. From sterility assurance to environmental monitoring, we help clients maintain the highest standards of microbiological quality and regulatory compliance using validated methods per USP, EP, IP, and GLP standards.",
     subServices: [
       { title: "Sterility Testing", description: "Membrane filtration and direct inoculation methods for sterility testing of pharmaceutical products, medical devices, and raw materials.", guidelines: ["USP <71>", "IP", "EP 2.6.1"], img: subMicroSterility },
       { title: "Bacterial Endotoxin Testing (LAL)", description: "Limulus Amebocyte Lysate (LAL) testing using gel-clot, turbidimetric, and chromogenic methods for endotoxin detection.", guidelines: ["USP <85>", "EP 2.6.14"], img: subMicroEndotoxin },

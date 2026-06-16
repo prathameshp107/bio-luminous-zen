@@ -36,7 +36,7 @@ const stats = [
   { value: "24/7", label: "Environment Monitoring", icon: Thermometer },
 ];
 
-const complianceBadges = ["NABL", "ISO 17025", "CPCSEA", "MSME", "GLP Ready"];
+const complianceBadges = ["NABL", "ISO 17025", "CCSEA", "CPCSEA", "MSME", "IAS Accredited", "GLP Ready", "Global CRO"];
 
 /* ── Facility highlights ─────────────────────────────────────────── */
 const highlights = [
@@ -50,7 +50,7 @@ const highlights = [
       "Dedicated areas for toxicology, histopathology, and microbiology",
       "Regular calibration and maintenance per ISO/IEC 17025:2017 standards",
     ],
-    badge: "ISO Accredited",
+    badge: "GLP Compliant",
     iconBg: "bg-primary/10 border-primary/20",
     iconColor: "text-primary",
     accentBar: "bg-primary",
@@ -183,7 +183,7 @@ const Facilities = () => (
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <ParallaxImage
                   src={facilitiesImg}
-                  alt="Cryst Bio Facilities"
+                  alt="Cryst Bio Solutions Pvt. Ltd. Facilities"
                   containerClassName="w-full h-full"
                   speed={0.15}
                 />

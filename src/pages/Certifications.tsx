@@ -31,7 +31,7 @@ const certs = [
     name: "IAS Accreditation",
     FloatingText: "IAS",
     code: "TL-1015",
-    desc: "International Accreditation Service — AC89 criteria for Testing Laboratories, ISO/IEC 17025:2017 compliance for internationally accepted test results and reports.",
+    desc: "International Accreditation Service — AC89 criteria for Testing Laboratory, ISO/IEC 17025:2017 compliance for internationally accepted test results and reports.",
     image: certIasCpcsea,
     validity: "Effective January 12, 2024",
     features: [
@@ -87,7 +87,7 @@ const certs = [
     name: "Certificate of Incorporation",
     FloatingText: "Incorporation",
     code: "U71200PN2024PTC231728",
-    desc: "Ministry of Corporate Affairs — Cryst Bio Solutions Private Limited incorporated on 11th June 2024 under the Companies Act, 2013, as a legally registered entity in India.",
+    desc: "Ministry of Corporate Affairs — Cryst Bio Solutions Pvt. Ltd. incorporated on 11th June 2024 under the Companies Act, 2013, as a legally registered entity in India.",
     image: certIncorporation,
     validity: "Incorporated 11/06/2024",
     features: [
