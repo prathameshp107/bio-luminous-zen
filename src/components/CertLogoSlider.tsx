@@ -8,7 +8,7 @@ import logoIec from "@/assets/logo-iec.png";
 
 const logos = [
   { src: logoNabl, alt: "NABL Accreditation" },
-  { src: logoCpcsea, alt: "CPCSEA Certification" },
+  { src: logoCpcsea, alt: "CCSEA Certification" },
   { src: logoIas, alt: "IAS Accreditation" },
   { src: logoIlac, alt: "ILAC Accreditation" },
   { src: logoMsme, alt: "MSME Registration" },
@@ -18,29 +18,25 @@ const logos = [
 const doubled = [...logos, ...logos];
 
 const CertLogoSlider = () => (
-  <div className="overflow-hidden py-6">
+  <div className="overflow-hidden py-8">
     <motion.div
-      className="flex items-center gap-12 md:gap-16"
+      className="flex items-center gap-8 md:gap-12"
       animate={{ x: ["0%", "-50%"] }}
-      transition={{ duration: 30, ease: "linear", repeat: Infinity }}
+      transition={{ duration: 35, ease: "linear", repeat: Infinity }}
     >
       {doubled.map((logo, i) => (
         <div
           key={i}
-          className="flex-shrink-0 w-36 md:w-44 h-24 md:h-28 flex items-center justify-center
-                     bg-white/10 dark:bg-white/5 rounded-xl px-4 py-3
-                     border border-white/10 dark:border-white/5
-                     shadow-sm hover:shadow-md
-                     opacity-80 hover:opacity-100
+          className="flex-shrink-0 w-44 md:w-52 h-28 md:h-32 flex items-center justify-center
+                     bg-white dark:bg-white/95 rounded-xl px-5 py-4
+                     border border-gray-200 dark:border-gray-300/30
+                     shadow-md hover:shadow-xl
                      transition-all duration-300 hover:scale-105"
         >
           <img
             src={logo.src}
             alt={logo.alt}
-            className="w-full h-full object-contain
-                       invert dark:invert-0
-                       hover:invert-0 dark:hover:invert
-                       drop-shadow-sm"
+            className="w-full h-full object-contain drop-shadow-sm"
           />
         </div>
       ))}

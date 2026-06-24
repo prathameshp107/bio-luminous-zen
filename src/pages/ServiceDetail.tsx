@@ -26,6 +26,7 @@ const ServiceDetail = () => {
       />
 
       {/* Overview */}
+      {service.overview && (
       <section className="section-padding">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -72,6 +73,7 @@ const ServiceDetail = () => {
           </div>
         </div>
       </section>
+      )}
 
       <section className="section-padding bg-card/30 relative overflow-hidden">
         <FloatingText text={service.title.toUpperCase()} className="top-1/4" direction={1} />
@@ -160,7 +162,7 @@ const ServiceDetail = () => {
                 <span>Featured Projects</span>
               </RevealText>
             }
-            description="Selected examples of how we've helped clients achieve their research and regulatory objectives."
+            description="Selected studies executed at Cryst Bio Solutions Pvt. Ltd. under NABL-accredited and IAS-accredited conditions, meeting global standards for regulatory acceptance."
           />
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -257,7 +259,7 @@ const ServiceDetail = () => {
                   "Experienced team of scientists and study directors",
                   "Fast turnaround with transparent reporting",
                   "End-to-end support from study design to submission",
-                  "Internationally recognized certifications",
+                  "CCSEA Norms and IAEC Approval for all in-vivo studies",
                   "Dedicated project management for each study",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 p-3 rounded-xl bg-card border border-border/40">

@@ -32,7 +32,7 @@ const services = [
   { name: "Microbiology", slug: "microbiology-services" },
 ];
 
-const accreditations = ["NABL", "IAS Accredited", "CCSEA", "CPCSEA", "MSME", "IEC", "Global CRO"];
+const accreditations = ["NABL", "IAS Accredited", "CCSEA", "MSME", "IEC", "Global CRO"];
 
 const stats = [
   { value: "50+", label: "Scientists & Researchers" },
@@ -206,14 +206,14 @@ const Footer = () => {
               {/* Email */}
               <li>
                 <a
-                  href="mailto:info@crystbio.com"
+                  href="mailto:enquiry@crystbio.com"
                   className="flex items-center gap-3 group"
                 >
                   <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
                     <Mail className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    info@crystbio.com
+                    enquiry@crystbio.com
                   </span>
                 </a>
               </li>

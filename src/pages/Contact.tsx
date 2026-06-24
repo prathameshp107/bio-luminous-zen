@@ -32,7 +32,7 @@ import aboutLabImg from "@/assets/about-lab.jpg";
 import facilitiesImg from "@/assets/facilities.jpg";
 
 /* ─── Config ─────────────────────────────────────────────────── */
-const FORMSUBMIT_EMAIL = "info@crystbio.com";
+const FORMSUBMIT_EMAIL = "enquiry@crystbio.com";
 const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`;
 
 /* ─── Contact Info ───────────────────────────────────────────── */
@@ -60,9 +60,9 @@ const contactCards = [
   {
     icon: Mail,
     label: "Email Us",
-    value: "info@crystbio.com",
+    value: "enquiry@crystbio.com",
     subtext: "We reply within 24 hours",
-    href: "mailto:info@crystbio.com",
+    href: "mailto:enquiry@crystbio.com",
     iconBg: "bg-sky-500/10 border-sky-500/25",
     iconColor: "text-sky-400",
     glow: "bg-sky-500/6",
@@ -350,7 +350,7 @@ const Contact = () => {
                             </p>
                             <p className="text-xs text-red-400/70 mt-0.5">
                               We couldn't send your message. Please try again or
-                              email us directly at info@crystbio.com.
+                              email us directly at enquiry@crystbio.com.
                             </p>
                           </div>
                         </motion.div>
@@ -693,7 +693,7 @@ const Contact = () => {
                         international standards.
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {["NABL", "CCSEA", "CPCSEA", "ISO 10993", "IAS Accredited", "OECD", "Global CRO"].map((b) => (
+                        {["NABL", "CCSEA", "ISO 10993", "IAS Accredited", "OECD", "Global CRO"].map((b) => (
                           <span
                             key={b}
                             className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-primary/10 border border-primary/20 text-primary"

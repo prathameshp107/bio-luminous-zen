@@ -697,7 +697,7 @@ const Testimonials = () => {
 
       {/*  Case Highlights - Alternating image+text (like About) */}
       <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
-        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
+        <FloatingText text="CCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Study Outcomes"
@@ -911,7 +911,7 @@ const Testimonials = () => {
 
       {/* ─── Lab Showcase Banner ───────────────────────────────────── */}
       <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
-        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
+        <FloatingText text="CCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
@@ -932,10 +932,10 @@ const Testimonials = () => {
                     <span className="gradient-text">Infrastructure</span>
                   </h3>
                   <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
-                    Every study is performed in our NABL-accredited, CPCSEA-approved facility — purpose-built for precision, reproducibility and regulatory compliance.
+                    Every study is performed in our NABL-accredited, CCSEA-approved facility — purpose-built for precision, reproducibility and regulatory compliance.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["NABL Accredited", "CCSEA", "CPCSEA Approved", "ISO/IEC 17025:2017", "IAS Accredited", "Global CRO"].map((b) => (
+                    {["NABL Accredited", "CCSEA", "GLP Compliant", "IAS Accredited", "Global CRO"].map((b) => (
                       <span key={b} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/15 border border-primary/30 text-primary backdrop-blur-sm">
                         {b}
                       </span>
@@ -1008,7 +1008,7 @@ const Testimonials = () => {
 
                   {/* Trust row */}
                   <div className="flex flex-wrap justify-center gap-6 mt-10">
-                    {["NABL Accredited", "CCSEA", "CPCSEA Certified", "ISO 10993", "OECD Compliant", "IAS Accredited", "Global CRO"].map((badge) => (
+                    {["NABL Accredited", "CCSEA", "ISO 10993", "OECD Compliant", "IAS Accredited", "Global CRO"].map((badge) => (
                       <span key={badge} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                         {badge}

@@ -90,7 +90,7 @@ const values = [
     label: "Our Mission",
     title: "Mission",
     floating: "MISSION",
-    text: "To drive excellence in preclinical research, toxicology, and biocompatibility testing by upholding the highest standards of quality, accuracy, and scientific integrity.",
+    text: "To drive excellence in preclinical research and biocompatibility testing by upholding the highest standards of quality, accuracy, and scientific integrity.",
     keyPoints: [
       "ISO 10993, OECD & FDA compliant testing protocols",
       "Highest accuracy reports with fast turnaround",
@@ -111,7 +111,7 @@ const values = [
     label: "Our Vision",
     title: "Vision",
     floating: "VISION",
-    text: "To be a global leader in preclinical research, toxicology, and biocompatibility testing, recognized for scientific excellence, ethical standards, and regulatory compliance.",
+    text: "To be a globally recognised leader in preclinical research and biocompatibility testing, known for scientific excellence, ethical standards, and regulatory compliance nationally & internationally.",
     keyPoints: [
       "Globally recognized CRO with offices in India & Europe",
       "Benchmark-setting standards in regulatory compliance",
@@ -158,9 +158,9 @@ const highlights = [
     floating: "STANDARDS",
     desc: "Every test we perform is conducted in strict adherence to international regulatory frameworks, ensuring your results are accepted worldwide.",
     keyPoints: [
-      "NABL-accredited laboratory under ISO/IEC 17025:2017",
-      "Full compliance with ISO 10993, OECD, FDA, ASTM & USP",
-      "Regular third-party audits and quality assurance checks",
+      "GLP Compliance — documented quality systems for all preclinical studies",
+      "CCSEA Norms — full adherence to animal welfare and ethical regulations",
+      "IAEC Approval — institutional ethics committee clearance for each study protocol",
     ],
     iconBg: "bg-emerald-500/10 border-emerald-500/25",
     iconColor: "text-emerald-400",
@@ -216,7 +216,7 @@ const highlights = [
   },
 ];
 
-const badges = ["ISO 10993", "OECD", "FDA", "ASTM", "USP", "CCSEA", "CPCSEA", "IAS Accredited", "Global CRO"];
+const badges = ["ISO 10993", "OECD", "ASTM", "USP", "CCSEA", "CCSEA", "IAS Accredited", "Global CRO"];
 
 const About = () => (
   <div>
@@ -299,8 +299,8 @@ const About = () => (
               <p>
                 Originally established in 2018 as Crystal Biological Solutions,
                 we have since evolved into Cryst Bio Solutions Pvt. Ltd. Our
-                core services include Toxicology Testing and Preclinical
-                Research in compliance with international regulatory guidelines.
+                core services include comprehensive preclinical research
+                and testing, nationally & internationally recognised.
               </p>
               <p>
                 Our young, dynamic, and knowledgeable team is dedicated to
@@ -656,7 +656,7 @@ const About = () => (
               <span>State-of-the-Art Infrastructure</span>
             </RevealText>
           }
-          description="Our modern laboratory and CPCSEA-approved animal facilities are designed to meet international standards for preclinical research."
+          description="Our modern laboratory and CCSEA-approved animal facilities are designed to meet international standards for preclinical research."
         />
         <div className="grid md:grid-cols-2 gap-6 items-stretch">
           <AnimatedSection direction="left">
@@ -699,7 +699,7 @@ const About = () => (
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-5">
                   <span className="text-xs font-medium uppercase tracking-widest text-primary">
-                    CPCSEA Approved
+                    CCSEA Approved
                   </span>
                   <h4 className="text-lg font-display font-bold text-foreground mt-1">
                     Animal Facility
@@ -720,7 +720,7 @@ const About = () => (
                     </h4>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       Our facility holds NABL accreditation under ISO/IEC
-                      17025:2017, CPCSEA registration, and MSME certification —
+                      17025:2017, CCSEA registration, and MSME certification —
                       ensuring full alignment with the highest global regulatory
                       standards.
                     </p>

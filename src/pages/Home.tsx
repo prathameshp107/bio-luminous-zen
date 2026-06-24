@@ -60,7 +60,7 @@ const services = [
   {
     icon: Leaf,
     title: "Agrochemical Testing",
-    desc: "Regulatory-compliant testing for agrochemical products including acute toxicity and environmental assessment.",
+    desc: "Regulatory-compliant testing including acute toxicity, sub-chronic, and environmental assessment per OECD guidelines.",
     img: serviceAgrochem,
     tag: "OECD Guidelines",
     slug: "agrochemical-testing",
@@ -112,32 +112,31 @@ const processSteps = [
     num: "01",
     icon: ClipboardList,
     title: "Consultation",
-    desc: "Discuss your research needs and regulatory requirements with our scientific team.",
+    desc: "Connect with Cryst Bio Solutions Pvt. Ltd. scientific team to discuss your research needs and regulatory requirements.",
   },
   {
     num: "02",
     icon: FileCheck2,
     title: "Study Design",
-    desc: "Tailored protocol development aligned with OECD, FDA, GLP & USP guidelines.",
+    desc: "Tailored protocol development aligned with OECD, ICH, GLP & global standards for international regulatory acceptance.",
   },
   {
     num: "03",
     icon: Microscope,
     title: "Execution",
-    desc: "Rigorous study execution in our CPCSEA-certified, NABL-accredited facilities.",
+    desc: "Rigorous study execution in our NABL-accredited and IAS-accredited facilities under CCSEA-approved conditions.",
   },
   {
     num: "04",
     icon: TrendingUp,
     title: "Reporting",
-    desc: "Comprehensive data analysis and regulatory-ready reports delivered on time.",
+    desc: "Comprehensive data analysis and regulatory-ready reports delivered on time for national and international submission.",
   },
 ];
 
 const aboutFeatures = [
   "NABL Accredited Laboratory",
-  "CCSEA Certified",
-  "CPCSEA Certified Animal Facility",
+  "CCSEA Certified Animal Facility",
   "ISO 10993 Biocompatibility Studies",
   "OECD & FDA Compliant Protocols",
   "IAS Accredited",
@@ -184,7 +183,7 @@ const Home = () => {
               </SpecialText>
             </>
           }
-          description="Highest-quality toxicology testing & preclinical research with rapid turnaround, in full compliance with international standards."
+          description="Highest-quality preclinical research and testing with rapid turnaround, in full compliance with national & international standards."
           ctaText="Explore Services"
           images={HERO_MARQUEE_IMAGES}
           onCtaClick={() => navigate("/services")}
@@ -192,7 +191,7 @@ const Home = () => {
       </ScaleOnScroll>
 
       {/* ─── Animated Counter Strip ───────────────────────────── */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
+      <section className="py-16 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-card/50 via-background to-background pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-primary/5 blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
@@ -256,9 +255,9 @@ const Home = () => {
               </AnimatedSection>
               <AnimatedSection delay={0.3}>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  Founded in 2018, our core services include Toxicology Testing
-                  and Preclinical Research in compliance with ISO 10993, OECD,
-                  FDA, ASTM, and USP.
+                  Founded in 2018, providing comprehensive preclinical research
+                  and testing services nationally & internationally, in compliance
+                  with OECD, FDA, ASTM, and USP guidelines.
                 </p>
               </AnimatedSection>
               <AnimatedSection delay={0.4}>
@@ -474,7 +473,7 @@ const Home = () => {
                 </ScrollRevealText>
                 <AnimatedSection delay={0.3}>
                   <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                    Our state-of-the-art laboratory and CPCSEA-certified animal facility
+                    Our state-of-the-art laboratory and CCSEA-certified animal facility
                     provide the foundation for reliable, reproducible research results.
                   </p>
                 </AnimatedSection>
@@ -498,7 +497,7 @@ const Home = () => {
       </section>
 
       {/* ─── Certifications ───────────────────────────────────── */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-card/20 to-background pointer-events-none" />
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 rounded-full bg-primary/5 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-64 h-64 rounded-full bg-primary/5 blur-3xl pointer-events-none" />

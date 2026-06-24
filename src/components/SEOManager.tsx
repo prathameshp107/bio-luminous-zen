@@ -18,7 +18,7 @@ const SITE_NAME = "Cryst Bio Solutions Pvt. Ltd.";
 const ORG_NAME = "Cryst Bio Solutions Pvt. Ltd.";
 const DEFAULT_IMAGE = "/og-image.png";
 const SITE_PHONE = "+91-7276361762";
-const SITE_EMAIL = "info@crystbio.com";
+const SITE_EMAIL = "enquiry@crystbio.com";
 const SITE_ADDRESS = {
   street: "Cryst Bio Solutions Pvt. Ltd.",
   city: "Pune",
@@ -181,8 +181,8 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           hasCredential: [
             "NABL Accreditation (ISO/IEC 17025:2017)",
             "CCSEA Certification",
-            "CPCSEA Registration",
-            "IAS Accreditation",
+            "CCSEA Registration",
+            "IAS Accredited",
             "MSME Registration",
             "Global CRO",
           ],
@@ -290,11 +290,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/animal-supply") {
     return {
-      title: "Laboratory Animal Supply | CPCSEA Approved Breeding Facility",
+      title: "Laboratory Animal Supply | CCSEA Approved Breeding Facility",
       description:
-        "In-house bred laboratory animals including rats, mice, rabbits, guinea pigs, and hamsters from a CPCSEA-approved facility in Pune.",
+        "In-house bred laboratory animals including rats, mice, rabbits, guinea pigs, and hamsters from a CCSEA-approved facility in Pune.",
       keywords:
-        "laboratory animal supply, CPCSEA approved animal breeder, rats mice rabbits supply India, preclinical animal models",
+        "laboratory animal supply, CCSEA approved animal breeder, rats mice rabbits supply India, preclinical animal models",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -312,7 +312,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
       return {
         title: `${animal.name} for Research Studies | Cryst Bio Solutions Pvt. Ltd.`,
         description: animal.shortDesc,
-        keywords: `${animal.name.toLowerCase()} for research, laboratory ${animal.name.toLowerCase()}, CPCSEA animal supply, preclinical models`,
+        keywords: `${animal.name.toLowerCase()} for research, laboratory ${animal.name.toLowerCase()}, CCSEA animal supply, preclinical models`,
         type: "article",
         jsonLd: [
           getBreadcrumbList(baseUrl, [

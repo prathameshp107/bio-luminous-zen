@@ -151,7 +151,7 @@ const AnimalDetail = () => {
   }[] = [
     {
       icon: ShieldCheck,
-      label: "CPCSEA Approved",
+      label: "CCSEA Approved",
       sub: "Ethical breeding standards",
     },
     { icon: CheckCircle2, label: "In-House Bred", sub: "Full quality control" },
@@ -352,12 +352,12 @@ const AnimalDetail = () => {
                   </div>
                 </div>
 
-                {/* CPCSEA badge — top left floating */}
+                {/* CCSEA badge — top left floating */}
                 <div className="absolute -top-4 -left-4 glass-card p-3 rounded-xl border border-primary/20 shadow-xl">
                   <div className="flex items-center gap-2 mb-1">
                     <ShieldCheck className="w-4 h-4 text-primary" />
                     <span className="text-xs font-semibold text-foreground">
-                      CPCSEA Approved
+                      CCSEA Approved
                     </span>
                   </div>
                   <p className="text-xs text-muted-foreground">In-House Bred</p>
@@ -378,7 +378,7 @@ const AnimalDetail = () => {
                 <span>Strain Details</span>
               </RevealText>
             }
-            description={`In-depth information on each ${animal.name.toLowerCase()} strain bred at our CPCSEA-approved facility — characteristics, descriptions, and key study applications.`}
+            description={`In-depth information on each ${animal.name.toLowerCase()} strain bred at our CCSEA-approved facility — characteristics, descriptions, and key study applications.`}
           />
 
           <div className="space-y-28 md:space-y-36 mt-4">

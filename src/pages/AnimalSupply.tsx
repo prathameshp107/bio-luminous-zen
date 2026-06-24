@@ -25,8 +25,8 @@ import { animalModels } from "@/data/animalData";
 const features = [
   {
     icon: ShieldCheck,
-    title: "CPCSEA Compliant",
-    desc: "All breeding and animal experiments strictly follow CPCSEA ethical guidelines and regulatory standards.",
+    title: "CCSEA Compliant",
+    desc: "All breeding and animal experiments strictly follow CCSEA ethical guidelines and regulatory standards.",
   },
   {
     icon: Thermometer,
@@ -156,7 +156,7 @@ const AnimalSupply = () => (
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/30 pointer-events-none" />
               </div>
 
-              {/* CPCSEA badge — bottom right */}
+              {/* CCSEA badge — bottom right */}
               <div className="absolute -bottom-5 -right-5 glass-card glow-border p-4 rounded-xl shadow-2xl">
                 <div className="flex items-center gap-3">
                   <div className="w-11 h-11 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center shrink-0">
@@ -164,7 +164,7 @@ const AnimalSupply = () => (
                   </div>
                   <div>
                     <p className="text-sm font-bold font-display gradient-text leading-tight">
-                      CPCSEA Approved
+                      CCSEA Approved
                     </p>
                     <p className="text-xs text-muted-foreground">
                       Ethical Breeding
@@ -204,7 +204,7 @@ const AnimalSupply = () => (
             <p className="text-muted-foreground leading-relaxed mb-8 text-base md:text-lg">
               We operate a hygienically well-maintained breeding facility,
               supplying quality laboratory animals for preclinical research. All
-              animals are bred under CPCSEA guidelines with continuous health
+              animals are bred under CCSEA guidelines with continuous health
               monitoring and rigorous environmental controls.
             </p>
 

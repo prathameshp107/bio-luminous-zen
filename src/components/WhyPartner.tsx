@@ -31,7 +31,7 @@ const items = [
     features: [
       "ISO 10993 compliant",
       "OECD GLP certified",
-      "FDA-aligned protocols",
+      "OECD & CDSCO aligned protocols",
       "ASTM & USP guidelines",
     ],
   },
@@ -64,7 +64,7 @@ const items = [
 ];
 
 const WhyPartner = () => (
-  <div className="space-y-40 md:space-y-56">
+  <div className="space-y-24 md:space-y-32">
     {items.map((item, i) => {
       const isEven = i % 2 === 0;
       return (

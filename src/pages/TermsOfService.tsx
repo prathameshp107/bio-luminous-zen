@@ -8,7 +8,7 @@ const sections = [
     icon: FileCheck,
     title: "Services & Scope",
     content:
-      "Cryst Bio Solutions Pvt. Ltd. agrees to provide preclinical research, toxicology testing, biocompatibility evaluation, histopathology, microbiology analysis, and laboratory animal supply services as mutually agreed upon in individual study agreements or service contracts. All services are performed in accordance with applicable regulatory standards including OECD guidelines, ISO 10993, GLP principles, and CPCSEA requirements as specified in each study protocol.",
+      "Cryst Bio Solutions Pvt. Ltd. agrees to provide preclinical research, toxicology testing, biocompatibility evaluation, histopathology, microbiology analysis, and laboratory animal supply services as mutually agreed upon in individual study agreements or service contracts. All services are performed in accordance with applicable regulatory standards including OECD guidelines, ISO 10993, GLP principles, and CCSEA requirements as specified in each study protocol.",
   },
   {
     icon: Scale,
@@ -94,8 +94,8 @@ const TermsOfService = () => (
               <ul className="mt-3 space-y-2 text-muted-foreground">
                 <li>
                   <strong className="text-foreground">Email:</strong>{" "}
-                  <a href="mailto:info@crystbio.com" className="text-primary hover:underline">
-                    info@crystbio.com
+                  <a href="mailto:enquiry@crystbio.com" className="text-primary hover:underline">
+                    enquiry@crystbio.com
                   </a>
                 </li>
                 <li>
