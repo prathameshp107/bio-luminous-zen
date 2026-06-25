@@ -7,7 +7,8 @@ import ParallaxImage from "@/components/ParallaxImage";
 import RevealText from "@/components/RevealText";
 import FloatingText from "@/components/FloatingText";
 import certNabl from "@/assets/cert-nabl.png";
-import certIasCpcsea from "@/assets/cert-ias-cpcsea.png";
+import certIas from "@/assets/cert-ias.png";
+import certCcsea from "@/assets/cert-ccsea.png";
 import certMsme from "@/assets/cert-msme.png";
 import certIec from "@/assets/cert-iec.png";
 import certIncorporation from "@/assets/cert-incorporation.png";
@@ -19,12 +20,12 @@ const certs = [
     code: "TC-15118",
     desc: "National Accreditation Board for Testing Laboratory — ISO/IEC 17025:2017 accreditation for testing services at Cryst Bio Solutions Pvt. Ltd., ensuring globally accepted, reliable results.",
     image: certNabl,
-    validity: "Valid until 24/04/2026",
+    validity: "Valid until 24/04/2030",
     features: [
       "ISO/IEC 17025:2017 certified",
       "Testing laboratory",
       "Nationally & Internationally recognised",
-      "Valid until April 2026",
+      "Valid until April 2030",
     ],
   },
   {
@@ -32,13 +33,13 @@ const certs = [
     FloatingText: "IAS",
     code: "TL-1015",
     desc: "International Accreditation Service — ISO/IEC 17025:2017 accreditation for Testing Laboratory at Cryst Bio Solutions Pvt. Ltd., enabling internationally accepted test results and reports.",
-    image: certIasCpcsea,
-    validity: "Effective since 2023",
+    image: certIas,
+    validity: "Effective December 17, 2025",
     features: [
       "International recognition",
       "Testing laboratory standard",
       "ISO/IEC 17025:2017",
-      "Effective since 2023",
+      "Effective December 2025",
     ],
   },
   {
@@ -46,7 +47,7 @@ const certs = [
     FloatingText: "CCSEA",
     code: "2030/PO/RcBiBt/S/18/CCSEA",
     desc: "Committee for Control and Supervision of Experiments on Animals — registered for research, breeding, and trade of laboratory animals at Cryst Bio Solutions Pvt. Ltd. under ethical regulatory guidelines.",
-    image: certIasCpcsea,
+    image: certCcsea,
     validity: "Registered",
     features: [
       "Animal research authorized",
@@ -72,15 +73,15 @@ const certs = [
   {
     name: "IEC Certificate",
     FloatingText: "IEC",
-    code: "BRTPM9840F",
+    code: "AALCC9227D",
     desc: "Import Export Code — Certificate of Importer-Exporter issued by the Ministry of Commerce and Industry, enabling international trade of biological and scientific materials.",
     image: certIec,
-    validity: "Issued 10/09/2019",
+    validity: "Issued 24/04/2025",
     features: [
       "Import-export authorized",
       "International trade enabled",
       "Commerce ministry issued",
-      "Active since 2019",
+      "Active since 2025",
     ],
   },
   {
@@ -110,7 +111,7 @@ const standards = [
 ];
 
 const Certifications = () => {
-  const [lightbox, setLightbox] = useState<string | null>(null);
+  const [lightbox, setLightbox] = useState<{ src: string; name: string } | null>(null);
 
   return (
     <div>
@@ -123,8 +124,8 @@ const Certifications = () => {
         >
           <div className="relative max-w-4xl max-h-[90vh] w-full">
             <img
-              src={lightbox}
-              alt="Certificate"
+              src={lightbox.src}
+              alt={`${lightbox.name} — Cryst Bio Solutions Pvt. Ltd.`}
               className="w-full h-full object-contain rounded-lg"
             />
             <button
@@ -173,7 +174,7 @@ const Certifications = () => {
                     <div className="relative group">
                       <div
                         className="relative overflow-hidden rounded-2xl cursor-pointer bg-card border border-border/40"
-                        onClick={() => setLightbox(cert.image)}
+                        onClick={() => setLightbox({ src: cert.image, name: cert.name })}
                       >
                         <ParallaxImage
                           src={cert.image}
@@ -245,7 +246,7 @@ const Certifications = () => {
                       </div>
 
                       <button
-                        onClick={() => setLightbox(cert.image)}
+                        onClick={() => setLightbox({ src: cert.image, name: cert.name })}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-foreground bg-primary/10 hover:bg-primary/20 border border-primary/20 px-5 py-2.5 rounded-lg transition-all duration-300"
                       >
                         View Certificate{" "}

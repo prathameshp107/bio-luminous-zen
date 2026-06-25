@@ -16,15 +16,18 @@ type SeoConfig = {
 
 const SITE_NAME = "Cryst Bio Solutions Pvt. Ltd.";
 const ORG_NAME = "Cryst Bio Solutions Pvt. Ltd.";
+const ORG_LEGAL_NAME = "Cryst Bio Solutions Private Limited";
 const DEFAULT_IMAGE = "/og-image.png";
 const SITE_PHONE = "+91-7276361762";
 const SITE_EMAIL = "enquiry@crystbio.com";
 const SITE_ADDRESS = {
-  street: "Cryst Bio Solutions Pvt. Ltd.",
+  street: "SR. NO. 311/5, Plot No. 60-61, D Global Building, Sai Park, Lane No. 5, Shewalwadi Road, Uruli Devachi",
   city: "Pune",
   state: "Maharashtra",
-  country: "India",
+  postalCode: "412308",
+  country: "IN",
 };
+const SITE_GEO = { latitude: 18.4311, longitude: 74.007 };
 const SITE_SAME_AS = ["https://www.linkedin.com/company/crystal-biological-solutions"];
 
 const stripTrailingSlash = (url: string) => url.replace(/\/+$/, "");
@@ -81,32 +84,68 @@ const setJsonLd = (items: Record<string, unknown>[] = []) => {
   });
 };
 
-// Shared LocalBusiness + Organization schema (injected as a single @graph)
 const getLocalBusinessGraph = (baseUrl: string): Record<string, unknown>[] => [
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "MedicalOrganization"],
     "@id": `${baseUrl}/#organization`,
     name: ORG_NAME,
+    legalName: ORG_LEGAL_NAME,
     url: baseUrl,
     logo: `${baseUrl}/favicon.png`,
-    description: "Preclinical CRO in India offering toxicology testing, biocompatibility, histopathology, microbiology, and laboratory animal supply.",
+    foundingDate: "2018",
+    email: SITE_EMAIL,
+    telephone: SITE_PHONE,
+    description:
+      "NABL & IAS accredited preclinical CRO in Pune, India — toxicology testing, biocompatibility testing, agrochemical testing, histopathology, microbiology, and CCSEA-registered laboratory animal supply.",
     address: {
       "@type": "PostalAddress",
       streetAddress: SITE_ADDRESS.street,
       addressLocality: SITE_ADDRESS.city,
       addressRegion: SITE_ADDRESS.state,
+      postalCode: SITE_ADDRESS.postalCode,
       addressCountry: SITE_ADDRESS.country,
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: SITE_GEO.latitude,
+      longitude: SITE_GEO.longitude,
+    },
+    areaServed: ["IN", "EU", "US", "AP"],
     contactPoint: [
       {
         "@type": "ContactPoint",
         telephone: SITE_PHONE,
+        email: SITE_EMAIL,
         contactType: "customer service",
         areaServed: "IN",
         availableLanguage: ["en"],
       },
     ],
+    hasCredential: [
+      "NABL Accreditation TC-15118 (ISO/IEC 17025:2017, valid until 2030)",
+      "IAS Accreditation TL-1015 (ISO/IEC 17025:2017, effective December 2025)",
+      "CCSEA Registration 2030/PO/RcBiBt/S/18/CCSEA",
+      "MSME / Udyam Registration UDYAM-MH-26-0118144",
+      "IEC AALCC9227D",
+      "Company Registration U71200PN2024PTC231728",
+    ],
+    knowsAbout: [
+      "Preclinical Toxicology Testing",
+      "Biocompatibility Testing ISO 10993",
+      "Agrochemical Testing OECD Guidelines",
+      "Histopathology and Clinical Pathology",
+      "Microbiology Testing",
+      "Laboratory Animal Supply",
+      "GLP Compliance",
+      "OECD Guidelines",
+      "ICH Guidelines",
+      "CDSCO Regulations",
+    ],
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 9,
+    },
     sameAs: SITE_SAME_AS,
   },
   {
@@ -126,7 +165,6 @@ const getLocalBusinessGraph = (baseUrl: string): Record<string, unknown>[] => [
   },
 ];
 
-// Shared BreadcrumbList helper
 const getBreadcrumbList = (baseUrl: string, items: { name: string; url: string }[]): Record<string, unknown> => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -146,11 +184,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/") {
     return {
-      title: "Preclinical CRO in India | Toxicology & Biocompatibility | Cryst Bio Solutions Pvt. Ltd.",
+      title: "Preclinical CRO in India | NABL & IAS Accredited | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Cryst Bio Solutions Pvt. Ltd. is a Pune-based preclinical CRO offering toxicology testing, biocompatibility testing, histopathology, microbiology, and laboratory animal supply.",
+        "Cryst Bio Solutions Pvt. Ltd. — NABL & IAS accredited preclinical CRO in Pune, India. GLP-compliant toxicology testing, biocompatibility (ISO 10993), agrochemical testing, histopathology, microbiology, and CCSEA-registered laboratory animal supply.",
       keywords:
-        "preclinical CRO India, toxicology testing Pune, biocompatibility testing, laboratory animal supply, histopathology services, microbiology testing",
+        "preclinical CRO India, NABL accredited CRO Pune, toxicology testing India, biocompatibility testing ISO 10993, contract research organization Pune, GLP laboratory India, laboratory animal supply, histopathology services India, CCSEA registered CRO",
       jsonLd: [
         ...getLocalBusinessGraph(baseUrl),
         {
@@ -158,6 +196,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           "@type": "LocalBusiness",
           "@id": `${baseUrl}/#localbusiness`,
           name: ORG_NAME,
+          legalName: ORG_LEGAL_NAME,
           url: baseUrl,
           telephone: SITE_PHONE,
           email: SITE_EMAIL,
@@ -166,8 +205,13 @@ const getSeoForPath = (pathname: string): SeoConfig => {
             streetAddress: SITE_ADDRESS.street,
             addressLocality: SITE_ADDRESS.city,
             addressRegion: SITE_ADDRESS.state,
-            postalCode: "",
+            postalCode: SITE_ADDRESS.postalCode,
             addressCountry: SITE_ADDRESS.country,
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: SITE_GEO.latitude,
+            longitude: SITE_GEO.longitude,
           },
           openingHoursSpecification: [
             {
@@ -177,13 +221,14 @@ const getSeoForPath = (pathname: string): SeoConfig => {
               closes: "18:00",
             },
           ],
-          areaServed: ["IN", "EU"],
+          priceRange: "$$",
+          currenciesAccepted: "INR",
+          areaServed: ["IN", "EU", "US", "AP"],
           hasCredential: [
-            "NABL Accreditation (ISO/IEC 17025:2017)",
-            "CCSEA Registration",
-            "IAS Accredited",
-            "MSME Registration",
-            "Global CRO",
+            "NABL Accreditation TC-15118 (ISO/IEC 17025:2017)",
+            "IAS Accreditation TL-1015 (ISO/IEC 17025:2017)",
+            "CCSEA Registration 2030/PO/RcBiBt/S/18/CCSEA",
+            "MSME / Udyam Registration UDYAM-MH-26-0118144",
           ],
           parentOrganization: { "@id": `${baseUrl}/#organization` },
         },
@@ -194,7 +239,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           url: `${baseUrl}/og-image.png`,
           width: 1200,
           height: 630,
-          caption: "Cryst Bio Solutions Pvt. Ltd. - Preclinical CRO India",
+          caption: "Cryst Bio Solutions Pvt. Ltd. — NABL & IAS Accredited Preclinical CRO, Pune, India",
         },
       ],
     };
@@ -202,11 +247,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/about") {
     return {
-      title: "About Cryst Bio Solutions Pvt. Ltd. | Preclinical Research Expertise",
+      title: "About Us | NABL Accredited Preclinical CRO Pune | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Learn about Cryst Bio Solutions Pvt. Ltd., our mission, scientific leadership, quality systems, and commitment to ethical, compliant preclinical research.",
+        "Cryst Bio Solutions Pvt. Ltd. is a Pune-based NABL & IAS accredited preclinical CRO established in 2018. Learn about our scientific leadership, GLP-compliant systems, CCSEA-registered animal facility, and commitment to globally accepted preclinical research.",
       keywords:
-        "about Cryst Bio Solutions Pvt. Ltd., preclinical research company, CRO Pune, scientific team, quality compliance",
+        "about Cryst Bio Solutions Pvt. Ltd., NABL accredited CRO India, preclinical research company Pune, contract research organization history, GLP compliant CRO, scientific team Pune, preclinical CRO Maharashtra",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -219,11 +264,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/services") {
     return {
-      title: "Preclinical Services | Toxicology, Biocompatibility, Microbiology",
+      title: "Preclinical Testing Services | NABL Accredited CRO in Pune, India",
       description:
-        "Explore our preclinical services including toxicology, biocompatibility, agrochemical testing, research projects, histopathology, and microbiology.",
+        "NABL & IAS accredited preclinical testing services at Cryst Bio Solutions Pvt. Ltd. — toxicology (OECD/ICH), biocompatibility (ISO 10993), agrochemical testing, histopathology, microbiology, and GLP-compliant research projects.",
       keywords:
-        "preclinical services, toxicology services, biocompatibility testing, agrochemical testing, CRO services India",
+        "preclinical services India, NABL accredited testing laboratory, toxicology services Pune, biocompatibility testing ISO 10993, agrochemical testing OECD, CRO services India, GLP testing laboratory, CDSCO compliant CRO",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -239,9 +284,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
     const service = servicesData.find((entry) => entry.slug === slug);
     if (service) {
       return {
-        title: `${service.title} | Cryst Bio Solutions Pvt. Ltd.`,
-        description: service.shortDesc,
-        keywords: `${service.title.toLowerCase()}, preclinical ${service.title.toLowerCase()}, ${service.standards.slice(0, 3).join(", ").toLowerCase()}, Cryst Bio Solutions Pvt. Ltd.`,
+        title: `${service.title} | NABL Accredited | Cryst Bio Solutions Pvt. Ltd., Pune`,
+        description: `${service.shortDesc} Conducted at NABL & IAS accredited facility in Pune under GLP-compliant conditions. OECD & ICH guidelines followed.`,
+        keywords: `${service.title.toLowerCase()}, preclinical ${service.title.toLowerCase()} India, ${service.standards.slice(0, 3).join(", ").toLowerCase()}, NABL accredited ${service.title.toLowerCase()}, GLP ${service.title.toLowerCase()} Pune`,
         type: "article",
         jsonLd: [
           getBreadcrumbList(baseUrl, [
@@ -261,7 +306,7 @@ const getSeoForPath = (pathname: string): SeoConfig => {
               name: ORG_NAME,
               url: baseUrl,
             },
-            areaServed: "IN",
+            areaServed: ["IN", "EU", "US"],
             serviceType: service.title,
             termsOfService: `${baseUrl}/terms-of-service`,
           },
@@ -272,11 +317,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/facilities") {
     return {
-      title: "Facilities & Infrastructure | Cryst Bio Solutions Pvt. Ltd.",
+      title: "GLP Laboratory Facilities | NABL Accredited Infrastructure | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Discover our state-of-the-art preclinical research infrastructure, controlled environments, and quality-focused laboratory systems.",
+        "State-of-the-art, NABL & IAS accredited, GLP-compliant preclinical laboratory facilities at Cryst Bio Solutions Pvt. Ltd., Pune — dedicated testing areas, CCSEA-registered animal facility, bioanalytical lab, and modern analytical instrumentation.",
       keywords:
-        "preclinical laboratory facilities, CRO infrastructure, GLP facility India, research labs Pune",
+        "GLP laboratory India, NABL accredited facility Pune, preclinical lab infrastructure, GLP compliant CRO India, CCSEA animal facility, bioanalytical laboratory Pune, preclinical research infrastructure Maharashtra",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -289,11 +334,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/animal-supply") {
     return {
-      title: "Laboratory Animal Supply | CCSEA Approved Breeding Facility",
+      title: "Laboratory Animal Supply | CCSEA Registered Breeder Pune | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "In-house bred laboratory animals including rats, mice, rabbits, guinea pigs, and hamsters from a CCSEA-approved facility in Pune.",
+        "In-house bred laboratory animals — rats, mice, rabbits, guinea pigs — from CCSEA-registered animal facility (Reg. 2030/PO/RcBiBt/S/18/CCSEA) at Cryst Bio Solutions Pvt. Ltd., Pune, India.",
       keywords:
-        "laboratory animal supply, CCSEA approved animal breeder, rats mice rabbits supply India, preclinical animal models",
+        "laboratory animal supply India, CCSEA approved animal breeder Pune, laboratory rats mice rabbits supply, preclinical animal models India, Sprague Dawley rats, Wistar rats, BALB/c mice, New Zealand rabbits, laboratory animal breeding India",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -309,9 +354,9 @@ const getSeoForPath = (pathname: string): SeoConfig => {
     const animal = animalModels.find((entry) => entry.slug === slug);
     if (animal) {
       return {
-        title: `${animal.name} for Research Studies | Cryst Bio Solutions Pvt. Ltd.`,
-        description: animal.shortDesc,
-        keywords: `${animal.name.toLowerCase()} for research, laboratory ${animal.name.toLowerCase()}, CCSEA animal supply, preclinical models`,
+        title: `${animal.name} for Research | CCSEA Registered Supply | Cryst Bio Solutions Pvt. Ltd.`,
+        description: `${animal.shortDesc} Supplied from CCSEA-registered breeding facility (Reg. 2030/PO/RcBiBt/S/18/CCSEA) at Cryst Bio Solutions Pvt. Ltd., Pune, India.`,
+        keywords: `${animal.name.toLowerCase()} for research India, laboratory ${animal.name.toLowerCase()} supply Pune, CCSEA registered ${animal.name.toLowerCase()}, preclinical ${animal.name.toLowerCase()} models, ${animal.name.toLowerCase()} breeding facility India`,
         type: "article",
         jsonLd: [
           getBreadcrumbList(baseUrl, [
@@ -325,7 +370,6 @@ const getSeoForPath = (pathname: string): SeoConfig => {
             "@id": `${baseUrl}/animal-supply/${animal.slug}#product`,
             name: `${animal.name} - Laboratory Animal Models`,
             description: animal.shortDesc,
-            animal: animal.name,
             brand: {
               "@type": "Organization",
               "@id": `${baseUrl}/#organization`,
@@ -345,11 +389,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/certifications") {
     return {
-      title: "Certifications & Accreditations | Cryst Bio Solutions Pvt. Ltd.",
+      title: "NABL, IAS & CCSEA Accreditations | Certifications | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Review our key certifications and accreditations including quality and regulatory recognitions supporting global preclinical compliance.",
+        "Cryst Bio Solutions Pvt. Ltd. holds NABL accreditation (TC-15118, valid to April 2030), IAS accreditation (TL-1015, ISO/IEC 17025:2017), CCSEA registration, MSME/Udyam, and IEC — enabling globally accepted preclinical testing results.",
       keywords:
-        "CRO certifications, NABL accreditation, preclinical compliance, quality certifications India",
+        "NABL accreditation TC-15118, IAS accreditation TL-1015, CCSEA registration India, ISO/IEC 17025:2017 laboratory, accredited CRO India, MSME registered CRO, IEC certified laboratory, preclinical compliance certifications",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -362,11 +406,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/gallery") {
     return {
-      title: "Gallery | Cryst Bio Solutions Pvt. Ltd.",
+      title: "Laboratory Facility Gallery | Preclinical CRO Pune | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Explore visual highlights of our laboratory, facilities, team, and research environment at Cryst Bio Solutions Pvt. Ltd.",
+        "View NABL-accredited laboratory, CCSEA-registered animal facility, testing equipment, and research environment at Cryst Bio Solutions Pvt. Ltd., Pune, India.",
       keywords:
-        "CRO gallery, laboratory photos, preclinical facility images, Cryst Bio Solutions Pvt. Ltd. gallery",
+        "preclinical CRO laboratory photos, NABL accredited lab gallery, Cryst Bio Solutions facility images, GLP laboratory Pune photos, animal facility images India",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -379,11 +423,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/testimonials") {
     return {
-      title: "Client Testimonials | Cryst Bio Solutions Pvt. Ltd.",
+      title: "Client Testimonials | Trusted Preclinical CRO India | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Read what partners and clients say about our preclinical testing quality, timelines, and scientific collaboration.",
+        "Read what pharmaceutical, medical device, biotech, and agrochemical clients say about preclinical testing at Cryst Bio Solutions Pvt. Ltd. — quality, turnaround times, and regulatory compliance.",
       keywords:
-        "CRO testimonials, preclinical client feedback, toxicology testing reviews, Cryst Bio Solutions Pvt. Ltd. clients",
+        "CRO client testimonials India, preclinical testing reviews, toxicology CRO feedback, biocompatibility testing client reviews, Cryst Bio Solutions Pvt. Ltd. testimonials",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -396,11 +440,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/contact") {
     return {
-      title: "Contact Cryst Bio Solutions Pvt. Ltd. | Request a Quote",
+      title: "Contact Cryst Bio Solutions Pvt. Ltd. | Request a Preclinical Study Quote",
       description:
-        "Contact Cryst Bio Solutions Pvt. Ltd. for toxicology testing, biocompatibility studies, and laboratory animal supply. Speak with our team in Pune.",
+        "Contact Cryst Bio Solutions Pvt. Ltd. — NABL & IAS accredited preclinical CRO in Pune, India. Request a quote for toxicology, biocompatibility, agrochemical testing, or laboratory animal supply.",
       keywords:
-        "contact preclinical CRO, request toxicology quote, Cryst Bio Solutions Pvt. Ltd. contact, CRO Pune contact",
+        "contact preclinical CRO India, request toxicology quote Pune, biocompatibility testing quote, Cryst Bio Solutions Pvt. Ltd. contact, CRO Pune contact, preclinical study enquiry India",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -412,7 +456,8 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           "@id": `${baseUrl}/contact#contactpage`,
           name: "Contact Cryst Bio Solutions Pvt. Ltd.",
           url: `${baseUrl}/contact`,
-          description: "Contact us for toxicology testing, biocompatibility studies, and laboratory animal supply.",
+          description:
+            "Contact us to request a quote for toxicology testing, biocompatibility studies, agrochemical testing, or laboratory animal supply.",
           mainEntity: {
             "@type": "Organization",
             "@id": `${baseUrl}/#organization`,
@@ -425,11 +470,11 @@ const getSeoForPath = (pathname: string): SeoConfig => {
 
   if (pathname === "/faq") {
     return {
-      title: "FAQ | Cryst Bio Solutions Pvt. Ltd.",
+      title: "FAQs | Preclinical Testing & CRO Services India | Cryst Bio Solutions Pvt. Ltd.",
       description:
-        "Find answers to common questions about our preclinical testing services, compliance standards, turnaround times, and engagement process.",
+        "Answers to common questions about preclinical testing services, GLP compliance, NABL accreditation, turnaround times, OECD guidelines, and laboratory animal supply at Cryst Bio Solutions Pvt. Ltd.",
       keywords:
-        "preclinical CRO FAQ, toxicology testing questions, biocompatibility FAQ, laboratory animal supply FAQ",
+        "preclinical CRO FAQ India, toxicology testing questions, biocompatibility FAQ, GLP compliance questions, NABL accredited lab FAQ, laboratory animal supply FAQ, OECD testing FAQ",
       jsonLd: [
         getBreadcrumbList(baseUrl, [
           { name: "Home", url: "/" },
@@ -464,7 +509,6 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           { name: "Home", url: "/" },
           { name: "Privacy Policy", url: "/privacy-policy" },
         ]),
-        ...getLocalBusinessGraph(baseUrl),
       ],
     };
   }
@@ -480,7 +524,6 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           { name: "Home", url: "/" },
           { name: "Terms of Service", url: "/terms-of-service" },
         ]),
-        ...getLocalBusinessGraph(baseUrl),
       ],
     };
   }
@@ -508,7 +551,7 @@ const SEOManager = () => {
 
     upsertMetaByName("description", seo.description);
     upsertMetaByName("keywords", seo.keywords);
-    upsertMetaByName("author", "Cryst Bio Solutions Pvt. Ltd. | Developed by Prathamesh Pawar");
+    upsertMetaByName("author", "Cryst Bio Solutions Pvt. Ltd.");
     upsertMetaByName(
       "robots",
       seo.noindex
@@ -524,12 +567,14 @@ const SEOManager = () => {
     upsertMetaByProperty("og:image", imageUrl);
     upsertMetaByProperty("og:image:width", "1200");
     upsertMetaByProperty("og:image:height", "630");
+    upsertMetaByProperty("og:image:alt", "Cryst Bio Solutions Pvt. Ltd. — NABL & IAS Accredited Preclinical CRO, Pune, India");
     upsertMetaByProperty("og:locale", "en_IN");
 
     upsertMetaByName("twitter:card", "summary_large_image");
     upsertMetaByName("twitter:title", seo.title);
     upsertMetaByName("twitter:description", seo.description);
     upsertMetaByName("twitter:image", imageUrl);
+    upsertMetaByName("twitter:image:alt", "Cryst Bio Solutions Pvt. Ltd. — Preclinical CRO India");
     upsertMetaByName("twitter:site", "@crystbio");
 
     upsertCanonical(canonical);

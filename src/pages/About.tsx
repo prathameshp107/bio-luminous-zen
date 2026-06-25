@@ -53,13 +53,13 @@ const timeline = [
   },
   {
     year: "2022",
-    title: "Incorporation",
-    desc: "Evolved into Cryst Bio Solutions Pvt. Ltd., securing global partnerships and earning NABL accreditation under ISO/IEC 17025:2017.",
+    title: "NABL Accreditation",
+    desc: "Achieved NABL accreditation under ISO/IEC 17025:2017, establishing nationally & internationally recognised testing capabilities.",
   },
   {
     year: "2024",
-    title: "Global Reach",
-    desc: "Consultation offices established in Europe through marketing associates, cementing our position as a globally recognized CRO.",
+    title: "Incorporation & Global Reach",
+    desc: "Incorporated as Cryst Bio Solutions Pvt. Ltd. under the Companies Act, 2013. Established consultation offices in Europe through marketing associates, cementing our position as a globally recognized CRO.",
   },
 ];
 
