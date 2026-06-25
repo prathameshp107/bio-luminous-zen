@@ -92,7 +92,7 @@ const values = [
     floating: "MISSION",
     text: "To drive excellence in preclinical research and biocompatibility testing by upholding the highest standards of quality, accuracy, and scientific integrity.",
     keyPoints: [
-      "ISO 10993, OECD & FDA compliant testing protocols",
+      "ISO 10993, OECD & CDSCO compliant testing protocols",
       "Highest accuracy reports with fast turnaround",
       "Uncompromising scientific integrity in every project",
     ],
@@ -216,7 +216,7 @@ const highlights = [
   },
 ];
 
-const badges = ["ISO 10993", "OECD", "ASTM", "USP", "CCSEA", "CCSEA", "IAS Accredited", "Global CRO"];
+const badges = ["ISO 10993", "OECD", "ASTM", "USP", "CCSEA", "IAS Accredited", "Global CRO"];
 
 const About = () => (
   <div>

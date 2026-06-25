@@ -76,9 +76,9 @@ const services = [
   {
     icon: TestTube,
     title: "Toxicology",
-    desc: "Full-spectrum toxicology following OECD & FDA guidelines for acute, chronic & genotoxicity studies.",
+    desc: "Full-spectrum toxicology following OECD & ICH guidelines for acute, chronic & genotoxicity studies.",
     img: serviceToxicology,
-    tag: "FDA / OECD",
+    tag: "OECD / ICH",
     slug: "toxicology-studies",
   },
   {
@@ -136,9 +136,9 @@ const processSteps = [
 
 const aboutFeatures = [
   "NABL Accredited Laboratory",
-  "CCSEA Certified Animal Facility",
+  "CCSEA Registered Animal Facility",
   "ISO 10993 Biocompatibility Studies",
-  "OECD & FDA Compliant Protocols",
+  "OECD & CDSCO Compliant Protocols",
   "IAS Accredited",
   "Global CRO",
 ];
@@ -257,7 +257,7 @@ const Home = () => {
                 <p className="mt-3 text-muted-foreground leading-relaxed">
                   Founded in 2018, providing comprehensive preclinical research
                   and testing services nationally & internationally, in compliance
-                  with OECD, FDA, ASTM, and USP guidelines.
+                  with OECD, CDSCO, GLP, and international standards.
                 </p>
               </AnimatedSection>
               <AnimatedSection delay={0.4}>
@@ -473,7 +473,7 @@ const Home = () => {
                 </ScrollRevealText>
                 <AnimatedSection delay={0.3}>
                   <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                    Our state-of-the-art laboratory and CCSEA-certified animal facility
+                    Our state-of-the-art laboratory and CCSEA-registered animal facility
                     provide the foundation for reliable, reproducible research results.
                   </p>
                 </AnimatedSection>

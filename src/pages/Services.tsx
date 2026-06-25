@@ -23,7 +23,7 @@ const Services = () => (
               <span>Research & Testing Services</span>
             </RevealText>
           }
-          description="Delivering highest quality testing services in compliance with ISO 10993, OECD, FDA, ASTM, and USP guidelines."
+          description="Delivering highest quality testing services in compliance with ISO 10993, OECD, CDSCO, GLP, and international standards."
         />
 
         <div className="space-y-24">

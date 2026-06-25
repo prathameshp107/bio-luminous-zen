@@ -8,7 +8,7 @@ import logoIec from "@/assets/logo-iec.png";
 
 const logos = [
   { src: logoNabl, alt: "NABL Accreditation" },
-  { src: logoCpcsea, alt: "CCSEA Certification" },
+  { src: logoCpcsea, alt: "CCSEA Registration" },
   { src: logoIas, alt: "IAS Accreditation" },
   { src: logoIlac, alt: "ILAC Accreditation" },
   { src: logoMsme, alt: "MSME Registration" },

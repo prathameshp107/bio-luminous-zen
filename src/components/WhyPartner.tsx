@@ -26,11 +26,11 @@ const items = [
     icon: Globe,
     title: "Global Standards",
     floating: "STANDARDS",
-    desc: "Compliant with GLP, OECD, FDA, ASTM & USP guidelines for international acceptance. Our protocols are designed to meet the strictest global regulatory requirements.",
+    desc: "Compliant with GLP, OECD, CDSCO & ICH guidelines for international acceptance. Our protocols are designed to meet the strictest global regulatory requirements.",
     img: whyStandards,
     features: [
       "ISO 10993 compliant",
-      "OECD GLP certified",
+      "GLP compliant",
       "OECD & CDSCO aligned protocols",
       "ASTM & USP guidelines",
     ],

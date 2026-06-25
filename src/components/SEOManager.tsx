@@ -180,7 +180,6 @@ const getSeoForPath = (pathname: string): SeoConfig => {
           areaServed: ["IN", "EU"],
           hasCredential: [
             "NABL Accreditation (ISO/IEC 17025:2017)",
-            "CCSEA Certification",
             "CCSEA Registration",
             "IAS Accredited",
             "MSME Registration",
