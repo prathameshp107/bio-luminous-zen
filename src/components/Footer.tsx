@@ -32,7 +32,7 @@ const services = [
   { name: "Microbiology", slug: "microbiology-services" },
 ];
 
-const accreditations = ["NABL", "IAS", "CPCSEA", "MSME", "IEC"];
+const accreditations = ["NABL", "IAS Accredited", "CCSEA", "MSME", "IEC", "Global CRO"];
 
 const stats = [
   { value: "50+", label: "Scientists & Researchers" },
@@ -65,7 +65,7 @@ const Footer = () => {
             <Link to="/" className="flex items-center group w-fit">
               <img
                 src={ratLogo}
-                alt="Cryst Bio Solutions"
+                alt="Cryst Bio Solutions Pvt. Ltd."
                 className="h-11 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
               />
             </Link>
@@ -179,7 +179,7 @@ const Footer = () => {
                   </div>
                   <div>
                     <p className="text-sm text-muted-foreground group-hover:text-foreground transition-colors leading-snug">
-                      Crystal Biological Solutions Pune, Maharashtra, India
+                      Cryst Bio Solutions Pvt. Ltd., Pune, Maharashtra, India
                     </p>
                     <span className="text-xs text-primary flex items-center gap-1 mt-0.5 opacity-80 group-hover:opacity-100 transition-opacity">
                       Get Directions <ExternalLink className="w-2.5 h-2.5" />
@@ -206,14 +206,14 @@ const Footer = () => {
               {/* Email */}
               <li>
                 <a
-                  href="mailto:info@crystbio.com"
+                  href="mailto:enquiry@crystbio.com"
                   className="flex items-center gap-3 group"
                 >
                   <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
                     <Mail className="w-3.5 h-3.5 text-primary" />
                   </div>
                   <span className="text-sm text-muted-foreground group-hover:text-foreground transition-colors">
-                    info@crystbio.com
+                    enquiry@crystbio.com
                   </span>
                 </a>
               </li>

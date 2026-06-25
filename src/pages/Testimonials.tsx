@@ -279,12 +279,12 @@ const testimonials: {
     name: "Mr. James Whitfield",
     role: "VP of Product Development",
     company: "BioNexus Medical Inc.",
-    location: "Boston, USA",
+    location: "Boston",
     service: "Biocompatibility",
     accent: "primary",
     rating: 5,
     quote:
-      "We needed a cost-effective alternative to US-based CROs for our 510(k) submission without compromising on quality. Cryst Bio's NABL accreditation and IAS recognition gave us the confidence, and the results delivered perfectly.",
+      "We needed a cost-effective alternative to international CROs for our 510(k) submission without compromising on quality. Cryst Bio's NABL accreditation and IAS recognition gave us the confidence, and the results delivered perfectly.",
     initials: "JW",
     featured: false,
     img: serviceBioImg,
@@ -324,7 +324,7 @@ const caseHighlights = [
     icon: ShieldCheck,
     label: "Biocompatibility",
     title: "ISO 10993 Device Clearance",
-    client: "US Medical Device Startup",
+    client: "Medical Device Startup",
     metric: "FDA 510(k) accepted",
     detail: "Full ISO 10993 biocompatibility package — cytotoxicity through implantation — delivered in 12 weeks enabling first-round FDA 510(k) clearance.",
     accentText: "text-sky-700 dark:text-sky-400",
@@ -405,7 +405,7 @@ const whyReturn = [
     badgeText: "text-sky-400",
     glow: "bg-sky-500/6",
     img: facilitiesImg,
-    keyPoints: ["Offices in India, Europe & USA", "Reports accepted across Middle East & Asia-Pacific", "Zero re-submission record across global filings"],
+    keyPoints: [      "Offices in India & Europe", "Reports accepted across Middle East & Asia-Pacific", "Zero re-submission record across global filings"],
   },
   {
     icon: Users,
@@ -443,7 +443,7 @@ const Testimonials = () => {
     <div>
       <PageHero
         title="What Our Clients Say"
-        subtitle="Trusted by researchers, pharmaceutical companies, and biotech firms across India, Europe, and the USA."
+        subtitle="Trusted by researchers, pharmaceutical companies, and biotech firms across India and Europe."
         breadcrumb="Testimonials"
       />
 
@@ -500,7 +500,7 @@ const Testimonials = () => {
                 <span>In Their Own Words</span>
               </RevealText>
             }
-            description="A standout experience that represents the quality, speed, and trust that defines every Cryst Bio engagement."
+            description="A standout experience that represents the quality, speed, and trust that defines every Cryst Bio Solutions Pvt. Ltd. engagement."
           />
 
           <AnimatedSection>
@@ -697,7 +697,7 @@ const Testimonials = () => {
 
       {/*  Case Highlights - Alternating image+text (like About) */}
       <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
-        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
+        <FloatingText text="CCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <SectionHeader
             label="Study Outcomes"
@@ -706,7 +706,7 @@ const Testimonials = () => {
                 <span>Results That Speak For Themselves</span>
               </RevealText>
             }
-            description="Real outcomes from real studies — a snapshot of the regulatory wins our clients have achieved with Cryst Bio."
+            description="Real outcomes from real studies — a snapshot of the regulatory wins our clients have achieved with Cryst Bio Solutions Pvt. Ltd."
           />
 
           <div className="space-y-28 md:space-y-36 mt-4">
@@ -815,7 +815,7 @@ const Testimonials = () => {
             label="Why They Stay"
             title={
               <RevealText>
-                <span>The Cryst Bio Difference</span>
+                <span>The Cryst Bio Solutions Pvt. Ltd. Difference</span>
               </RevealText>
             }
             description="Clients don't just complete one study with us — they build lasting research partnerships."
@@ -911,13 +911,13 @@ const Testimonials = () => {
 
       {/* ─── Lab Showcase Banner ───────────────────────────────────── */}
       <section className="section-padding bg-secondary/40 dark:bg-card/30 relative overflow-hidden">
-        <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={1} />
+        <FloatingText text="CCSEA-APPROVED" className="top-1/4" direction={1} />
         <div className="container mx-auto px-4">
           <AnimatedSection>
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <img
                 src={aboutLabImg}
-                alt="Cryst Bio State-of-the-Art Laboratory"
+                alt="Cryst Bio Solutions Pvt. Ltd. State-of-the-Art Laboratory"
                 className="w-full h-72 md:h-96 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/60 to-transparent" />
@@ -932,10 +932,10 @@ const Testimonials = () => {
                     <span className="gradient-text">Infrastructure</span>
                   </h3>
                   <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
-                    Every study is performed in our NABL-accredited, CPCSEA-approved facility — purpose-built for precision, reproducibility and regulatory compliance.
+                    Every study is performed in our NABL-accredited, CCSEA-approved facility — purpose-built for precision, reproducibility and regulatory compliance.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {["NABL Accredited", "CPCSEA Approved", "ISO/IEC 17025:2017", "IAS Recognised"].map((b) => (
+                    {["NABL Accredited", "CCSEA", "GLP Compliant", "IAS Accredited", "Global CRO"].map((b) => (
                       <span key={b} className="px-3 py-1.5 rounded-full text-xs font-semibold bg-primary/15 border border-primary/30 text-primary backdrop-blur-sm">
                         {b}
                       </span>
@@ -983,7 +983,7 @@ const Testimonials = () => {
                   </h2>
 
                   <p className="text-muted-foreground max-w-xl mx-auto mb-10 text-lg leading-relaxed">
-                    Join hundreds of pharmaceutical, biotech, and medical device companies that trust Cryst Bio for reliable, globally accepted preclinical research.
+                    Join hundreds of pharmaceutical, biotech, and medical device companies that trust Cryst Bio Solutions Pvt. Ltd. for reliable, globally accepted preclinical research.
                   </p>
 
                   <div className="flex flex-wrap gap-4 justify-center">
@@ -1008,7 +1008,7 @@ const Testimonials = () => {
 
                   {/* Trust row */}
                   <div className="flex flex-wrap justify-center gap-6 mt-10">
-                    {["NABL Accredited", "CPCSEA Certified", "ISO 10993", "OECD Compliant", "IAS Recognised"].map((badge) => (
+                    {["NABL Accredited", "CCSEA", "ISO 10993", "OECD Compliant", "IAS Accredited", "Global CRO"].map((badge) => (
                       <span key={badge} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                         <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
                         {badge}

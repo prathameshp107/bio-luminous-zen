@@ -32,7 +32,7 @@ const sections = [
     icon: Mail,
     title: "Contact & Your Rights",
     content:
-      "You have the right to access, correct, update, or delete your personal data. You may also object to or restrict certain processing activities. To exercise these rights or for any privacy-related inquiries, please contact us at info@crystbio.com. We will respond to your request within 30 days.",
+      "You have the right to access, correct, update, or delete your personal data. You may also object to or restrict certain processing activities. To exercise these rights or for any privacy-related inquiries, please contact us at enquiry@crystbio.com. We will respond to your request within 30 days.",
   },
   {
     icon: FileText,
@@ -93,8 +93,8 @@ const PrivacyPolicy = () => (
               <ul className="mt-3 space-y-2 text-muted-foreground">
                 <li>
                   <strong className="text-foreground">Email:</strong>{" "}
-                  <a href="mailto:info@crystbio.com" className="text-primary hover:underline">
-                    info@crystbio.com
+                  <a href="mailto:enquiry@crystbio.com" className="text-primary hover:underline">
+                    enquiry@crystbio.com
                   </a>
                 </li>
                 <li>
@@ -105,7 +105,7 @@ const PrivacyPolicy = () => (
                 </li>
                 <li>
                   <strong className="text-foreground">Address:</strong>{" "}
-                  Crystal Biological Solutions, Pune, Maharashtra, India
+                  Cryst Bio Solutions Pvt. Ltd., Pune, Maharashtra, India
                 </li>
               </ul>
             </div>

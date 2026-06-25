@@ -17,13 +17,13 @@ const certs = [
     name: "NABL Accreditation",
     FloatingText: "NABL",
     code: "TC-15118",
-    desc: "National Accreditation Board for Testing and Calibration Laboratories — ISO/IEC 17025:2017 accreditation for testing services, ensuring globally accepted, reliable results.",
+    desc: "National Accreditation Board for Testing Laboratory — ISO/IEC 17025:2017 accreditation for testing services at Cryst Bio Solutions Pvt. Ltd., ensuring globally accepted, reliable results.",
     image: certNabl,
     validity: "Valid until 24/04/2026",
     features: [
       "ISO/IEC 17025:2017 certified",
-      "Testing & calibration labs",
-      "Nationally recognized",
+      "Testing laboratory",
+      "Nationally & Internationally recognised",
       "Valid until April 2026",
     ],
   },
@@ -31,35 +31,35 @@ const certs = [
     name: "IAS Accreditation",
     FloatingText: "IAS",
     code: "TL-1015",
-    desc: "International Accreditation Service — AC89 criteria for Testing Laboratories, ISO/IEC 17025:2017 compliance for internationally accepted test results and reports.",
+    desc: "International Accreditation Service — ISO/IEC 17025:2017 accreditation for Testing Laboratory at Cryst Bio Solutions Pvt. Ltd., enabling internationally accepted test results and reports.",
     image: certIasCpcsea,
-    validity: "Effective January 12, 2024",
+    validity: "Effective since 2023",
     features: [
       "International recognition",
-      "AC89 criteria compliance",
+      "Testing laboratory standard",
       "ISO/IEC 17025:2017",
-      "Effective since 2024",
+      "Effective since 2023",
     ],
   },
   {
-    name: "CPCSEA Registration",
-    FloatingText: "CPCSEA",
-    code: "2030/PO/RcBiBt/S/18/CPCSEA",
-    desc: "Committee for the Purpose of Control and Supervision of Experiments on Animals — registered for research, breeding, and trade of small animals under ethical guidelines.",
+    name: "CCSEA Registration",
+    FloatingText: "CCSEA",
+    code: "2030/PO/RcBiBt/S/18/CCSEA",
+    desc: "Committee for Control and Supervision of Experiments on Animals — registered for research, breeding, and trade of laboratory animals at Cryst Bio Solutions Pvt. Ltd. under ethical regulatory guidelines.",
     image: certIasCpcsea,
     validity: "Registered",
     features: [
       "Animal research authorized",
       "Breeding & trade approved",
       "Ethical study compliance",
-      "Small animal studies",
+      "CCSEA registered facility",
     ],
   },
   {
     name: "MSME / Udyam Registration",
     FloatingText: "MSME",
     code: "UDYAM-MH-26-0118144",
-    desc: "Ministry of Micro, Small and Medium Enterprises — Udyam registration as a Micro enterprise in technical testing and analysis, enabling government-recognized operations.",
+    desc: "Ministry of Micro, Small and Medium Enterprises — Udyam registration as a Micro enterprise in technical testing and analysis, enabling government-recognized operations at Cryst Bio Solutions Pvt. Ltd.",
     image: certMsme,
     validity: "Registered 16/06/2021",
     features: [
@@ -87,14 +87,14 @@ const certs = [
     name: "Certificate of Incorporation",
     FloatingText: "Incorporation",
     code: "U71200PN2024PTC231728",
-    desc: "Ministry of Corporate Affairs — Cryst Bio Solutions Private Limited incorporated on 11th June 2024 under the Companies Act, 2013, as a legally registered entity in India.",
+    desc: "Ministry of Corporate Affairs — Cryst Bio Solutions Pvt. Ltd. incorporated under the Companies Act, 2013, as a legally registered Private Limited entity in India.",
     image: certIncorporation,
     validity: "Incorporated 11/06/2024",
     features: [
       "Companies Act 2013",
       "Private Limited entity",
       "MCA registered",
-      "Incorporated June 2024",
+      "Cryst Bio Solutions Pvt. Ltd.",
     ],
   },
 ];
@@ -103,7 +103,6 @@ const standards = [
   "ISO 10993",
   "ISO/IEC 17025:2017",
   "OECD Guidelines",
-  "FDA Standards",
   "ASTM Standards",
   "USP Standards",
   "GLP Compliance",
@@ -152,20 +151,20 @@ const Certifications = () => {
             description="We maintain the highest standards of quality and compliance through multiple national and international accreditations."
           />
 
-          <div className="space-y-24">
+          <div className="space-y-32">
             {certs.map((cert, i) => {
               const isEven = i % 2 === 0;
               return (
                 <div
                   key={cert.name}
-                  className="relative min-h-[360px] flex items-center"
+                  className="relative flex items-center"
                 >
                   <FloatingText
                     text={cert.FloatingText}
                     className="top-1/2 -translate-y-1/2"
                     direction={isEven ? 1 : -1}
                   />
-                  <div className="container mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
+                  <div className="w-full grid lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10">
                   {/* Image */}
                   <AnimatedSection
                     direction={isEven ? "left" : "right"}

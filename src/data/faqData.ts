@@ -15,13 +15,13 @@ export const faqData: FaqItem[] = [
     category: "General",
     question: "Are your facilities accredited?",
     answer:
-      "Yes. Our laboratories are NABL accredited (ISO/IEC 17025:2017) and CPCSEA approved. We also operate under ISO 9001:2015 quality management systems.",
+      "Yes. Our laboratory is NABL accredited (ISO/IEC 17025:2017) and CCSEA approved. We also operate under GLP compliance principles.",
   },
   {
     category: "General",
     question: "How do I request a quote?",
     answer:
-      "You can request a quotation through our contact form, by emailing us at info@crystbio.com, or by calling our team directly.",
+      "You can request a quotation through our contact form, by emailing us at enquiry@crystbio.com, or by calling our team directly.",
   },
   {
     category: "Animal Models",
@@ -39,6 +39,6 @@ export const faqData: FaqItem[] = [
     category: "Quality & Compliance",
     question: "What quality standards do you follow?",
     answer:
-      "Our studies follow international standards including OECD guidelines, GLP principles, ISO standards, and CPCSEA animal welfare regulations.",
+      "Our studies follow international standards including OECD guidelines, GLP compliance, and CCSEA animal welfare regulations.",
   },
 ];

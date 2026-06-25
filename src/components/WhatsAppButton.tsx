@@ -5,7 +5,7 @@ import { X, MessageCircle } from "lucide-react";
 /* ─── Config ─────────────────────────────────────────────────── */
 const WHATSAPP_NUMBER = "917276361762"; // Country code + number (no +)
 const DEFAULT_MESSAGE =
-  "Hello Cryst Bio! I'd like to inquire about your preclinical research services.";
+  "Hello Cryst Bio Solutions Pvt. Ltd.! I'd like to inquire about your preclinical research services.";
 
 const WhatsAppButton = () => {
   const [isTooltipVisible, setIsTooltipVisible] = useState(false);

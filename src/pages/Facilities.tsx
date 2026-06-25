@@ -31,12 +31,12 @@ import imgWater from "@/assets/Water Purification.png";
 /* ── Intro stats ─────────────────────────────────────────────────── */
 const stats = [
   { value: "NABL", label: "Accredited Lab", icon: Award },
-  { value: "ISO", label: "17025:2017 Certified", icon: ShieldCheck },
+  { value: "2022", label: "Incorporated", icon: ShieldCheck },
   { value: "6+", label: "Dedicated Testing Areas", icon: Building2 },
-  { value: "24/7", label: "Environment Monitoring", icon: Thermometer },
+  { value: "Global", label: "Reach", icon: Thermometer },
 ];
 
-const complianceBadges = ["NABL", "ISO 17025", "CPCSEA", "MSME", "GLP Ready"];
+const complianceBadges = ["NABL", "GLP Compliant", "CCSEA", "MSME", "IAS Accredited", "Global CRO"];
 
 /* ── Facility highlights ─────────────────────────────────────────── */
 const highlights = [
@@ -46,11 +46,12 @@ const highlights = [
     label: "Laboratory Infrastructure",
     desc: "Our modern laboratory infrastructure is equipped with the latest testing equipment across dedicated zones for toxicology, histopathology, and microbiology — each optimised for precision and regulatory compliance.",
     keyPoints: [
-      "Fully equipped analytical and testing instruments across all zones",
+      "Fully Equipped Bioanalytical Laboratory for compound quantification and method development",
+      "Dedicated Genotoxicology Facility for in-vitro and in-vivo genetic toxicology studies",
       "Dedicated areas for toxicology, histopathology, and microbiology",
       "Regular calibration and maintenance per ISO/IEC 17025:2017 standards",
     ],
-    badge: "ISO Accredited",
+    badge: "GLP Compliant",
     iconBg: "bg-primary/10 border-primary/20",
     iconColor: "text-primary",
     accentBar: "bg-primary",
@@ -83,7 +84,7 @@ const highlights = [
   {
     icon: Microscope,
     title: "Advanced Equipment",
-    label: "Analytical Instrumentation",
+    label: "Testing Equipment",
     desc: "Our laboratory houses the latest high-resolution microscopy and analytical instruments, enabling high-precision results across all toxicology, pharmacology, and histopathology studies.",
     keyPoints: [
       "High-resolution microscopy for detailed histopathological analysis",
@@ -124,13 +125,11 @@ const highlights = [
     icon: Wind,
     title: "HVAC Systems",
     label: "Air Quality Management",
-    desc: "Advanced HEPA-filtered air supply and dedicated, isolated ventilation circuits maintain clean, contamination-free environments across all research and animal housing areas.",
+    desc: "Advanced ventilation systems maintain clean, contamination-free environments across all research and animal housing areas with continuous automated air quality monitoring.",
     keyPoints: [
-      "HEPA-filtered air supply for contamination-free environments",
-      "Separate ventilation circuits for animal and laboratory areas",
       "Continuous air quality monitoring with automated controls",
     ],
-    badge: "HEPA Filtered",
+    badge: "Air Quality Controlled",
     iconBg: "bg-amber-500/10 border-amber-500/25",
     iconColor: "text-amber-400",
     accentBar: "bg-amber-500",
@@ -144,13 +143,12 @@ const highlights = [
     icon: Droplets,
     title: "Water Purification",
     label: "Water Quality Systems",
-    desc: "Multi-stage ultra-pure water purification systems deliver USP and EP pharmacopoeial grade water throughout the facility — an essential foundation for all laboratory procedures.",
+    desc: "Multi-stage water purification systems deliver high-purity water throughout the facility under a periodic quality check system, forming an essential foundation for all laboratory procedures.",
     keyPoints: [
-      "Ultra-pure water systems meeting USP and EP pharmacopoeial standards",
       "Multi-stage filtration including reverse osmosis and UV treatment",
-      "Daily quality checks ensuring consistent and traceable water purity",
+      "Periodic Quality Check System ensuring consistent and traceable water purity",
     ],
-    badge: "USP Grade",
+    badge: "Purified Water",
     iconBg: "bg-rose-500/10 border-rose-500/25",
     iconColor: "text-rose-400",
     accentBar: "bg-rose-500",
@@ -183,7 +181,7 @@ const Facilities = () => (
               <div className="relative rounded-2xl overflow-hidden aspect-[4/3]">
                 <ParallaxImage
                   src={facilitiesImg}
-                  alt="Cryst Bio Facilities"
+                  alt="Cryst Bio Solutions Pvt. Ltd. Facilities"
                   containerClassName="w-full h-full"
                   speed={0.15}
                 />
@@ -229,7 +227,7 @@ const Facilities = () => (
           {/* Right — text + compliance + stats */}
           <AnimatedSection direction="right">
             <span className="inline-block text-sm font-medium tracking-widest uppercase text-primary mb-3">
-              Infrastructure
+              Modern Laboratory Infrastructure
             </span>
             <RevealText>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground leading-tight mb-6">
@@ -239,7 +237,7 @@ const Facilities = () => (
 
             <div className="space-y-4 text-muted-foreground leading-relaxed mb-7">
               <p>
-                Our facility in Pune houses cutting-edge laboratory equipment, a
+                Our purpose-built preclinical facility in Pune houses cutting-edge laboratory equipment, a
                 state-of-the-art animal breeding centre, and dedicated testing
                 areas for toxicology, histopathology, and microbiology services.
               </p>
@@ -247,6 +245,9 @@ const Facilities = () => (
                 Every aspect of our infrastructure is designed to meet
                 international regulatory standards and ensure the highest
                 quality of research output for our global clients.
+              </p>
+              <p className="text-primary font-medium">
+                Aiming Towards World-Class GLP Laboratory — delivering globally accepted preclinical data from India.
               </p>
             </div>
 
@@ -291,7 +292,7 @@ const Facilities = () => (
 
     {/* ── Animal Facility sub-section ──────────────────────────── */}
     <section className="py-16 bg-card/40 relative overflow-hidden">
-      <FloatingText text="CPCSEA-APPROVED" className="top-1/4" direction={-1} />
+      <FloatingText text="CCSEA-APPROVED" className="top-1/4" direction={-1} />
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <AnimatedSection direction="right" className="lg:order-2">
@@ -307,7 +308,7 @@ const Facilities = () => (
               <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-border/20 pointer-events-none" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
                 <span className="text-xs font-semibold uppercase tracking-widest text-primary opacity-80">
-                  CPCSEA Approved
+                  CCSEA Approved
                 </span>
                 <p className="text-lg font-bold font-display text-foreground mt-0.5">
                   Animal Breeding Facility
@@ -322,21 +323,19 @@ const Facilities = () => (
             </span>
             <RevealText>
               <h3 className="text-3xl md:text-4xl font-bold font-display text-foreground leading-tight mb-5">
-                CPCSEA-Approved{" "}
+                CCSEA-Approved{" "}
                 <span className="gradient-text">Animal Facility</span>
               </h3>
             </RevealText>
             <div className="w-14 h-[3px] rounded-full bg-primary mb-7" />
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
-              Our animal breeding facility operates under strict CPCSEA
-              guidelines with continuous veterinary oversight. Temperature,
-              humidity, and photoperiod are precisely controlled to ensure
-              optimal welfare and study validity for all housed species.
+              Our CCSEA-registered animal breeding facility operates under strict regulatory guidelines with continuous veterinary oversight. Environmental parameters — including temperature, humidity, and photoperiod — are precisely controlled, with a standardised 12-hour light/dark cycle maintained across all housing areas to ensure optimal animal welfare, circadian consistency, and study reproducibility.
             </p>
             <ul className="space-y-3.5">
               {[
-                "CPCSEA registered and regularly audited facility",
-                "Species-specific housing for rats, mice, rabbits, guinea pigs & hamsters",
+                "CCSEA registered and regularly audited facility",
+                "Species-specific housing for mice, rats, and rabbits",
+                "Photoperiod control with standardised 12-hour light/dark cycle",
                 "Dedicated veterinary care and health monitoring programs",
               ].map((pt) => (
                 <li key={pt} className="flex items-start gap-3.5">

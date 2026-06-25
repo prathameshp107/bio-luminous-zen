@@ -26,12 +26,12 @@ const items = [
     icon: Globe,
     title: "Global Standards",
     floating: "STANDARDS",
-    desc: "Compliant with ISO, OECD, FDA, ASTM & USP guidelines for international acceptance. Our protocols are designed to meet the strictest global regulatory requirements.",
+    desc: "Compliant with GLP, OECD, CDSCO & ICH guidelines for international acceptance. Our protocols are designed to meet the strictest global regulatory requirements.",
     img: whyStandards,
     features: [
       "ISO 10993 compliant",
-      "OECD GLP certified",
-      "FDA-aligned protocols",
+      "GLP compliant",
+      "OECD & CDSCO aligned protocols",
       "ASTM & USP guidelines",
     ],
   },
@@ -64,7 +64,7 @@ const items = [
 ];
 
 const WhyPartner = () => (
-  <div className="space-y-40 md:space-y-56">
+  <div className="space-y-24 md:space-y-32">
     {items.map((item, i) => {
       const isEven = i % 2 === 0;
       return (

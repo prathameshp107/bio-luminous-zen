@@ -44,7 +44,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center group">
           <img
             src={bioLogo}
-            alt="Cryst Bio Solutions"
+            alt="Cryst Bio Solutions Pvt. Ltd."
             className="h-9 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
           />
         </Link>
