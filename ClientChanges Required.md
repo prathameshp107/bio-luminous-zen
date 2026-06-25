@@ -1,94 +1,389 @@
-# Client Changes Required
+# Website Changes Checklist
 
-This file tracks all changes made based on client requests. Update this file every time a new change is implemented.
-
----
-
-## 1. Remove USA References (Country/Location Only)
-
-**Date:** June 16, 2026
-
-**Files Modified:**
-- `src/components/SEOManager.tsx` — Removed `"US"` from `areaServed` array (`["IN", "EU", "US"]` → `["IN", "EU"]`)
-- `src/pages/Testimonials.tsx` — Changed `"US-based CROs"` to `"international CROs"` in James Whitfield testimonial quote
-- `src/pages/Testimonials.tsx` — Changed `client: "US Medical Device Startup"` to `client: "Medical Device Startup"` in case highlights
-
-**Note:** US regulatory body references (FDA, USP, US EPA) were kept as they are internationally recognized standards.
+## Project
+**Cryst Bio Solutions Pvt. Ltd. Website Revision**
 
 ---
 
-## 2. Remove Inaccurate "20+" Count
+# 1. Homepage
 
-**Date:** June 16, 2026
+## Branding
+- Improve connector/partner logo resolution and visibility.
+- Ensure proper logo alignment and spacing.
+- Remove all USA references.
+- Remove inaccurate "20+" count.
 
-**Files Modified:** None
+## Company Name
+Use the company name consistently as:
 
-**Details:** No "20+" references were found anywhere in the codebase. Nothing to remove.
+**Cryst Bio Solutions Pvt. Ltd.**
 
----
+## Content Updates
+- Replace "Laboratories" with "Laboratory".
+- Replace ISO references with GLP compliance references where applicable.
 
-## 3. Company Name Standardization (Cryst Bio Solutions Pvt. Ltd.)
+## Accreditation
+Update accreditation references to:
+- CCSEA
+- IAS Accredited
+- Global CRO
 
-**Date:** June 16, 2026
+## Research Capability Order
+1. Medical Devices
+2. Pesticides
+3. Biopesticides
+4. Nutraceuticals
+5. Packaging
+6. Educational Research
 
-**Files Modified:**
-- `README.md` — Updated 2 references:
-  - `# Cryst Bio Solutions Website` → `# Cryst Bio Solutions Pvt. Ltd. Website`
-  - `Cryst Bio Solutions web application` → `Cryst Bio Solutions Pvt. Ltd. web application`
-
-**Note:** The company name was already used consistently as "Cryst Bio Solutions Pvt. Ltd." across all source code files.
-
----
-
-## 4. ClientChanges Required.md Created
-
-**Date:** June 16, 2026
-
-**Files Modified:** Created this file to track all client-requested changes.
-
----
-
-## 5. Content Correction: "Laboratories" → "Laboratory"
-
-**Date:** June 16, 2026
-
-**Files Modified:**
-- `src/data/faqData.ts` — Changed `"Our laboratories are NABL accredited"` → `"Our laboratory is NABL accredited"` (with verb agreement fix)
-- `src/pages/About.tsx` — Changed `"one of the most trusted biocompatibility testing laboratories"` → `"the most trusted biocompatibility testing laboratory"` (with grammar fix)
-- `src/pages/About.tsx` — Changed `"Our modern laboratories"` → `"Our modern laboratory"`
-- `src/pages/Home.tsx` — Changed `"Our state-of-the-art laboratories"` → `"Our state-of-the-art laboratory"`
-- `src/components/SEOManager.tsx` — Changed `"visual highlights of our laboratories"` → `"visual highlights of our laboratory"`
-
-**Not Changed:** `Certifications.tsx` — "National Accreditation Board for Testing and Calibration Laboratories" (official NABL name, kept as-is)
+## UI Improvements
+- Reduce excessive spacing.
+- Improve readability.
+- Review Acute Oral content.
+- Review Acute Dermal content.
+- Replace unclear or low-quality images.
 
 ---
 
-## 6. ISO References → GLP Compliance References
+# 2. Why Choose Us
 
-**Date:** June 16, 2026
+## Accreditation
+Replace ISO 17025 references with:
+- GLP Compliance
+- CCSEA Norms
+- IAEC Approval
 
-**Files Modified:**
-- `src/components/WhyPartner.tsx` — Changed `"Compliant with ISO, OECD..."` → `"Compliant with GLP, OECD..."`
-- `src/data/faqData.ts` — Changed `"GLP principles, ISO standards"` → `"GLP compliance"` (merged to avoid redundancy)
-- `src/pages/Home.tsx` — Changed service tag `"ISO / USP"` → `"GLP / USP"` and process step `"ISO & USP"` → `"GLP & USP"`
-- `src/pages/Facilities.tsx` — Changed badge `"ISO Accredited"` → `"GLP Compliant"`
-- `src/data/servicesData.ts` — Changed `"USP, EP, IP, and ISO standards"` → `"USP, EP, IP, and GLP standards"`
-
-**Not Changed (specific ISO numbers kept):** ISO 10993 (and variants), ISO/IEC 17025:2017, ISO 9001:2015, ISO 14644, ISO 11737, ISO 15189 — these are distinct technical standards.
+## Content Cleanup
+- Remove duplicate accreditation references.
+- Update wording to:
+  - Nationally & Internationally
+- Remove duplicate Toxicology references.
+- Remove duplicate Agrochemical references.
 
 ---
 
-## 7. Accreditation Section Update
+# 3. Featured Projects
 
-**Date:** June 16, 2026
+## Biocompatibility Testing
 
-**Changes:** Added CCSEA, IAS Accredited, and Global CRO accreditation references alongside existing ones. Updated "IAS Recognised" → "IAS Accredited" for consistency.
+### Remove
+- USP 87
+- USP 88
+- Guidance documents
 
-**Files Modified:**
-- `src/components/Footer.tsx` — Added `"CCSEA"`, `"IAS Accredited"`, `"Global CRO"` to accreditations array
-- `src/pages/Facilities.tsx` — Added `"CCSEA"`, `"IAS Accredited"`, `"Global CRO"` to complianceBadges
-- `src/pages/About.tsx` — Added `"CCSEA"`, `"IAS Accredited"`, `"Global CRO"` to badges array
-- `src/pages/Home.tsx` — Added `"CCSEA Certified"`, `"IAS Accredited"`, `"Global CRO"` to aboutFeatures; shortened `"Global CRO with European Offices"` → `"Global CRO"`
-- `src/components/SEOManager.tsx` — Added `"CCSEA Certification"` and `"Global CRO"` to hasCredential
-- `src/pages/Contact.tsx` — Added `"CCSEA"`, `"IAS Accredited"`, `"Global CRO"` to badge list
-- `src/pages/Testimonials.tsx` — Updated two badge arrays with CCSEA, IAS Accredited, Global CRO; changed `"IAS Recognised"` → `"IAS Accredited"`
+### FDA
+- Remove unnecessary FDA-only guidance.
+
+### Irritation Studies
+- Correct Subcutaneous Irritation.
+- Verify ISO references.
+
+## Genotoxicity Testing
+
+### Add
+- Bone Marrow Micronucleus Assay
+- Brain Implant Study (if applicable)
+
+## Hemocompatibility
+- Rewrite the section.
+- Replace Surgical Mesh example.
+
+---
+
+# 4. Toxicology
+
+## Remove Duplicate Pages
+- Ames Test
+- Biocompatibility
+- Histopathology
+- Micronucleus
+- Other duplicate pages
+
+## Acute Toxicity Guidelines
+
+### Oral
+- OECD 420
+- OECD 423
+- OECD 425
+
+### Dermal
+- OECD 402
+
+### Inhalation
+- OECD 403
+- OECD 433
+- OECD 436
+
+## Long-Term Toxicity
+
+### Add
+- ICH S1B (R1)
+- ICH S1C (R2)
+
+## Genotoxicity
+- Revise complete section.
+
+## Reproductive & Developmental Toxicology
+
+### Add
+- ICH S5(R3)
+- OECD 414
+- OECD 421
+- OECD 422
+- OECD 443
+
+### Remove
+- Safety Pharmacology
+- Toxicokinetics
+
+---
+
+# 5. Local Tolerance Testing
+
+## Review
+- Remove Industrial Chemicals.
+- Remove Cosmetic Ingredients where not applicable.
+- Review NCE Preclinical references.
+
+---
+
+# 6. Research Services
+
+## Remove
+- Formulation Development
+- Bioanalytical Method Development
+- Regulatory Submission Support
+
+## Update
+Use approved research topics from CAF website.
+
+---
+
+# 7. Histopathology
+
+## Keep
+- Histopathology
+
+## Remove
+- Digital Pathology
+- Image Analysis
+- DLC section under Hematology
+
+## Certifications
+Remove:
+- ASCP
+- ISO 15189 references
+
+## Bottom Section
+- Remove unnecessary bullet points.
+- Remove excessive details.
+
+---
+
+# 8. Microbiology
+
+## Remove
+- About This Service introduction
+- Guideline paragraph
+- Environmental Testing
+- Water Testing
+
+## Case Study
+- Replace or rewrite.
+
+## Process Section
+Include:
+- Execution
+- NABL Accredited
+- IAS Accredited
+- Cryst Bio Solutions Pvt. Ltd.
+- Global Standards
+
+Review:
+- ISO 17025
+- NABL Accreditation
+- ISO 9001
+
+---
+
+# 9. Regulatory Affairs
+
+## Update Count
+20+ → 15+
+
+## Contact Email
+enquiry@crystbio.com
+
+## Remove
+- USA references
+- Third-party audit references
+
+---
+
+# 10. Infrastructure
+
+## Rename Heading
+Infrastructure
+
+↓
+
+Modern Laboratory Infrastructure
+
+## Add
+- Preclinical Facility
+- Global Reach
+- Incorporated in 2022
+
+## Vision
+"Aiming Towards World-Class GLP Laboratory"
+
+## Remove
+- Duplicate compliance references
+- Duplicate accreditation references
+
+---
+
+# 11. State-of-the-Art Laboratory
+
+## Add
+- Fully Equipped Bioanalytical Laboratory
+- Genotoxicology Facility
+
+## Remove
+- Analytical Instrumentation heading (if duplicated)
+
+## HVAC
+
+Remove:
+- HEPA reference
+- Extra points
+
+Keep:
+- Continuous Air Quality Monitoring
+
+## Water Purification
+
+Remove:
+- USP Grade
+- EP Grade
+- Daily Quality Check
+
+Replace with:
+- Periodic Quality Check System
+
+---
+
+# 12. Animal Facility
+
+## Add
+- Photoperiod Control
+- 12-Hour Light/Dark Cycle
+
+## Animals
+- Mice
+- Rats
+- Rabbits
+
+## Content
+- Rewrite professionally.
+- Correct grammar.
+
+---
+
+# 13. Certifications
+
+## Update
+- Upload latest certificates.
+- Ensure validity till 2030 where applicable.
+
+## Rename
+Testing Laboratory Certificates
+
+## Remove
+- Calibration Certificates
+- Old Crystal certificates
+
+## Review
+- ACG Accreditation
+
+## Add
+- IAS Effective Since 2023
+
+## Verify
+- MSME Registration
+- Udyam Registration
+- Incorporation Year
+
+## Replace
+Use only Cryst Bio certificates.
+
+## Contact
+enquiry@crystbio.com
+
+---
+
+# Global Changes
+
+## Company Name
+Use everywhere:
+
+Cryst Bio Solutions Pvt. Ltd.
+
+## Email
+Use everywhere:
+
+enquiry@crystbio.com
+
+## Remove
+- Duplicate accreditation references.
+- Duplicate compliance references.
+
+## Verify Before Release
+- Incorporation year
+- Accreditation years
+- Certificate validity
+- Compliance references
+- Accreditation references
+
+---
+
+# Priority
+
+## High Priority
+- Homepage
+- Toxicology
+- Featured Projects
+- Histopathology
+- Certifications
+
+## Medium Priority
+- Infrastructure
+- Animal Facility
+- Microbiology
+- Regulatory Affairs
+
+## Final QA
+- Standardize company name.
+- Standardize email.
+- Remove duplicate references.
+- Verify certificates.
+- Verify dates before production release.
+
+---
+
+## Status
+
+- [ ] Homepage Updated
+- [ ] Why Choose Us Updated
+- [ ] Featured Projects Updated
+- [ ] Toxicology Updated
+- [ ] Local Tolerance Updated
+- [ ] Research Services Updated
+- [ ] Histopathology Updated
+- [ ] Microbiology Updated
+- [ ] Regulatory Affairs Updated
+- [ ] Infrastructure Updated
+- [ ] State-of-the-Art Laboratory Updated
+- [ ] Animal Facility Updated
+- [ ] Certifications Updated
+- [ ] Final QA Completed
