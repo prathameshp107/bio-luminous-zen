@@ -4,6 +4,38 @@ All changes made by Claude across sessions.
 
 ---
 
+## 2026-06-25
+
+### Certificate Images & Verification — All from PDF certificates in `/certificates/` folder
+
+#### 1. Factual Fixes from Certificates (`src/pages/Certifications.tsx`, `src/pages/Facilities.tsx`, `src/pages/About.tsx`)
+- **NABL validity**: `"Valid until 24/04/2026"` → `"Valid until 24/04/2030"` (cert TC-15118 issued 25/04/2026)
+- **NABL feature**: `"Valid until April 2026"` → `"Valid until April 2030"`
+- **IAS effective date**: `"Effective since 2023"` → `"Effective December 17, 2025"` (cert TL-1015)
+- **IAS feature**: `"Effective since 2023"` → `"Effective December 2025"`
+- **IEC code**: `"BRTPM9840F"` → `"AALCC9227D"` (new IEC cert issued 24/04/2025 under Pvt. Ltd.)
+- **IEC validity**: `"Issued 10/09/2019"` → `"Issued 24/04/2025"` + feature `"Active since 2019"` → `"Active since 2025"`
+- **Facilities incorporation stat**: `"2022"` → `"2024"` (`Facilities.tsx` — confirmed 11/06/2024 by Company Registration cert)
+- **About timeline**: `year: "2022", title: "Incorporation"` → `title: "NABL Accreditation"` (2022 was NABL year, not incorporation)
+- **About timeline**: `year: "2024", title: "Global Reach"` → `title: "Incorporation & Global Reach"` (Pvt. Ltd. incorporated 2024)
+
+#### 2. Certificate Images Updated (`src/assets/`)
+- `cert-nabl.png` — replaced with new NABL TC-15118 cert (valid 2030)
+- `cert-ias.png` — new file, IAS TL-1015 effective December 2025
+- `cert-ccsea.png` — new file, CCSEA name change approval letter (07.11.2024)
+- `cert-msme.png` — replaced with Udyam cert under "CRYST BIO SOLUTIONS PRIVATE LIMITED"
+- `cert-iec.png` — replaced with new IEC AALCC9227D cert (24/04/2025)
+- `cert-incorporation.png` — ⏳ still old, replacement not yet provided
+
+#### 3. Certifications.tsx — Import Split (`src/pages/Certifications.tsx`)
+- Removed shared `certIasCpcsea` import
+- Added `import certIas from "@/assets/cert-ias.png"`
+- Added `import certCcsea from "@/assets/cert-ccsea.png"`
+- IAS card: `image` → `certIas`
+- CCSEA card: `image` → `certCcsea`
+
+---
+
 ## 2026-06-24
 
 ### Homepage — Branding & Display (Client Review Changes)
@@ -560,5 +592,7 @@ CPCSEA (old name) → CCSEA (current name) standardised across all files.
 | LinkedIn company URL | `crystal-biological-solutions` | ⚠️ Update LinkedIn page handle to `crystbiosolutions` or similar |
 | Google Maps listing | "Crystal Biological Solutions" | ⚠️ Update Google Business name to "Cryst Bio Solutions Pvt. Ltd." |
 | Cert images | Old "Crystal" branding possible | ⚠️ Replace with new Cryst Bio branded scans |
-| NABL cert image | `cert-nabl.png` | ⚠️ Replace if renewed beyond April 2026 |
-| IAS + CCSEA images | Sharing `cert-ias-cpcsea.png` | ⚠️ Supply separate `cert-ias.png` and `cert-ccsea.png` |
+| NABL cert image | `cert-nabl.png` | ✅ Replaced — valid until 24/04/2030 |
+| IAS + CCSEA images | Sharing `cert-ias-cpcsea.png` | ✅ Split — `cert-ias.png` and `cert-ccsea.png` separate |
+| MSME + IEC images | Old branding | ✅ Replaced with new Cryst Bio certs |
+| Incorporation cert image | `cert-incorporation.png` | ⏳ Still old — replacement pending |

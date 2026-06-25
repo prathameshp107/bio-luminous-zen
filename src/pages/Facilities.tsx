@@ -31,7 +31,7 @@ import imgWater from "@/assets/Water Purification.png";
 /* ── Intro stats ─────────────────────────────────────────────────── */
 const stats = [
   { value: "NABL", label: "Accredited Lab", icon: Award },
-  { value: "2022", label: "Incorporated", icon: ShieldCheck },
+  { value: "2024", label: "Incorporated", icon: ShieldCheck },
   { value: "6+", label: "Dedicated Testing Areas", icon: Building2 },
   { value: "Global", label: "Reach", icon: Thermometer },
 ];
