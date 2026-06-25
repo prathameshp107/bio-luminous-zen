@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { SpecialText } from "@/components/ui/special-text";
-import { motion } from "framer-motion";
 import {
   ArrowRight,
   FlaskConical,
@@ -10,8 +9,6 @@ import {
   Stethoscope,
   Bug,
   ChevronRight,
-  Calendar,
-  Users,
   Award,
   CheckCircle2,
   ClipboardList,
@@ -30,9 +27,7 @@ import RevealText from "@/components/RevealText";
 import FloatingText from "@/components/FloatingText";
 import ScaleOnScroll from "@/components/ScaleOnScroll";
 import ScrollRevealText from "@/components/ScrollRevealText";
-import ImageReveal from "@/components/ImageReveal";
 import PinnedCounter from "@/components/PinnedCounter";
-import HorizontalScroll from "@/components/HorizontalScroll";
 import MagneticElement from "@/components/MagneticElement";
 import heroImg from "@/assets/hero-lab.jpg";
 import aboutImg from "@/assets/about-lab.jpg";
@@ -60,50 +55,72 @@ const services = [
   {
     icon: Leaf,
     title: "Agrochemical Testing",
+    floating: "AGROCHEM",
     desc: "Regulatory-compliant testing including acute toxicity, sub-chronic, and environmental assessment per OECD guidelines.",
     img: serviceAgrochem,
     tag: "OECD Guidelines",
     slug: "agrochemical-testing",
+    features: [
+      "Acute & sub-chronic studies",
+      "OECD 401/402/403 compliant",
+      "Environmental impact assessment",
+      "Regulatory-ready reports",
+    ],
   },
   {
     icon: ShieldCheck,
-    title: "Biocompatibility",
-    desc: "Medical device testing per ISO 10993 — cytotoxicity, sensitization, irritation & implantation.",
+    title: "Biocompatibility Testing",
+    floating: "BIOCOMPAT",
+    desc: "Medical device testing per ISO 10993 — cytotoxicity, sensitization, irritation & implantation studies for global regulatory acceptance.",
     img: serviceBiocompat,
     tag: "ISO 10993",
     slug: "biocompatibility-testing",
+    features: [
+      "Cytotoxicity evaluation",
+      "Sensitization & irritation",
+      "Implantation studies",
+      "ISO 10993 compliant",
+    ],
   },
   {
     icon: TestTube,
     title: "Toxicology",
+    floating: "TOXICOLOGY",
     desc: "Full-spectrum toxicology following OECD & ICH guidelines for acute, chronic & genotoxicity studies.",
     img: serviceToxicology,
     tag: "OECD / ICH",
     slug: "toxicology-studies",
+    features: [],
   },
   {
     icon: FlaskConical,
     title: "Research Projects",
+    floating: "RESEARCH",
     desc: "Custom preclinical research — study design, protocol development & regulatory submission support.",
     img: serviceResearch,
     tag: "Custom Studies",
     slug: "research-projects",
+    features: [],
   },
   {
     icon: Stethoscope,
     title: "Histopathology",
+    floating: "HISTOPATH",
     desc: "Expert tissue processing, microscopic examination, clinical chemistry & hematology analysis.",
     img: serviceHistopath,
     tag: "GLP Compliant",
     slug: "histopathology",
+    features: [],
   },
   {
     icon: Bug,
     title: "Microbiology",
+    floating: "MICROBIO",
     desc: "Sterility, endotoxin, antimicrobial effectiveness & environmental monitoring services.",
     img: serviceMicro,
     tag: "GLP / USP",
     slug: "microbiology",
+    features: [],
   },
 ];
 
@@ -207,11 +224,10 @@ const Home = () => {
             {/* Image side — clip-path reveal */}
             <div className="relative">
               <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-xl" />
-              <ImageReveal
+              <img
                 src={aboutImg}
                 alt="About Cryst Bio Solutions Pvt. Ltd."
-                containerClassName="rounded-2xl w-full aspect-[4/3] ring-1 ring-border/50 shadow-2xl"
-                direction="left"
+                className="rounded-2xl w-full aspect-[4/3] object-cover ring-1 ring-border/50 shadow-2xl"
               />
               {/* Bottom-right badge */}
               <AnimatedSection delay={0.4}>
@@ -287,100 +303,119 @@ const Home = () => {
         </div>
       </section>
 
-      {/* ─── Services — Horizontal Scroll ─────────────────────── */}
-      <section className="relative overflow-hidden">
-        <FloatingText text="EXCELLENCE" className="top-1/3" direction={-1} />
-        <div className="relative z-10">
-          {/* Section header pinned above */}
-          <div className="container mx-auto px-4 pt-20 md:pt-28 pb-12">
-            <SectionHeader
-              label="Our Services"
-              title={
-                <ScrollRevealText
-                  tag="span"
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground"
-                >
-                  Comprehensive Research Solutions
-                </ScrollRevealText>
-              }
-              description="Full range of preclinical research and testing for pharmaceutical, cosmetics, medical device, and biotech industries."
-            />
-          </div>
-
-          {/* Horizontal scroll track */}
-          <HorizontalScroll className="min-h-[90vh] pl-8 md:pl-20">
-            {services.map((s, i) => (
-              <div
-                key={s.title}
-                className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] h-[70vh] relative group"
+      {/* ─── Services — WhyPartner-style alternating ────────── */}
+      <section className="section-padding relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <SectionHeader
+            label="Our Services"
+            title={
+              <ScrollRevealText
+                tag="span"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground"
               >
-                <div className="glass-card overflow-hidden h-full hover-glow flex flex-col transition-all duration-500">
-                  {/* Image with parallax */}
-                  <div className="relative h-[55%] overflow-hidden flex-shrink-0">
-                    <ImageReveal
-                      src={s.img}
-                      alt={s.title}
-                      containerClassName="w-full h-full"
-                      direction={i % 2 === 0 ? "left" : "up"}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
-                    
-                    {/* Tag */}
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md bg-primary/20 border-primary/40 text-primary">
-                        {s.tag}
-                      </span>
-                    </div>
+                Comprehensive Research Solutions
+              </ScrollRevealText>
+            }
+            description="Full range of preclinical research and testing for pharmaceutical, cosmetics, medical device, and biotech industries."
+          />
+        </div>
 
-                    {/* Icon */}
-                    <div className="absolute bottom-4 left-5 z-10">
-                      <div className="w-14 h-14 rounded-xl border backdrop-blur-md flex items-center justify-center bg-primary/20 border-primary/40">
-                        <s.icon className="w-7 h-7 text-primary" />
+        <div className="space-y-24 md:space-y-32 mt-16">
+          {services.slice(0, 2).map((s, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <div key={s.title} className="relative min-h-[400px] flex items-center">
+                <FloatingText
+                  text={s.floating}
+                  className="top-1/2 -translate-y-1/2"
+                  direction={isEven ? 1 : -1}
+                />
+                <div className="container mx-auto px-4 relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                  {/* Image Side */}
+                  <AnimatedSection
+                    direction={isEven ? "left" : "right"}
+                    className={isEven ? "" : "lg:order-2"}
+                  >
+                    <div className="relative group">
+                      <div className="absolute -inset-4 rounded-3xl bg-primary/5 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border/50">
+                        <ParallaxImage
+                          src={s.img}
+                          alt={s.title}
+                          containerClassName="w-full aspect-[4/3]"
+                          className="transition-transform duration-1000 group-hover:scale-110"
+                          speed={0.12}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute top-4 right-4 z-10">
+                          <span className="px-3 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider border backdrop-blur-md bg-primary/20 border-primary/40 text-primary">
+                            {s.tag}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="absolute -bottom-6 left-8 w-16 h-16 rounded-2xl bg-card border border-border flex items-center justify-center shadow-2xl z-20 transition-transform duration-500 group-hover:-translate-y-3">
+                        <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <s.icon className="w-8 h-8 text-primary relative z-10" />
                       </div>
                     </div>
-                  </div>
+                  </AnimatedSection>
 
-                  {/* Body */}
-                  <div className="p-7 flex flex-col flex-1">
-                    <h3 className="text-xl font-display font-semibold text-foreground mb-3">
-                      {s.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                      {s.desc}
-                    </p>
-                    <Link
-                      to={`/services/${s.slug}`}
-                      className="inline-flex items-center gap-2 text-sm font-medium mt-5 text-primary group-hover:gap-3 transition-all"
-                    >
-                      Know more <ChevronRight className="w-4 h-4" />
-                    </Link>
-                  </div>
+                  {/* Content Side */}
+                  <AnimatedSection
+                    direction={isEven ? "right" : "left"}
+                    className={isEven ? "" : "lg:order-1"}
+                  >
+                    <div className="relative space-y-6">
+                      <div>
+                        <span className="text-xs font-bold tracking-[0.2em] uppercase text-primary/80 mb-3 block">
+                          {String(i + 1).padStart(2, "0")} — Service
+                        </span>
+                        <RevealText>
+                          <h3 className="text-3xl md:text-4xl font-bold font-display text-foreground leading-tight">
+                            {s.title}
+                          </h3>
+                        </RevealText>
+                        <div className="w-12 h-1 bg-primary/30 mt-4 rounded-full" />
+                      </div>
+                      <p className="text-muted-foreground leading-relaxed text-lg max-w-xl">
+                        {s.desc}
+                      </p>
+                      {s.features.length > 0 && (
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 pt-2">
+                          {s.features.map((f) => (
+                            <li key={f} className="flex items-center gap-3 text-sm text-foreground/70">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                              {f}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                      <Link
+                        to={`/services/${s.slug}`}
+                        className="inline-flex items-center gap-2 text-sm font-semibold text-foreground bg-primary/10 hover:bg-primary/20 border border-primary/20 px-5 py-2.5 rounded-lg transition-all duration-300"
+                      >
+                        Learn More <ChevronRight className="w-4 h-4 text-primary" />
+                      </Link>
+                    </div>
+                  </AnimatedSection>
                 </div>
               </div>
-            ))}
+            );
+          })}
+        </div>
 
-            {/* CTA card at end */}
-            <div className="flex-shrink-0 w-[85vw] md:w-[35vw] h-[70vh] flex items-center justify-center">
-              <div className="text-center space-y-6 p-12">
-                <ScrollRevealText
-                  tag="h3"
-                  className="text-3xl md:text-4xl font-bold font-display text-foreground"
-                >
-                  See All Services
-                </ScrollRevealText>
-                <Link to="/services">
-                  <MagneticElement strength={0.3}>
-                    <Button
-                      size="lg"
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold gap-2 px-10 shadow-[0_0_28px_-4px_hsl(var(--primary)/0.5)]"
-                    >
-                      View All <ArrowRight className="w-4 h-4" />
-                    </Button>
-                  </MagneticElement>
-                </Link>
-              </div>
-            </div>
-          </HorizontalScroll>
+        {/* View All CTA */}
+        <div className="container mx-auto px-4 mt-20 text-center">
+          <Link to="/services">
+            <MagneticElement strength={0.3}>
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold gap-2 px-10 shadow-[0_0_28px_-4px_hsl(var(--primary)/0.5)]"
+              >
+                View All Services <ArrowRight className="w-4 h-4" />
+              </Button>
+            </MagneticElement>
+          </Link>
         </div>
       </section>
 
