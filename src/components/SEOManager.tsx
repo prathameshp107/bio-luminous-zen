@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { animalModels } from "@/data/animalData";
 import { servicesData } from "@/data/servicesData";
 import { faqData } from "@/data/faqData";
+import { blogPosts } from "@/data/blogData";
 
 type SeoConfig = {
   title: string;
@@ -526,6 +527,73 @@ const getSeoForPath = (pathname: string): SeoConfig => {
         ]),
       ],
     };
+  }
+
+  if (pathname === "/blog") {
+    return {
+      title: "Blog & Resources | Preclinical Research Insights | Cryst Bio Solutions",
+      description:
+        "Explore expert articles on preclinical research, toxicology testing, regulatory guidelines, animal model selection, and laboratory best practices from Cryst Bio Solutions.",
+      keywords:
+        "preclinical CRO blog, toxicology articles, regulatory guidelines, biocompatibility resources, CRO insights India",
+      jsonLd: [
+        getBreadcrumbList(baseUrl, [
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+        ]),
+        ...getLocalBusinessGraph(baseUrl),
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": `${baseUrl}/blog#collection`,
+          name: "Blog & Resources | Cryst Bio Solutions",
+          description: "Expert insights on preclinical research, regulatory guidelines, and laboratory best practices.",
+          publisher: { "@id": `${baseUrl}/#organization` },
+        },
+      ],
+    };
+  }
+
+  if (pathname.startsWith("/blog/") && pathname !== "/blog") {
+    const slug = pathname.replace("/blog/", "").replace(/\/$/, "");
+    const post = blogPosts.find((p) => p.slug === slug);
+    if (post) {
+      return {
+        title: `${post.title} | Cryst Bio Solutions Blog`,
+        description: post.excerpt,
+        keywords: `${post.tags.slice(0, 5).join(", ").toLowerCase()}, Cryst Bio Solutions, preclinical CRO`,
+        type: "article",
+        jsonLd: [
+          getBreadcrumbList(baseUrl, [
+            { name: "Home", url: "/" },
+            { name: "Blog", url: "/blog" },
+            { name: post.title, url: `/blog/${post.slug}` },
+          ]),
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": `${baseUrl}/blog/${post.slug}#article`,
+            headline: post.title,
+            description: post.excerpt,
+            author: {
+              "@type": "Person",
+              name: post.author,
+            },
+            publisher: {
+              "@type": "Organization",
+              "@id": `${baseUrl}/#organization`,
+            },
+            datePublished: post.date,
+            keywords: post.tags.join(", "),
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id": `${baseUrl}/blog/${post.slug}`,
+            },
+          },
+          ...getLocalBusinessGraph(baseUrl),
+        ],
+      };
+    }
   }
 
   return {
